@@ -1,0 +1,16 @@
+*.suo
+*.opendb
+*.db
+*.sln
+*.filters
+*.log
+*.exe
+*.ilk
+*.pdb
+*.tlog
+*.lastbuildstate
+*.obj
+*.cpp
+*.idb
+*.user
+*.png
