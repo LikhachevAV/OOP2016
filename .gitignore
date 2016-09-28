@@ -1,7 +1,6 @@
 *.suo
 *.opendb
 *.db
-*.sln
 *.filters
 *.log
 *.exe
