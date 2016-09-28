@@ -1,0 +1,2 @@
+Invalid arguments count
+Usage: comparefile.exe <file1> <file2>

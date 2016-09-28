@@ -8,7 +8,7 @@ int main(int argc, char * argv[])
 	if (argc != 3)
 	{
 		cout << "Invalid arguments count\n"
-			<< "Usage: comparefile.exe <input file> <output file>\n";
+			<< "Usage: comparefile.exe <file1> <file2>\n";
 		return 1;
 	}
 
