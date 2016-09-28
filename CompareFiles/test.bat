@@ -30,6 +30,30 @@ if NOT ERRORLEVEL 1 goto err
 fc.exe out_files\defferent_files_line_1 %TEMP%\output.txt
 if ERRORLEVEL 1 goto err
 
+rem проверка запуска с одинаковыми многосторчными файлами в качестве параметров
+%PROGRAM% multiline.txt multiline_equals.txt > %TEMP%\output.txt
+if ERRORLEVEL 1 goto err
+fc.exe out_files\equal_files.txt %TEMP%\output.txt
+if ERRORLEVEL 1 goto err
+
+rem проверка запуска с разыми многосторчными файлами в качестве параметров с разницей в 3й строке
+%PROGRAM% multiline.txt multiline_different_line_3.txt > %TEMP%\output.txt
+if NOT ERRORLEVEL 1 goto err
+fc.exe out_files\defferent_files_line_3 %TEMP%\output.txt
+if ERRORLEVEL 1 goto err
+
+rem проверка запуска с файлами разной длины в качестве параметров с разницей во 2й строке
+%PROGRAM% multiline.txt multiline_different_size_line2.txt > %TEMP%\output.txt
+if NOT ERRORLEVEL 1 goto err
+fc.exe out_files\defferent_files_line_2 %TEMP%\output.txt
+if ERRORLEVEL 1 goto err
+
+rem проверка запуска с файлами разной длины в качестве параметров с разницей во 2й строке
+%PROGRAM% multiline_different_size_line2.txt multiline.txt > %TEMP%\output.txt
+if NOT ERRORLEVEL 1 goto err
+fc.exe out_files\defferent_files_line_2 %TEMP%\output.txt
+if ERRORLEVEL 1 goto err
+
 echo Program testing succeeded
 exit 0
 
