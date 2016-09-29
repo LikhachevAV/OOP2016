@@ -19,7 +19,7 @@ int CompareFiles(const string & fileName1, const string & fileName2, string & er
 	ifstream secondFile(fileName2);
 	if (!secondFile.is_open())
 	{
-		error = error.append("Failed to open ").append(fileName1).append(" for reading");
+		error = error.append("Failed to open ").append(fileName2).append(" for reading");
 		return FILE_COMPARATION_ERROR;
 	}
 	char ch1, ch2;
@@ -37,7 +37,7 @@ int CompareFiles(const string & fileName1, const string & fileName2, string & er
 		{
 			return lineNumber;
 		}
-		if (ch1 == '\n')
+		if (ch1 == '\n' && ch2 == '\n')
 		{
 			++lineNumber;
 		}
@@ -47,11 +47,12 @@ int CompareFiles(const string & fileName1, const string & fileName2, string & er
 	{
 		return lineNumber;
 	}
+	return 0;
 }
 
 int main(int argc, char * argv[])
 {
-	string errorMessage = "";
+	string errorMessage;
 	if (argc != 3)
 	{
 		cout << "Invalid arguments count\n"
@@ -67,7 +68,7 @@ int main(int argc, char * argv[])
 	}
 	else if (comparationResult == FILES_ARE_EQUAL)
 	{
-		cout << "Files are equal\n";
+		cout << "Files are equal" << '\n';
 		return 0;
 	}
 	else
