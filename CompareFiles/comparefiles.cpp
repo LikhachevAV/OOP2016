@@ -1,32 +1,29 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 
 using namespace std;
 
-int main(int argc, char * argv[])
+const int FILE_COMPARATION_ERROR = -1;
+const int FILES_ARE_EQUAL = 0;
+
+int CompareFiles(const string & fileName1, const string & fileName2, string & error)
 {
-	if (argc != 3)
+	ifstream firstFile(fileName1);
+	if (!firstFile.is_open())
 	{
-		cout << "Invalid arguments count\n"
-			<< "Usage: comparefile.exe <file1> <file2>\n";
-		return 1;
+		error = error.append("Failed to open ").append(fileName1).append(" for reading");
+		return FILE_COMPARATION_ERROR;
 	}
 
-	ifstream firstFile(argv[1]);
-	if (!firstFile.is_open()) 
-	{
-		cout << "Failed to open " << argv[1] << " for reading\n";
-		return 1;
- 	}
-
-	ifstream secondFile(argv[2]);
+	ifstream secondFile(fileName2);
 	if (!secondFile.is_open())
 	{
-		cout << "Failed to open " << argv[2] << " for reading\n";
-		return 1;
+		error = error.append("Failed to open ").append(fileName1).append(" for reading");
+		return FILE_COMPARATION_ERROR;
 	}
 	char ch1, ch2;
-	int lineNumber(1);
+	int lineNumber = 1;
 
 	auto ReadFiles = [&] {
 		firstFile.get(ch1);
@@ -34,14 +31,13 @@ int main(int argc, char * argv[])
 		return firstFile && secondFile;
 	};
 
-	while(ReadFiles())
+	while (ReadFiles())
 	{
 		if (ch1 != ch2)
 		{
-			cout << "Files are different. Line number is " << lineNumber << "\n";
-			return 1;
+			return lineNumber;
 		}
-		if(ch1 == '\n')	
+		if (ch1 == '\n')
 		{
 			++lineNumber;
 		}
@@ -49,10 +45,35 @@ int main(int argc, char * argv[])
 
 	if (firstFile || secondFile)
 	{
-		cout << "Files are different. Line number is " << lineNumber << "\n";
+		return lineNumber;
+	}
+}
+
+int main(int argc, char * argv[])
+{
+	string errorMessage = "";
+	if (argc != 3)
+	{
+		cout << "Invalid arguments count\n"
+			<< "Usage: comparefile.exe <file1> <file2>\n";
 		return 1;
 	}
 
-	cout << "Files are equal\n";
+	int comparationResult = CompareFiles(argv[1], argv[2], errorMessage);
+	if (comparationResult == FILE_COMPARATION_ERROR)
+	{
+		cout << errorMessage << '\n';
+		return 1;
+	}
+	else if (comparationResult == FILES_ARE_EQUAL)
+	{
+		cout << "Files are equal\n";
+		return 0;
+	}
+	else
+	{
+		cout << "Files are different. Line number is " << comparationResult << '\n';
+		return 1;
+	}
 	return 0;
 }
