@@ -5,8 +5,9 @@ using namespace std;
 
 int ERROR_STATE = -1;
 
-int Bin2dec()
+int Bin2dec(string const &binString, unsigned long int &result, string &errorMessage)
 {
+
 	return 0;
 }
 
@@ -40,8 +41,7 @@ int main(int argc, char* argv[])
 		{
 			result += multiplier;
 		}
-		else
-		if (inStr[i] != '0')
+		else if (inStr[i] != '0')
 		{
 			cout << "Invalid argument type!" << endl
 				<< "Usage: bin2dec.exe <binary number>" << endl;
