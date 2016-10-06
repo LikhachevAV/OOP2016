@@ -11,13 +11,20 @@ rem проверка запуска с числом, длиной 33 в качестве параметра
 if NOT ERRORLEVEL 1 goto err
 fc.exe out_files\number_length_owerflow.txt %TEMP%\output.txt
 if ERRORLEVEL 1 goto err
-goto success
 
-rem проверка запуска с несуществующим файлом2 в качестве параметра
-%PROGRAM% one_line.txt not_existing_file.txt > %TEMP%\output.txt
+rem проверка запуска не с двоичным числом в качестве параметра
+%PROGRAM% 11a > %TEMP%\output.txt
 if NOT ERRORLEVEL 1 goto err
-fc.exe out_files\no_file.txt %TEMP%\output.txt
+fc.exe out_files\argument_type_error %TEMP%\output.txt
 if ERRORLEVEL 1 goto err
+
+rem проверка запуска не с двоичным числом в качестве параметра
+%PROGRAM% 211 > %TEMP%\output.txt
+if NOT ERRORLEVEL 1 goto err
+fc.exe out_files\argument_type_error %TEMP%\output.txt
+if ERRORLEVEL 1 goto err
+
+goto success
 
 rem проверка запуска с одинаковыми однострочными файлами в качестве параметров
 %PROGRAM% one_line.txt one_line_equals.txt > %TEMP%\output.txt
