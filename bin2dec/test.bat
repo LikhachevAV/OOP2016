@@ -30,18 +30,21 @@ if ERRORLEVEL 1 goto err
 
 
 rem проверка запуска с числом 110010000(b) = 400(dec) в качестве параметров
+echo run program with binary number 110010000 as argument:
 %PROGRAM% 110010000 > %TEMP%\output.txt
 if ERRORLEVEL 1 goto err
 fc.exe out_files\400.txt %TEMP%\output.txt
 if ERRORLEVEL 1 goto err
 
 rem проверка левой крайней границы (с числом 0 в качестве параметров)
+echo run program with "0" as argument:
 %PROGRAM% 0 > %TEMP%\output.txt
 if ERRORLEVEL 1 goto err
 fc.exe out_files\0.txt %TEMP%\output.txt
 if ERRORLEVEL 1 goto err
 
 rem проверка правой крайней границы (с числом 11111111111111111111111111111110 в качестве параметров)
+echo run program with "MAX_UNSIGNED_LONG" as argument:
 %PROGRAM% 11111111111111111111111111111110 > %TEMP%\output.txt
 if ERRORLEVEL 1 goto err
 fc.exe out_files\ULONG_MAX.txt %TEMP%\output.txt
