@@ -13,4 +13,4 @@
 *.idb
 *.user
 *.png
-/CompareFiles/Debug
+*/Debug
