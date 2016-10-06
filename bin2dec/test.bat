@@ -24,13 +24,27 @@ if NOT ERRORLEVEL 1 goto err
 fc.exe out_files\argument_type_error %TEMP%\output.txt
 if ERRORLEVEL 1 goto err
 
-goto success
 
-rem проверка запуска с одинаковыми однострочными файлами в качестве параметров
-%PROGRAM% one_line.txt one_line_equals.txt > %TEMP%\output.txt
+rem проверка запуска с числом 110010000(b) = 400(dec) в качестве параметров
+%PROGRAM% 110010000 > %TEMP%\output.txt
 if ERRORLEVEL 1 goto err
-fc.exe out_files\equal_files.txt %TEMP%\output.txt
+fc.exe out_files\400.txt %TEMP%\output.txt
 if ERRORLEVEL 1 goto err
+
+rem проверка левой крайней границы (с числом 0 в качестве параметров)
+%PROGRAM% 0 > %TEMP%\output.txt
+if ERRORLEVEL 1 goto err
+fc.exe out_files\0.txt %TEMP%\output.txt
+if ERRORLEVEL 1 goto err
+
+rem проверка правой крайней границы (с числом 11111111111111111111111111111110 в качестве параметров)
+%PROGRAM% 11111111111111111111111111111110 > %TEMP%\output.txt
+if ERRORLEVEL 1 goto err
+fc.exe out_files\ULONG_MAX.txt %TEMP%\output.txt
+if ERRORLEVEL 1 goto err
+
+
+goto success
 
 rem проверка запуска с разными однострочными файлами в качестве параметров
 %PROGRAM% one_line.txt one_line_different_line_1.txt > %TEMP%\output.txt
