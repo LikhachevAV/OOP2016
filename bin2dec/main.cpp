@@ -3,8 +3,16 @@
 
 using namespace std;
 
+int ERROR_STATE = -1;
+
+int Bin2dec()
+{
+	return 0;
+}
+
 int main(int argc, char* argv[])
 {
+	string errorMessage = "";
 	int MAX_SIZE_LENGTH = 32;
 	if (argc != 2)
 	{
@@ -19,24 +27,17 @@ int main(int argc, char* argv[])
 	if (inStrSize > MAX_SIZE_LENGTH)
 	{
 		cout << "Invalid arguments length!" << endl
-			<< "Max numbers length must be 32, but found " << inStrSize << endl;
+			<< "Max numbers length must be "<< MAX_SIZE_LENGTH << ", but found " << inStrSize << endl;
 		return 1;
 	}
 
 	unsigned long int result = 0;
 	unsigned long int multiplier = 1;
-	bool owerflow = inStrSize == MAX_SIZE_LENGTH;
 
 	for (int i = inStrSize - 1; i >= 0 ; --i)
 	{
-		owerflow = owerflow && (inStr[i] == '1');
 		if (inStr[i] == '1')
 		{
-			if (owerflow)
-			{
-				cout << "Error! Result owerflow!" << endl;
-				return 1;
-			}
 			result += multiplier;
 		}
 		else
