@@ -9,7 +9,6 @@
 *.tlog
 *.lastbuildstate
 *.obj
-*.cpp
 *.idb
 *.user
 *.png
