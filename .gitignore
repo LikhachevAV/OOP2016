@@ -12,4 +12,6 @@
 *.idb
 *.user
 *.png
-*/Debug
+*Debug
+x64
+Debug
