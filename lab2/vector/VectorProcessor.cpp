@@ -14,11 +14,10 @@ using namespace boost::phoenix::placeholders;
 using namespace boost::phoenix;
 using boost::transform;
 
-double MinValOfVector(std::vector<double> & numbers)
+double SortVectorAndGetMinVal(std::vector<double> & numbers)
 {
-	vector<double> & copy(numbers);
-	SortVector(copy);
-	return copy[0];
+	SortVector(numbers);
+	return numbers[0];
 }
 
 void SortVector(std::vector<double> & numbers)

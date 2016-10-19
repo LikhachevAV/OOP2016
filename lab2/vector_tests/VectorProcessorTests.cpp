@@ -31,7 +31,7 @@ BOOST_AUTO_TEST_SUITE(ProcessVector_function)
 	{
 		vector<double> myVector = { 0.0, 1.0, -1.0 };
 		double expectedMinVal = -1.0;
-		double minVal = MinValOfVector(myVector);
+		double minVal = SortVectorAndGetMinVal(myVector);
 		BOOST_CHECK_EQUAL(minVal, expectedMinVal);
 	}
 
