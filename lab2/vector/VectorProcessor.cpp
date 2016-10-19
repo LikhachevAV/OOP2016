@@ -14,6 +14,18 @@ using namespace boost::phoenix::placeholders;
 using namespace boost::phoenix;
 using boost::transform;
 
+double MinValOfVector(std::vector<double> & numbers)
+{
+	vector<double> & copy(numbers);
+	SortVector(copy);
+	return copy[0];
+}
+
+void SortVector(std::vector<double> & numbers)
+{
+	sort(numbers.begin(), numbers.end());
+}
+
 void ProcessVector(std::vector<double> & numbers)
 {
 	auto IsPositive = [](double number){return number > 0; };
@@ -34,23 +46,5 @@ void ProcessVector(std::vector<double> & numbers)
 
 	double avg = (numberOfPositives > 0) ? sumOfPositives / numberOfPositives : 0.0;
 
-	// TODO: Используй силу алгоритма std::transform, Люк, вместо этого цикла
 	boost::transform(numbers, numbers.begin(), arg1 + avg);
-	/*
-	auto addAvg = bind(plus<double>(), _1, avg);
-	transform(numbers, numbers.begin(), addAvg);
-	*/
-	/*transform(numbers, numbers.begin(), bind(plus<double>(), _1, avg));*/
-
-	/*transform(numbers.begin(), numbers.end(), numbers.begin(), bind(plus<double>(), _1, avg));*/
-	/*
-	transform(numbers.begin(), numbers.end(), numbers.begin(), [&avg](double current){
-		return current + avg;
-	});
-	*/
-	/*
-	for (auto &number : numbers)
-	{
-		number += avg;
-	}*/
 }
