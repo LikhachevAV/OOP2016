@@ -4,6 +4,7 @@
 #include <fstream>
 #include <string>
 #include "VectorProcessor.h"
+#include <iterator>
 
 using namespace std;
 
@@ -19,12 +20,13 @@ bool ReadVector(string const & fileName, vector<double> & result, string & error
 			.append(" reading error!");
 		return false;
 	}
+	result.assign(istream_iterator<double>(cin), istream_iterator<double>());
 
 	char ch;
 	vector<double> numbers;
 	bool stop = false;
-	string outNumber = ";"
-	while (!EOF(inputFile))
+	string outNumber = ";";
+	while (!inputFile.get(ch))
 	{
 		if (ch = inputFile.get())
 		{
@@ -40,10 +42,12 @@ void PrintVector(vector<double> numbers)
 {
 	setprecision(4);
 	cout << "Output vector:";
+/*
 	for (double it : numbers)
 	{
 		cout << " " << it;
-	}
+	}*/
+	copy(numbers.begin(), numbers.end(), ostream_iterator<double>(cout, " "));
 }
 
 int main(int argc, char * argv[])
