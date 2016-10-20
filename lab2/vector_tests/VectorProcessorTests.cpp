@@ -60,5 +60,3 @@ BOOST_AUTO_TEST_SUITE(ProcessVector_function)
 	}
 
 BOOST_AUTO_TEST_SUITE_END()
-
-
