@@ -28,8 +28,8 @@ void ProcessVector(std::vector<double> & numbers)
 {
 	if (!numbers.empty())
 	{
-		SortVector (numbers);
-		double minVal = numbers[0];
+		double minVal = GetVectorsMinVal(numbers);
 		boost::transform(numbers, numbers.begin(), arg1 * minVal);
+		SortVector(numbers);
 	}
 }

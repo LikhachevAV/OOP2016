@@ -38,15 +38,15 @@ BOOST_AUTO_TEST_SUITE(ProcessVector_function)
 	BOOST_AUTO_TEST_CASE(multiplied_vector_test)
 	{
 		vector<double> myVector = { 0.0, 1.0, -1.0 };
-		vector<double> expectedVector = { 1.0, 0.0, -1.0 };
+		vector<double> expectedVector = { -1.0, 0.0, 1.0 };
 		ProcessVector(myVector);
 		BOOST_CHECK(VectorsAreEqual(myVector, expectedVector));
 	}
 
 	BOOST_AUTO_TEST_CASE(multiplied_vector_test_2)
 	{
-		vector<double> myVector = { 0.0, 1.0, -1.0 };
-		vector<double> expectedVector = { 1.0, 0.0, -1.0 };
+		vector<double> myVector = { 0.0, 1.0, -5.0 };
+		vector<double> expectedVector = { -5.0, 0.0, 25.0 };
 		ProcessVector(myVector);
 		BOOST_CHECK(VectorsAreEqual(myVector, expectedVector));
 	}
