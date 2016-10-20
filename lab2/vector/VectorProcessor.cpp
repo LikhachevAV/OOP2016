@@ -14,10 +14,9 @@ using namespace boost::phoenix::placeholders;
 using namespace boost::phoenix;
 using boost::transform;
 
-double SortVectorAndGetMinVal(std::vector<double> & numbers)
+double GetVectorsMinVal(std::vector<double> & numbers)
 {
-	SortVector(numbers);
-	return numbers[0];
+	return *min_element(numbers.begin(), numbers.end());
 }
 
 void SortVector(std::vector<double> & numbers)
@@ -29,7 +28,7 @@ void ProcessVector(std::vector<double> & numbers)
 {
 	if (!numbers.empty())
 	{
-		SortVector(numbers);
+		SortVector (numbers);
 		double minVal = numbers[0];
 		boost::transform(numbers, numbers.begin(), arg1 * minVal);
 	}

@@ -31,8 +31,24 @@ BOOST_AUTO_TEST_SUITE(ProcessVector_function)
 	{
 		vector<double> myVector = { 0.0, 1.0, -1.0 };
 		double expectedMinVal = -1.0;
-		double minVal = SortVectorAndGetMinVal(myVector);
+		double minVal = GetVectorsMinVal(myVector);
 		BOOST_CHECK_EQUAL(minVal, expectedMinVal);
+	}
+
+	BOOST_AUTO_TEST_CASE(multiplied_vector_test)
+	{
+		vector<double> myVector = { 0.0, 1.0, -1.0 };
+		vector<double> expectedVector = { 1.0, 0.0, -1.0 };
+		ProcessVector(myVector);
+		BOOST_CHECK(VectorsAreEqual(myVector, expectedVector));
+	}
+
+	BOOST_AUTO_TEST_CASE(multiplied_vector_test_2)
+	{
+		vector<double> myVector = { 0.0, 1.0, -1.0 };
+		vector<double> expectedVector = { 1.0, 0.0, -1.0 };
+		ProcessVector(myVector);
+		BOOST_CHECK(VectorsAreEqual(myVector, expectedVector));
 	}
 
 BOOST_AUTO_TEST_SUITE_END()
