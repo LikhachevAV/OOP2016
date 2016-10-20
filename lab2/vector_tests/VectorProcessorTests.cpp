@@ -51,6 +51,14 @@ BOOST_AUTO_TEST_SUITE(ProcessVector_function)
 		BOOST_CHECK(VectorsAreEqual(myVector, expectedVector));
 	}
 
+	BOOST_AUTO_TEST_CASE(vector_with_one_negative_number_test)
+	{
+		vector<double> myVector = { -7.0 };
+		vector<double> expectedVector = {49.0};
+		ProcessVector(myVector);
+		BOOST_CHECK(VectorsAreEqual(myVector, expectedVector));
+	}
+
 BOOST_AUTO_TEST_SUITE_END()
 
 
