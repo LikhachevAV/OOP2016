@@ -8,8 +8,6 @@
 
 using namespace std;
 
-const vector<char> possibleSymbols = {'-', '0', '1', '2', '3', '4', '5', '6', '7', '8' , '9', '.'};
-
 bool ReadVector(string const & fileName, vector<double> & result, string & error)
 {
 	ifstream inputFile(fileName);
@@ -22,31 +20,16 @@ bool ReadVector(string const & fileName, vector<double> & result, string & error
 	}
 	result.assign(istream_iterator<double>(cin), istream_iterator<double>());
 
-	char ch;
-	vector<double> numbers;
-	bool stop = false;
-	string outNumber = ";";
-	while (!inputFile.get(ch))
+	if (inputFile.fail())
 	{
-		if (ch = inputFile.get())
-		{
-
-		}
-
+		error.append("Input file have non double numbers");
+		return false;
 	}
-
 	return true;
 }
 
 void PrintVector(vector<double> numbers)
 {
-	setprecision(4);
-	cout << "Output vector:";
-/*
-	for (double it : numbers)
-	{
-		cout << " " << it;
-	}*/
 	copy(numbers.begin(), numbers.end(), ostream_iterator<double>(cout, " "));
 }
 
@@ -67,6 +50,9 @@ int main(int argc, char * argv[])
 		cout << errorMessage;
 		return 1;
 	}
+
+	SortVector(numbers);
+	PrintVector(numbers);
 
 	cout << endl;
 	return 0;

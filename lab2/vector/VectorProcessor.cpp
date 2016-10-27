@@ -30,6 +30,5 @@ void ProcessVector(std::vector<double> & numbers)
 	{
 		double minVal = GetVectorsMinVal(numbers);
 		boost::transform(numbers, numbers.begin(), arg1 * minVal);
-		SortVector(numbers);
 	}
 }
