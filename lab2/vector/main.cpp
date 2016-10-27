@@ -8,25 +8,17 @@
 
 using namespace std;
 
-bool ReadVector(vector<double> & result, string & error)
-{
-	result.assign(istream_iterator<double>(cin), istream_iterator<double>());
-	return true;
-}
-
 void PrintVector(vector<double> numbers)
 {
 	copy(numbers.begin(), numbers.end(), ostream_iterator<double>(cout, " "));
 }
 
-int main(int argc)
+int main()
 {
-	string errorMessage;
-	vector <double> numbers;
-	ReadVector(numbers, errorMessage);
+	vector <double> numbers(istream_iterator<double>(cin), (istream_iterator<double>()));
+	ProcessVector(numbers);
 	SortVector(numbers);
 	PrintVector(numbers);
-
 	cout << endl;
 	return 0;
 }
