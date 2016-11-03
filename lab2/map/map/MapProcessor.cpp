@@ -32,3 +32,16 @@ void ProcessVector(std::vector<double> & numbers)
 		boost::transform(numbers, numbers.begin(), arg1 * minVal);
 	}
 }
+
+void AddWord(map<string, int >& words, string & word)
+{
+	if (!words[word])
+	{
+		words[word] = 1;
+	}
+	else
+	{
+		++words[word];
+	}
+}
+
