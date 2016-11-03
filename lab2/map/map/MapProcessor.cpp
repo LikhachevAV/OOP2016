@@ -33,7 +33,7 @@ void ProcessVector(std::vector<double> & numbers)
 	}
 }
 
-void AddWord(map<string, int >& words, string & word)
+void AddWord(map<string, int>& words, const string & word)
 {
 	if (!words[word])
 	{
