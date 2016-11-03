@@ -1,5 +1,5 @@
 ﻿#include "stdafx.h"
-#include "VectorProcessor.h"
+#include "MapProcessor.h"
 #include <algorithm>
 #include <numeric>
 #include <functional>
