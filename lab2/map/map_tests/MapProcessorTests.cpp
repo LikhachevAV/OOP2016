@@ -1,6 +1,6 @@
 ﻿#include "stdafx.h"
 #include "..\map\MapProcessor.h"
-#include <iostream>
+//#include <iostream>
 
 using namespace std;
 
@@ -23,7 +23,7 @@ BOOST_AUTO_TEST_CASE(dont_change_empty_vector)
 	//BOOST_CHECK(emptyVector.empty());
 }
 
-BOOST_AUTO_TEST_CASE(add_word_test)
+BOOST_AUTO_TEST_CASE(add_word)
 {
 	WordType myMap;
 	AddWord(myMap, string("s"));
@@ -35,7 +35,15 @@ BOOST_AUTO_TEST_CASE(add_word_test)
 	BOOST_CHECK(MapsAreEqual(myMap, myMap));
 
 	cout << myMap[string("s")] << endl;
-	//BOOST_CHECK(emptyVector.empty());
+}
+
+BOOST_AUTO_TEST_CASE(print_word)
+{
+	WordType myMap;
+	AddWord(myMap, string("s"));
+	AddWord(myMap, string("m"));
+	AddWord(myMap, string("m"));
+	PrintWords(cout, myMap);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
