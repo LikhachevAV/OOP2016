@@ -197,9 +197,6 @@
     </ClCompile>
     <ClCompile Include="VectorProcessor.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="test.bat" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
