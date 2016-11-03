@@ -6,16 +6,19 @@
 
 using namespace std;
 
-void AddWord(map<string, int> & words, const string & word)
+void AddWordToMap(map<string, int> & wordsMap, const string & word)
 {
-	++words[word];
+	++wordsMap[word];
 }
 
-void PrintWords(ostream & out, map<string, int> const & words)
+void PrintWordsMap(ostream & out, map<string, int> const & wordsMap)
 {
-	
-	for (auto & it : words)
+	for (auto & it : wordsMap)
 	{
 		out << it.first << " -> " << it.second << endl;
 	}
+}
+
+void ReadStreamToMap(const istream & in, map<string, int> & wordsMap)
+{
 }

@@ -26,8 +26,8 @@ BOOST_AUTO_TEST_CASE(dont_change_empty_vector)
 BOOST_AUTO_TEST_CASE(add_word)
 {
 	WordType myMap;
-	AddWord(myMap, string("s"));
-	AddWord(myMap, string("s"));
+	AddWordToMap(myMap, string("s"));
+	AddWordToMap(myMap, string("s"));
 
 	WordType myMap1;
 	
@@ -40,10 +40,10 @@ BOOST_AUTO_TEST_CASE(add_word)
 BOOST_AUTO_TEST_CASE(print_word)
 {
 	WordType myMap;
-	AddWord(myMap, string("s"));
-	AddWord(myMap, string("m"));
-	AddWord(myMap, string("m"));
-	PrintWords(cout, myMap);
+	AddWordToMap(myMap, string("s"));
+	AddWordToMap(myMap, string("m"));
+	AddWordToMap(myMap, string("m"));
+	PrintWordsMap(cout, myMap);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
