@@ -8,19 +8,14 @@
 
 using namespace std;
 
-int ReadWordFromSteam(istream & is, string & word)
+void ReadWordFromSteam(istream & is, string & word)
 {
 	char ch;
-	while ((is.get(ch)) && ch != '\n' && ch != '\t' && ch != ' ' && !is.eof())
+	while ((is.get(ch)) && (ch != '\n') && (ch != '\t') && (ch != ' '))
 	{
 		tolower(ch);
 		word.push_back(ch);
 	}
-	if (word.size() < 1)
-	{
-		return 1;
-	}
-	return 0;
 }
 
 
@@ -32,11 +27,7 @@ int main()
 	while (!cin.eof())
 	{
 		s = "";
-		if (!ReadWordFromSteam(cin, s))
-		{
-			cout << "Input data reading error";
-			return 1;
-		}
+		ReadWordFromSteam(cin, s);
 		AddWordToMap(wordsCounterMap, s);
 	}
 	PrintWordsMap(cout, wordsCounterMap);
