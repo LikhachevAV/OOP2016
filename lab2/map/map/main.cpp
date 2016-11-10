@@ -8,13 +8,36 @@
 
 using namespace std;
 
+int ReadWordFromSteam(istream & is, string & word)
+{
+	char ch;
+	while ((is.get(ch)) && ch != '\n' && ch != '\t' && ch != ' ' && !is.eof())
+	{
+		word.push_back(ch);
+	}
+	if (word.size() < 1)
+	{
+		return 1;
+	}
+	return 0;
+}
+
 
 int main()
 {
-	//vector <double> numbers(istream_iterator<double>(cin), (istream_iterator<double>()));
-	//ProcessVector(numbers);
-	//SortVector(numbers);
-	//PrintVector(numbers);
-	cout << endl;
+	map<string, int> wordsCounterMap;
+	string s;
+	cout << "Enter input words to count them: \n";
+	while (!cin.eof())
+	{
+		s = "";
+		if (!ReadWordFromSteam(cin, s))
+		{
+			cout << "Input data reading error";
+			return 1;
+		}
+		AddWordToMap(wordsCounterMap, s);
+	}
+	PrintWordsMap(cout, wordsCounterMap);
 	return 0;
 }

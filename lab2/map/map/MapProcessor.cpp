@@ -8,7 +8,10 @@ using namespace std;
 
 void AddWordToMap(map<string, int> & wordsMap, const string & word)
 {
-	++wordsMap[word];
+	if (word.size() > 1)
+	{
+		++wordsMap[word];
+	}
 }
 
 void PrintWordsMap(ostream & out, map<string, int> const & wordsMap)
@@ -17,8 +20,4 @@ void PrintWordsMap(ostream & out, map<string, int> const & wordsMap)
 	{
 		out << it.first << " -> " << it.second << endl;
 	}
-}
-
-void ReadStreamToMap(const istream & in, map<string, int> & wordsMap)
-{
 }

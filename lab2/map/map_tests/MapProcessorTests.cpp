@@ -1,49 +1,33 @@
 ﻿#include "stdafx.h"
 #include "..\map\MapProcessor.h"
-//#include <iostream>
+#include <iostream>
 
 using namespace std;
 
-typedef map <string, int> WordType;
-
-bool MapsAreEqual(WordType x, WordType y)
+bool MapsAreEqual(map<string, int> x, map<string, int> y)
 {
 	return x == y;
 }
 
-// Функция ProcessVector
-BOOST_AUTO_TEST_SUITE(ProcessVector_function)
+BOOST_AUTO_TEST_SUITE(AddWordToMap_function)
 
-BOOST_AUTO_TEST_CASE(dont_change_empty_vector)
+BOOST_AUTO_TEST_CASE(dont_add_empty_string)
 {
 	map<string, int> myMap;
-	myMap["s"] = 1;
-	++myMap["s"];
-	cout << myMap["s"] << endl;
-	//BOOST_CHECK(emptyVector.empty());
+	string s;
+	AddWordToMap(myMap, s);
+	BOOST_CHECK(myMap.empty());
 }
 
-BOOST_AUTO_TEST_CASE(add_word)
+BOOST_AUTO_TEST_CASE(add_non_empty_words_and_count_them)
 {
-	WordType myMap;
-	AddWordToMap(myMap, string("s"));
-	AddWordToMap(myMap, string("s"));
-
-	WordType myMap1;
-	
-	BOOST_CHECK_EQUAL(myMap["s"], 2);
-	BOOST_CHECK(MapsAreEqual(myMap, myMap));
-
-	cout << myMap[string("s")] << endl;
-}
-
-BOOST_AUTO_TEST_CASE(print_word)
-{
-	WordType myMap;
-	AddWordToMap(myMap, string("s"));
-	AddWordToMap(myMap, string("m"));
-	AddWordToMap(myMap, string("m"));
-	PrintWordsMap(cout, myMap);
+	map<string, int> myMap;
+	AddWordToMap(myMap, "hello");
+	AddWordToMap(myMap, "world");
+	AddWordToMap(myMap, "hello");
+	//PrintWordsMap(cout, myMap); // Debug only
+	map<string, int> expectedMap = {{"hello",2},{"world",1}};
+	BOOST_CHECK(MapsAreEqual(myMap, expectedMap));
 }
 
 BOOST_AUTO_TEST_SUITE_END()
