@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void AddWordToMap(map<string, int> & wordsMap, string & word)
+void AddWordToMap(map<string, int> & wordsMap, string const & word)
 {
 	if (word.length() > 1)
 	{

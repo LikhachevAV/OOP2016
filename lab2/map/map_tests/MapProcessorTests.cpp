@@ -25,7 +25,6 @@ BOOST_AUTO_TEST_SUITE(AddWordToMap_function)
 		AddWordToMap(myMap, "hello");
 		AddWordToMap(myMap, "world");
 		AddWordToMap(myMap, "hello");
-		//PrintWordsMap(cout, myMap); // Debug only
 		map<string, int> expectedMap = {{"hello",2},{"world",1}};
 		BOOST_CHECK(MapsAreEqual(myMap, expectedMap));
 	}
