@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool MapsAreEqual(map<string, int> x, map<string, int> y)
+bool MapsAreEqual(const map<string, int> & x, const map<string, int> & y)
 {
 	return x == y;
 }
