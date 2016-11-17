@@ -14,7 +14,7 @@ void AddWordToMap(map<string, int> & wordsMap, string const & word)
 		string s;
 		for (std::string::size_type i = 0; i < word.length(); ++i)
 		{
-			s.push_back(tolower(word[i]));
+			s.push_back(static_cast<char>(tolower(word[i])));
 		}
 		++wordsMap[s];
 	}
