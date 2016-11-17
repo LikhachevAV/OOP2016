@@ -29,4 +29,15 @@ BOOST_AUTO_TEST_SUITE(AddWordToMap_function)
 		BOOST_CHECK(MapsAreEqual(myMap, expectedMap));
 	}
 
+	BOOST_AUTO_TEST_CASE(must_be_non_case_senisitiv)
+	{
+		map<string, int> myMap;
+		AddWordToMap(myMap, "hello");
+		AddWordToMap(myMap, "world");
+		AddWordToMap(myMap, "Hello");
+		AddWordToMap(myMap, "WoRlD");
+		map<string, int> expectedMap = { { "hello",2 },{ "world",2 } };
+		BOOST_CHECK(MapsAreEqual(myMap, expectedMap));
+	}
+
 BOOST_AUTO_TEST_SUITE_END()

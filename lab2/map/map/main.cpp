@@ -13,7 +13,7 @@ void ReadWordFromSteam(istream & is, string & word)
 	char ch;
 	while ((is.get(ch)) && (ch != '\n') && (ch != '\t') && (ch != ' '))
 	{	
-		word.push_back(tolower(ch));
+		word.push_back(ch);
 	}
 }
 

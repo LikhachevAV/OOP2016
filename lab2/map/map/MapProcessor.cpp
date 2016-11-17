@@ -1,5 +1,6 @@
 ﻿#include "stdafx.h"
 #include "MapProcessor.h"
+#pragma warning (disable:4503)
 #pragma warning (push, 3)
 #include <boost/phoenix.hpp>
 #pragma warning (pop)
@@ -10,7 +11,12 @@ void AddWordToMap(map<string, int> & wordsMap, string const & word)
 {
 	if (word.length() > 1)
 	{
-		++wordsMap[word];
+		string s;
+		for (std::string::size_type i = 0; i < word.length(); ++i)
+		{
+			s += tolower(word[i]);
+		}
+		++wordsMap[s];
 	}
 }
 
