@@ -14,9 +14,23 @@ void CCar::Info(std::ostream & stream)const
 	
 }
 
+bool CCar::IsEngineOn()
+{
+	return m_isEngineOn;
+}
+
 bool CCar::EngineOn()
 {
-	return true;
+	if (CCar::m_isEngineOn)
+	{
+		return false;
+	}
+	else
+	{
+		CCar::m_isEngineOn = true;
+		return true;
+	}
+	
 }
 
 bool CCar::EngineOff()

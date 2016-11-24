@@ -5,6 +5,7 @@ class CCar
 {
 public:
 	void Info(std::ostream & stream)const;
+	bool IsEngineOn();
 	bool EngineOn();
 	bool EngineOff();
 	bool SetGear(int gear);
