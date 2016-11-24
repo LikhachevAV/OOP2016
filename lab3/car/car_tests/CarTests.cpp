@@ -23,3 +23,21 @@ BOOST_AUTO_TEST_SUITE(EngineOn_function)
 	}
 
 BOOST_AUTO_TEST_SUITE_END()
+
+BOOST_AUTO_TEST_SUITE(EngineOff_function)
+	CCar car;
+
+	BOOST_AUTO_TEST_CASE(dont_change_turned_off_engine_state)
+	{
+		BOOST_CHECK(!car.EngineOff());
+		BOOST_CHECK(!car.IsEngineOn());
+	}
+
+	BOOST_AUTO_TEST_CASE(turned_off_turned_on_engine)
+	{
+		car.EngineOn();
+		BOOST_CHECK(car.EngineOff());
+		BOOST_CHECK(!car.IsEngineOn());
+	}
+
+BOOST_AUTO_TEST_SUITE_END()

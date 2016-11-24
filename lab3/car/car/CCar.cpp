@@ -21,13 +21,13 @@ bool CCar::IsEngineOn()
 
 bool CCar::EngineOn()
 {
-	if (CCar::m_isEngineOn)
+	if (m_isEngineOn)
 	{
 		return false;
 	}
 	else
 	{
-		CCar::m_isEngineOn = true;
+		m_isEngineOn = true;
 		return true;
 	}
 	
@@ -35,7 +35,19 @@ bool CCar::EngineOn()
 
 bool CCar::EngineOff()
 {
-	return true;
+	bool canTurnOffEngine = (m_currentGear == 0) && (m_currentSpeed == 0) && m_isEngineOn;
+	if (canTurnOffEngine)
+	{
+		m_isEngineOn = false;
+		return true;
+	}
+	else
+	{
+		cout << "Can't turn off the cars engine! Current gear must be 0, speed must be 0 and engine must be"
+			<< " turned on!";
+		return false;
+	}
+	
 }
 
 bool CCar::SetGear(int gear)
