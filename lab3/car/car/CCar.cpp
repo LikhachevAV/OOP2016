@@ -50,12 +50,48 @@ bool CCar::EngineOff()
 	
 }
 
-bool CCar::SetGear(int gear)
+bool CCar::canSetGear(int gear)
+{
+	// Зависит от параметров:
+	//m_direction;
+	//m_speed;
+	//m_currentGear
+	return true;
+}
+
+bool CCar::canSetSpeed(int speed)
 {
 	return true;
 }
 
+bool CCar::SetGear(int gear)
+{
+	if (canSetGear)
+	{
+		m_currentGear = gear;
+		m_currentDirection = (gear == -1) ? Direction::backward : Direction::forward;
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
 bool CCar::SetSpeed(int speed)
 {
-	return true;
+	if (canSetSpeed)
+	{
+		m_currentSpeed = speed;
+		if (m_currentSpeed == 0)
+		{
+			m_currentDirection = Direction::stop;
+		}
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+	
 }
