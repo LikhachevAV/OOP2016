@@ -46,8 +46,33 @@ BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_AUTO_TEST_SUITE(SetGear_function)
 CCar car;
-BOOST_AUTO_TEST_CASE(can_not_set_gear_on_turned_on_engine)
-{
-	BOOST_CHECK(car.SetGear(1));
-}
+	BOOST_AUTO_TEST_CASE(can_not_set_gear_on_turned_of_engine)
+	{
+		BOOST_CHECK(!car.SetGear(1));
+	}
+
+	BOOST_AUTO_TEST_CASE(can_set_first_gear)
+	{
+		car.EngineOn();
+		BOOST_CHECK(car.SetGear(1));
+		car.SetSpeed(30);
+		BOOST_CHECK(car.SetGear(1));
+	}
+
+	BOOST_AUTO_TEST_CASE(can_not_set_first_gear)
+	{
+		car.EngineOn();
+		car.SetGear(1);
+		car.SetSpeed(31);
+		BOOST_CHECK(!car.SetGear(1));
+	}
+
+	BOOST_AUTO_TEST_CASE(can_not_set_first_gear_when_direction_is_backward)
+	{
+		car.SetSpeed(0);
+		car.SetGear(0);
+		car.SetGear(-1);
+		car.SetSpeed(20);
+		BOOST_CHECK(!car.SetGear(1));
+	}
 BOOST_AUTO_TEST_SUITE_END()

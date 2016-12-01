@@ -52,9 +52,10 @@ bool CCar::EngineOff()
 
 bool CCar::SetGear(int gear)
 {
-	bool canSetGear = !m_isEngineOn && m_direction == Direction::stop || (gear == -1) && (m_direction == Direction::stop) ||
-		(m_speed <= availableSpeedRangesMap.find(gear)->second.max &&
-			m_speed >= availableSpeedRangesMap.find(gear)->second.min);
+	bool canSetGear = m_isEngineOn &&( (gear == -1) && (m_direction == Direction::stop) ||
+		((m_direction == Direction::stop || m_direction == Direction::forward) &&
+			m_speed <= availableSpeedRangesMap.find(gear)->second.max &&
+			m_speed >= availableSpeedRangesMap.find(gear)->second.min));
 	if (canSetGear)
 	{
 		m_gear = gear;
@@ -63,6 +64,7 @@ bool CCar::SetGear(int gear)
 	}
 	else
 	{
+		cout << "Can not set gear" << gear << "!" << endl;
 		return false;
 	}
 }
