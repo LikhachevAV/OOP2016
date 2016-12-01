@@ -43,3 +43,11 @@ BOOST_AUTO_TEST_SUITE(EngineOff_function)
 	//TODO: добавить тесты в случае с ненулевой скоростью и ненейтральной передачей
 
 BOOST_AUTO_TEST_SUITE_END()
+
+BOOST_AUTO_TEST_SUITE(SetGear_function)
+CCar car;
+BOOST_AUTO_TEST_CASE(can_not_set_gear_on_turned_on_engine)
+{
+	BOOST_CHECK(car.SetGear(1));
+}
+BOOST_AUTO_TEST_SUITE_END()

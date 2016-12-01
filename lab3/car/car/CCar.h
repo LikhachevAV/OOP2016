@@ -31,9 +31,7 @@ public:
 
 private:
 	bool m_isEngineOn = false;
-	int m_currentGear = 0;
-	unsigned m_currentSpeed = 0;
-	Direction m_currentDirection = Direction::stop;
-	bool canSetGear(int gear);
-	bool canSetSpeed(int speed);
+	int m_gear = 0;
+	unsigned m_speed = 0;
+	Direction m_direction = Direction::stop;
 };

@@ -35,7 +35,7 @@ bool CCar::EngineOn()
 
 bool CCar::EngineOff()
 {
-	bool canTurnOffEngine = (m_currentGear == 0) && (m_currentSpeed == 0) && m_isEngineOn;
+	bool canTurnOffEngine = (m_gear == 0) && (m_speed == 0) && m_isEngineOn;
 	if (canTurnOffEngine)
 	{
 		m_isEngineOn = false;
@@ -44,32 +44,21 @@ bool CCar::EngineOff()
 	else
 	{
 		cout << "Can't turn off the cars engine! Current gear must be 0, speed must be 0 and engine must be"
-			<< " turned on!";
+			<< " turned on!" << endl;
 		return false;
 	}
 	
 }
 
-bool CCar::canSetGear(int gear)
-{
-	// Зависит от параметров:
-	//m_direction;
-	//m_speed;
-	//m_currentGear
-	return true;
-}
-
-bool CCar::canSetSpeed(int speed)
-{
-	return true;
-}
-
 bool CCar::SetGear(int gear)
 {
-	if (canSetGear(gear))
+	bool canSetGear = !m_isEngineOn && m_direction == Direction::stop || (gear == -1) && (m_direction == Direction::stop) ||
+		(m_speed <= availableSpeedRangesMap.find(gear)->second.max &&
+			m_speed >= availableSpeedRangesMap.find(gear)->second.min);
+	if (canSetGear)
 	{
-		m_currentGear = gear;
-		m_currentDirection = (gear == -1) ? Direction::backward : Direction::forward;
+		m_gear = gear;
+		m_direction = (gear == -1) ? Direction::backward : Direction::forward;
 		return true;
 	}
 	else
@@ -80,12 +69,13 @@ bool CCar::SetGear(int gear)
 
 bool CCar::SetSpeed(int speed)
 {
-	if (canSetSpeed(speed))
+	bool canSetSpeed = true;
+	if (canSetSpeed)
 	{
-		m_currentSpeed = speed;
-		if (m_currentSpeed == 0)
+		m_speed = speed;
+		if (m_speed == 0)
 		{
-			m_currentDirection = Direction::stop;
+			m_direction = Direction::stop;
 		}
 		return true;
 	}
