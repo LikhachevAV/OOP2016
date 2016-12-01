@@ -81,4 +81,18 @@ CCar car;
 		car.SetSpeed(20);
 		BOOST_CHECK(!car.SetGear(1));
 	}
+
+	BOOST_AUTO_TEST_CASE(can_set_second_gear_when_speed_is_between_20_and_50)
+	{
+		car.SetSpeed(0);
+		car.SetGear(1);
+		car.SetSpeed(19);
+		BOOST_CHECK(!car.SetGear(2));
+		car.SetSpeed(20);
+		BOOST_CHECK(car.SetGear(2));
+		car.SetSpeed(50);
+		BOOST_CHECK(car.SetGear(2));
+		car.SetSpeed(51);
+		BOOST_CHECK(!car.SetGear(2));
+	}
 BOOST_AUTO_TEST_SUITE_END()
