@@ -66,7 +66,7 @@ bool CCar::canSetSpeed(int speed)
 
 bool CCar::SetGear(int gear)
 {
-	if (canSetGear)
+	if (canSetGear(gear))
 	{
 		m_currentGear = gear;
 		m_currentDirection = (gear == -1) ? Direction::backward : Direction::forward;
@@ -80,7 +80,7 @@ bool CCar::SetGear(int gear)
 
 bool CCar::SetSpeed(int speed)
 {
-	if (canSetSpeed)
+	if (canSetSpeed(speed))
 	{
 		m_currentSpeed = speed;
 		if (m_currentSpeed == 0)
