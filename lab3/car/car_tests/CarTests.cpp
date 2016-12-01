@@ -1,122 +1,39 @@
 ﻿#include "stdafx.h"
 #include "..\car\CCar.h"
 
-
-BOOST_AUTO_TEST_SUITE(EngineOn_function)
+struct CarFixture
+{
 	CCar car;
+};
 
-	BOOST_AUTO_TEST_CASE(engine_is_off_by_default)
-	{
-		BOOST_CHECK(!car.IsEngineOn());
-	}
+BOOST_FIXTURE_TEST_SUITE(Car, CarFixture)
 
-	BOOST_AUTO_TEST_CASE(can_turned_off_engine_turn_on)
-	{
-		BOOST_CHECK(car.EngineOn());
-		BOOST_CHECK(car.IsEngineOn());
-	}
+	BOOST_AUTO_TEST_SUITE(EngineOn_function)
+		BOOST_AUTO_TEST_CASE(engine_is_off_by_default)
+		{
+			BOOST_CHECK(!car.IsEngineOn());
+		}
 
-	BOOST_AUTO_TEST_CASE(dont_change_turned_on_engine_state)
-	{
-		BOOST_CHECK(!car.EngineOn());
-		BOOST_CHECK(car.IsEngineOn());
-	}
+		BOOST_AUTO_TEST_CASE(can_turned_off_engine_turn_on)
+		{
+			BOOST_CHECK(car.EngineOn());
+			BOOST_CHECK(car.IsEngineOn());
+		}
 
-BOOST_AUTO_TEST_SUITE_END()
+		BOOST_AUTO_TEST_CASE(dont_change_turned_on_engine_state)
+		{
+			BOOST_CHECK(car.EngineOn());
+			BOOST_CHECK(!car.EngineOn());
+			BOOST_CHECK(car.IsEngineOn());
+		}
+	BOOST_AUTO_TEST_SUITE_END()
 
-BOOST_AUTO_TEST_SUITE(EngineOff_function)
-	CCar car;
+	BOOST_AUTO_TEST_SUITE(EngineOff_function)
+		BOOST_AUTO_TEST_CASE(dont_change_turned_off_engine_state)
+		{
+			BOOST_CHECK(!car.EngineOff());
+			BOOST_CHECK(!car.IsEngineOn());
+		}
+	BOOST_AUTO_TEST_SUITE_END()
 
-	BOOST_AUTO_TEST_CASE(dont_change_turned_off_engine_state)
-	{
-		BOOST_CHECK(!car.EngineOff());
-		BOOST_CHECK(!car.IsEngineOn());
-	}
-
-	BOOST_AUTO_TEST_CASE(can_turned_off_turned_on_engine)
-	{
-		car.EngineOn();
-		BOOST_CHECK(car.EngineOff());
-		BOOST_CHECK(!car.IsEngineOn());
-	}
-
-	BOOST_AUTO_TEST_CASE(can_not_turn_off_when_speed_is_not_0)
-	{
-		car.SetGear(1);
-		car.SetSpeed(30);
-		BOOST_CHECK(!car.EngineOff());
-		BOOST_CHECK(!car.IsEngineOn());
-	}
-
-BOOST_AUTO_TEST_SUITE_END()
-
-BOOST_AUTO_TEST_SUITE(SetGear_function)
-CCar car;
-	BOOST_AUTO_TEST_CASE(can_not_set_gear_on_turned_of_engine)
-	{
-		BOOST_CHECK(!car.SetGear(1));
-	}
-
-	BOOST_AUTO_TEST_CASE(can_set_first_gear)
-	{
-		car.EngineOn();
-		BOOST_CHECK(car.SetGear(1));
-		car.SetSpeed(30);
-		BOOST_CHECK(car.SetGear(1));
-	}
-
-	BOOST_AUTO_TEST_CASE(can_not_set_first_gear)
-	{
-		car.EngineOn();
-		car.SetGear(1);
-		car.SetSpeed(31);
-		BOOST_CHECK(!car.SetGear(1));
-	}
-
-	BOOST_AUTO_TEST_CASE(can_not_set_first_gear_when_direction_is_backward)
-	{
-		car.SetSpeed(0);
-		car.SetGear(0);
-		car.SetGear(-1);
-		car.SetSpeed(20);
-		BOOST_CHECK(!car.SetGear(1));
-	}
-
-	BOOST_AUTO_TEST_CASE(can_set_second_gear_when_speed_is_between_20_and_50)
-	{
-		car.SetSpeed(0);
-		car.SetGear(1);
-		car.SetSpeed(19);
-		BOOST_CHECK(!car.SetGear(2));
-		car.SetSpeed(20);
-		BOOST_CHECK(car.SetGear(2));
-		car.SetSpeed(50);
-		BOOST_CHECK(car.SetGear(2));
-		car.SetSpeed(51);
-		BOOST_CHECK(!car.SetGear(2));
-	}
-
-	BOOST_AUTO_TEST_CASE(can_set_third_gear_when_speed_is_between_30_and_60)
-	{
-		car.SetSpeed(29);
-		BOOST_CHECK(!car.SetGear(3));
-		car.SetSpeed(30);
-		BOOST_CHECK(car.SetGear(3));
-		car.SetSpeed(60);
-		BOOST_CHECK(car.SetGear(3));
-		car.SetSpeed(61);
-		BOOST_CHECK(!car.SetGear(3));
-	}
-
-	BOOST_AUTO_TEST_CASE(can_set_fourth_gear_when_speed_is_between_40_and_90)
-	{
-		car.SetSpeed(39);
-		BOOST_CHECK(!car.SetGear(4));
-		car.SetSpeed(40);
-		BOOST_CHECK(car.SetGear(4));
-		car.SetSpeed(90);
-		BOOST_CHECK(car.SetGear(4));
-		car.SetSpeed(91);
-		BOOST_CHECK(!car.SetGear(4));
-	}
 BOOST_AUTO_TEST_SUITE_END()
