@@ -40,7 +40,13 @@ BOOST_AUTO_TEST_SUITE(EngineOff_function)
 		BOOST_CHECK(!car.IsEngineOn());
 	}
 
-	//TODO: добавить тесты в случае с ненулевой скоростью и ненейтральной передачей
+	BOOST_AUTO_TEST_CASE(can_not_turn_off_when_speed_is_not_0)
+	{
+		car.SetGear(1);
+		car.SetSpeed(30);
+		BOOST_CHECK(!car.EngineOff());
+		BOOST_CHECK(!car.IsEngineOn());
+	}
 
 BOOST_AUTO_TEST_SUITE_END()
 
