@@ -107,4 +107,16 @@ CCar car;
 		car.SetSpeed(61);
 		BOOST_CHECK(!car.SetGear(3));
 	}
+
+	BOOST_AUTO_TEST_CASE(can_set_fourth_gear_when_speed_is_between_40_and_90)
+	{
+		car.SetSpeed(39);
+		BOOST_CHECK(!car.SetGear(4));
+		car.SetSpeed(40);
+		BOOST_CHECK(car.SetGear(4));
+		car.SetSpeed(90);
+		BOOST_CHECK(car.SetGear(4));
+		car.SetSpeed(91);
+		BOOST_CHECK(!car.SetGear(4));
+	}
 BOOST_AUTO_TEST_SUITE_END()
