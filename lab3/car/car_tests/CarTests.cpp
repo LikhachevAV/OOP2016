@@ -89,35 +89,28 @@ BOOST_FIXTURE_TEST_SUITE(Car, CarFixture)
 		{
 			TurnedOnEngineCarWithSpeed30OnFirstGear()
 			{
-				car.SetSpeed(30);
-			}
-		};
-
-		BOOST_FIXTURE_TEST_SUITE(TurnedOnEngineCar, TurnedOnEngineCarWithSpeed30OnFirstGear)
-			BOOST_AUTO_TEST_CASE(can_set_second_gear_when_speed_is_30_and_can_not_set_first_gear_when_more_than_30)
-			{
-				car.EngineOn();
 				car.SetGear(1);
 				car.SetSpeed(30);
-				car.SetGear(2);
-				car.SetSpeed(31);
-				BOOST_CHECK(!car.SetGear(1));
-			}
-		BOOST_AUTO_TEST_SUITE_END()
-
-		struct TurnedOnEngineCarWithSpeed50OnSecondtGear : TurnedOnEngineCarWithSpeed30OnFirstGear
-		{
-			TurnedOnEngineCarWithSpeed50OnSecondtGear()
-			{
-				car.SetGear(2);
-				car.SetSpeed(50);
 			}
 		};
 
 		BOOST_FIXTURE_TEST_SUITE(TurnedOnEngineCar, TurnedOnEngineCarWithSpeed30OnFirstGear)
-			BOOST_AUTO_TEST_CASE(can_not_set_speed_more_than_50_on_second_gear)
+			BOOST_AUTO_TEST_CASE(when_it_is_we_can_shift_gears_forward_and_set_speeds)
 			{
+				BOOST_CHECK(!car.EngineOff());
+				BOOST_CHECK(!car.SetSpeed(31));
+				BOOST_CHECK(car.SetGear(2));
+				BOOST_CHECK(car.SetSpeed(50));
 				BOOST_CHECK(!car.SetSpeed(51));
+				BOOST_CHECK(car.SetGear(3));
+				BOOST_CHECK(car.SetSpeed(60));
+				BOOST_CHECK(!car.SetSpeed(61));
+				BOOST_CHECK(car.SetGear(4));
+				BOOST_CHECK(car.SetSpeed(90));
+				BOOST_CHECK(!car.SetSpeed(91));
+				BOOST_CHECK(car.SetGear(5));
+				BOOST_CHECK(car.SetSpeed(150));
+				BOOST_CHECK(!car.SetSpeed(151));
 			}
 		BOOST_AUTO_TEST_SUITE_END()
 

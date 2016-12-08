@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include <iostream>
+#include "stdafx.h"
 #include <map>
 
 static const int MIN_SPEED = 0;
@@ -22,12 +22,12 @@ enum struct Direction {backward, stop, forward};
 class CCar
 {
 public:
-	void Info(std::ostream & stream)const;
 	bool IsEngineOn();
 	bool EngineOn();
 	bool EngineOff();
 	bool SetGear(int gear);
 	bool SetSpeed(int speed);
+	void Info(std::ostream & out);
 
 private:
 	bool m_isEngineOn = false;

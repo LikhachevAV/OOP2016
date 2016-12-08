@@ -9,11 +9,6 @@ using namespace std::placeholders;
 using namespace boost::phoenix::placeholders;
 using namespace boost::phoenix;
 
-void CCar::Info(std::ostream & stream)const
-{
-	
-}
-
 bool CCar::IsEngineOn()
 {
 	return m_isEngineOn;
@@ -30,7 +25,6 @@ bool CCar::EngineOn()
 		m_isEngineOn = true;
 		return true;
 	}
-	
 }
 
 bool CCar::EngineOff()
@@ -47,7 +41,6 @@ bool CCar::EngineOff()
 			<< " turned on!" << endl;
 		return false;
 	}
-	
 }
 
 bool CCar::SetGear(int gear)
@@ -91,5 +84,26 @@ bool CCar::SetSpeed(int speed)
 			<< currentGearMinSpeed << " and " << currentGearMaxSpeed << '!' << endl;
 		return false;
 	}
-	
+}
+
+void CCar::Info(ostream & out)
+{
+	string engineStatus = m_isEngineOn ? "on" : "off";
+	string direction;
+	switch (m_direction) 
+	{
+	case Direction::stop:
+			direction = "stop";
+			break;
+	case Direction::forward:
+			direction = "forward";
+			break;
+	case Direction::backward:
+			direction = "backward";
+			break;
+	}
+	out << "Car engine is " << engineStatus << endl
+		<< "Current direction: " << direction << endl
+		<< "current gear: " << m_gear << endl
+		<< "current speed: " << m_speed << endl;
 }
