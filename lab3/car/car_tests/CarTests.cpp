@@ -77,6 +77,27 @@ BOOST_FIXTURE_TEST_SUITE(Car, CarFixture)
 			car.SetSpeed(30);
 			BOOST_CHECK(car.SetGear(1));
 		}
+
+		struct TurnedOnEngineCarWithSpeed30OnFirstGear : TurnedOnEngineCar
+		{
+			TurnedOnEngineCarWithSpeed30OnFirstGear()
+			{
+				car.SetSpeed(30);
+			}
+		};
+
+		BOOST_FIXTURE_TEST_SUITE(TurnedOnEngineCar, TurnedOnEngineCarWithSpeed30OnFirstGear)
+			BOOST_AUTO_TEST_CASE(can_set_second_gear_when_speed_is_30_and_can_not_set_first_gear_when_more_than_30)
+			{
+				car.EngineOn();
+				car.SetGear(1);
+				car.SetSpeed(30);
+				car.SetGear(2);
+				car.SetSpeed(31);
+				BOOST_CHECK(!car.SetGear(1));
+			}
+		BOOST_AUTO_TEST_SUITE_END()
+
 	BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_AUTO_TEST_SUITE_END()
