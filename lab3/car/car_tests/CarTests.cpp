@@ -16,11 +16,11 @@ BOOST_FIXTURE_TEST_SUITE(Car, CarFixture)
 	BOOST_AUTO_TEST_SUITE_END()
 
 
-BOOST_AUTO_TEST_SUITE(IsEngineOn_function)
-	BOOST_AUTO_TEST_CASE(return_false_on_just_declared_car)
-	{
-		BOOST_CHECK(!car.IsEngineOn());
-	}
+	BOOST_AUTO_TEST_SUITE(IsEngineOn_function)
+		BOOST_AUTO_TEST_CASE(return_false_on_just_declared_car)
+		{
+			BOOST_CHECK(!car.IsEngineOn());
+		}
 	BOOST_AUTO_TEST_SUITE_END()
 
 	BOOST_AUTO_TEST_SUITE(EngineOn_function)
@@ -68,6 +68,14 @@ BOOST_AUTO_TEST_SUITE(IsEngineOn_function)
 			BOOST_CHECK(car.SetSpeed(30));
 			BOOST_CHECK(!car.EngineOff());
 			BOOST_CHECK(car.IsEngineOn());
+		}
+
+		BOOST_AUTO_TEST_CASE(can_set_first_gear_and_set_speed_30_when_engine_is_turned_on_and_speed_is_0)
+		{
+			car.EngineOn();
+			BOOST_CHECK(car.SetGear(1));
+			car.SetSpeed(30);
+			BOOST_CHECK(car.SetGear(1));
 		}
 	BOOST_AUTO_TEST_SUITE_END()
 
