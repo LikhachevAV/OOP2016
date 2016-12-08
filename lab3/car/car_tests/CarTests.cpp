@@ -8,6 +8,14 @@ struct CarFixture
 
 BOOST_FIXTURE_TEST_SUITE(Car, CarFixture)
 
+	BOOST_AUTO_TEST_SUITE(SetGear_function)
+		BOOST_AUTO_TEST_CASE(can_not_set_gear_on_turned_of_engine)
+		{
+			BOOST_CHECK(!car.SetGear(1));
+		}
+	BOOST_AUTO_TEST_SUITE_END()
+
+
 BOOST_AUTO_TEST_SUITE(IsEngineOn_function)
 	BOOST_AUTO_TEST_CASE(return_false_on_just_declared_car)
 	{
