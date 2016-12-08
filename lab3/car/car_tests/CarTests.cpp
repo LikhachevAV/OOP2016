@@ -78,6 +78,13 @@ BOOST_FIXTURE_TEST_SUITE(Car, CarFixture)
 			BOOST_CHECK(car.SetGear(1));
 		}
 
+		BOOST_AUTO_TEST_CASE(can_not_set_first_gear_when_direction_is_backward)
+		{
+			car.SetGear(-1);
+			car.SetSpeed(20);
+			BOOST_CHECK(!car.SetGear(1));
+		}
+
 		struct TurnedOnEngineCarWithSpeed30OnFirstGear : TurnedOnEngineCar
 		{
 			TurnedOnEngineCarWithSpeed30OnFirstGear()
