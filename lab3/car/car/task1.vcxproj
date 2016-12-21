@@ -188,6 +188,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\gearMapTMP\CommandReader.cpp" />
     <ClCompile Include="CCar.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp">
