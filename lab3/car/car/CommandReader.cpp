@@ -1,42 +1,28 @@
-﻿#include <iostream>
-#include <string>
-#include <map>
-#include <sstream>
+#include "stdafx.h"
+#include "CommandReader.h"
 
-static std::map<std::string, bool> commandsArgsCount =	{
-										{"Info", false},
-										{"EngineOn", false},
-										{"EngineOff", false },
-										{"Exit", false },
-										{"SetGear", true},
-										{"SetSpeed", true }
-									};
+using namespace std;
 
-struct Command
+bool ReadCommand(Command & command)
 {
-	std::string name;
-	int value = 0;
-};
-
-bool ReadCommand(std::istream & in, Command & command)
-{
-	std::string commandLine;
-	if (!std::getline(in, commandLine) && commandLine.length() == 0)
+	string commandLine;
+	if (!getline(cin, commandLine) && (commandLine.length() == 0))
 	{
-		std::cout << "Empty command error!";
+		cout << "Empty command error!";
 		return false;
 	}
-	
-	std::string commandStr = [&] {
-		std::string tmpS;
-		for (int i = 0; i < commandLine.length() && commandLine[i] != '<';  ++i)
-		{
-			tmpS.push_back(commandLine[i]);
-		}
-		return tmpS;};
-	if (commandsArgsCount[commandStr] == 0)
+
+	string commandName;
+	for (size_t i = 0; i < commandLine.length(), commandLine[i] != '<'; ++i)
 	{
-		std::cout << "Bad command error!";
+		commandName.push_back(commandLine[i]);
 	}
+
+	if (commandArgsCount[commandName] == 0)
+	{
+		cout << "Bad command error!";
+		return false;
+	}
+	command.name = commandName;
 	return true;
 }

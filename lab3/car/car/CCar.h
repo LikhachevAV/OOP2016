@@ -1,6 +1,5 @@
 ﻿#pragma once
 #include "stdafx.h"
-#include <map>
 
 static const int MIN_SPEED = 0;
 static const int MAX_SPEED = 150;
