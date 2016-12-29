@@ -1,18 +1,16 @@
 #include "stdafx.h"
 #include "CommandReader.h"
 
-using namespace std;
-
-bool ReadCommand(istream & input, Command & command)
+bool ReadCommand(std::istream & input, Command & command)
 {
-	string commandLine;
+	std:: string commandLine;
 	if (!getline(input, commandLine) && (commandLine.length() == 0))
 	{
-		cout << "Empty command error!";
+		std::cout << "Empty command error!";
 		return false;
 	}
 	size_t i = 0;
-	string commandName;
+	std::string commandName;
 	for (i = 0; i < commandLine.length(), commandLine[i] != '<'; ++i)
 	{
 		commandName.push_back(commandLine[i]);
@@ -20,11 +18,11 @@ bool ReadCommand(istream & input, Command & command)
 
 	if (commandArgsCount[commandName] == 0)
 	{
-		cout << "Bad command error!";
+		std::cout << "Bad command error!";
 		return false;
 	}
 	command.name = commandName;
-	string commandValue;
+	std::string commandValue;
 	if (commandLine[i] != '<')
 	{
 		++i;
