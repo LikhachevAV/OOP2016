@@ -6,8 +6,15 @@ bool ReadCommand(std::istream & input, Command & command)
 	std:: string commandLine;
 	if (!getline(input, commandLine) || (commandLine.length() == 0))
 	{
-		std::cout << "Empty command error!";
-		return false;
+		if (!input.eof())
+		{
+			std::cout << "Empty command error!" << std::endl;
+			return false;
+		}
+		else
+		{
+			return true;
+		}
 	}
 	size_t i = 0;
 	std::string commandName;
