@@ -4,16 +4,17 @@
 bool ReadCommand(std::istream & input, Command & command)
 {
 	std:: string commandLine;
-	if (!getline(input, commandLine) && (commandLine.length() == 0))
+	if (!getline(input, commandLine) || (commandLine.length() == 0))
 	{
 		std::cout << "Empty command error!";
 		return false;
 	}
 	size_t i = 0;
 	std::string commandName;
-	for (i = 0; i < commandLine.length(), commandLine[i] != '<'; ++i)
+	while (i < commandLine.length() && commandLine[i] != '<')
 	{
 		commandName.push_back(commandLine[i]);
+		++i;
 	}
 
 	if (commandArgumentsCount[commandName] == 0)
@@ -23,18 +24,19 @@ bool ReadCommand(std::istream & input, Command & command)
 	}
 	command.name = commandName;
 	std::string commandValue;
-	if (commandLine[i] == '<')
-	{
-		++i;
-	}
+
 	if (commandArgumentsCount[commandName] == 2 && commandLine[i] == '<')
 	{ 
+		++i;
 		while (commandLine.length() && commandLine[i] != '>')
 		{
 			commandValue.push_back(commandLine[i]);
 			++i;
 		}
 	}
-	command.value = stoi(commandValue);
+	if (commandValue.length() != 0)
+	{
+		command.value = stoi(commandValue);
+	}
 	return true;
 }

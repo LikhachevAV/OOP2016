@@ -1,7 +1,7 @@
 #pragma once
 #include "stdafx.h"
 
-std::map<std::string, int> commandArgumentsCount = {
+static std::map<std::string, int> commandArgumentsCount = {
 	{ "Info", 1 },
 	{ "EngineOn", 1 },
 	{ "EngineOff", 1 },

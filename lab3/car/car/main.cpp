@@ -39,6 +39,7 @@ int main()
 	CCar myCar;
 	while (!cin.eof())
 	{
+		cout << "Please, enter command for car: ";
 		if (ReadCommand(cin, command))
 		{
 			HandleCommand(myCar, command);

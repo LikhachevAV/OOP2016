@@ -3,6 +3,7 @@
 #pragma warning (push, 3)
 #include <boost/phoenix.hpp>
 #pragma warning (pop)
+#pragma warning(disable: 4503)
 
 using namespace std;
 using namespace std::placeholders;
