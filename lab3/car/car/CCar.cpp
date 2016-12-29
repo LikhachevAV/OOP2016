@@ -10,24 +10,29 @@ using namespace std::placeholders;
 using namespace boost::phoenix::placeholders;
 using namespace boost::phoenix;
 
-bool CCar::IsEngineOn()
+const bool CCar::IsEngineOn()
 {
 	return m_isEngineOn;
 }
 
-Direction CCar::GetDirection()
+const Direction CCar::GetDirection()
 {
 	return m_direction;
 }
 
-int CCar::GetGear()
+const int CCar::GetGear()
 {
 	return m_gear;
 }
 
-unsigned CCar::GetSpeed()
+const unsigned CCar::GetSpeed()
 {
 	return m_speed;
+}
+
+const string CCar::GetLastErrorDescription()
+{
+	return m_lastErrorDescription;
 }
 
 bool CCar::EngineOn()

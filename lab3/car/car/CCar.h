@@ -25,14 +25,16 @@ private:
 	int m_gear = 0;
 	unsigned m_speed = 0;
 	Direction m_direction = Direction::stop;
+	std::string m_lastErrorDescription;
 
 public:
-	bool IsEngineOn();
+	const bool IsEngineOn();
+	const Direction GetDirection();
+	const int GetGear();
+	const unsigned GetSpeed();
+	const std::string GetLastErrorDescription();
 	bool EngineOn();
 	bool EngineOff();
 	bool SetGear(int gear);
 	bool SetSpeed(int speed);
-	Direction GetDirection();
-	int GetGear();
-	unsigned GetSpeed();
 };
