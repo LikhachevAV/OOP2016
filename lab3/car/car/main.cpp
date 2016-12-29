@@ -1,7 +1,6 @@
 ﻿#include "stdafx.h"
 #include "CCar.h"
 #include "CommandReader.h"
-#include "main.h"
 
 using namespace std;
 
