@@ -16,18 +16,18 @@ bool ReadCommand(std::istream & input, Command & command)
 		commandName.push_back(commandLine[i]);
 	}
 
-	if (commandArgsCount[commandName] == 0)
+	if (commandArgumentsCount[commandName] == 0)
 	{
 		std::cout << "Bad command error!";
 		return false;
 	}
 	command.name = commandName;
 	std::string commandValue;
-	if (commandLine[i] != '<')
+	if (commandLine[i] == '<')
 	{
 		++i;
 	}
-	if (commandArgsCount[commandName] == 2 && commandLine[i] == '<')
+	if (commandArgumentsCount[commandName] == 2 && commandLine[i] == '<')
 	{ 
 		while (commandLine.length() && commandLine[i] != '>')
 		{
