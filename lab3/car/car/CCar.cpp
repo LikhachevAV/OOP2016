@@ -15,6 +15,21 @@ bool CCar::IsEngineOn()
 	return m_isEngineOn;
 }
 
+Direction CCar::GetDirection()
+{
+	return m_direction;
+}
+
+int CCar::GetGear()
+{
+	return m_gear;
+}
+
+unsigned CCar::GetSpeed()
+{
+	return m_speed;
+}
+
 bool CCar::EngineOn()
 {
 	if (m_isEngineOn)
@@ -84,26 +99,4 @@ bool CCar::SetSpeed(int speed)
 			<< currentGearMinSpeed << " and " << currentGearMaxSpeed << '!' << endl;
 		return false;
 	}
-}
-
-void CCar::Info()
-{
-	string engineStatus = m_isEngineOn ? "on" : "off";
-	string direction;
-	switch (m_direction) 
-	{
-	case Direction::stop:
-			direction = "stop";
-			break;
-	case Direction::forward:
-			direction = "forward";
-			break;
-	case Direction::backward:
-			direction = "backward";
-			break;
-	}
-	cout << "Car engine is " << engineStatus << endl
-		<< "Current direction: " << direction << endl
-		<< "current gear: " << m_gear << endl
-		<< "current speed: " << m_speed << endl;
 }

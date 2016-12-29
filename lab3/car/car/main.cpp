@@ -1,15 +1,41 @@
 ﻿#include "stdafx.h"
 #include "CCar.h"
 #include "CommandReader.h"
+#include "main.h"
 
 using namespace std;
+
+void Info(CCar & car) {
+	auto engineStatus = [&]() {
+		return car.IsEngineOn() ? "on" : "off";
+	};
+
+	auto direction = [&]() {
+		switch (car.GetDirection())
+		{
+		case Direction::backward:
+			return "backward";
+		case Direction::stop:
+			return "stop";
+		case Direction::forward:
+			return "forward";
+		default:
+			return "";
+		}
+	};
+
+	cout << "Car engine is " << engineStatus() << endl
+		<< "Current direction: " << direction() << endl
+		<< "current gear: " << car.GetGear() << endl
+		<< "current speed: " << car.GetSpeed() << endl;
+}
 
 void HandleCommand(CCar & car, const Command & command)
 {
 
 	if (command.name == "Info")
 	{
-		car.Info();
+		Info(car);
 	}
 	else if (command.name == "EngineOn")
 	{

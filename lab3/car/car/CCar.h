@@ -16,21 +16,23 @@ static const std::map<int, SpeedRange> availableSpeedRangesMap = { { -1,{ MIN_SP
 															   	   { 4,{ 40, 90 } },
 																   { 5,{ 50, MAX_SPEED } } };
 
-enum struct Direction {backward, stop, forward};
+enum struct Direction { backward, stop, forward };
 
 class CCar
 {
+private:
+	bool m_isEngineOn = false;
+	int m_gear = 0;
+	unsigned m_speed = 0;
+	Direction m_direction = Direction::stop;
+
 public:
 	bool IsEngineOn();
 	bool EngineOn();
 	bool EngineOff();
 	bool SetGear(int gear);
 	bool SetSpeed(int speed);
-	void Info();
-
-private:
-	bool m_isEngineOn = false;
-	int m_gear = 0;
-	unsigned m_speed = 0;
-	Direction m_direction = Direction::stop;
+	Direction GetDirection();
+	int GetGear();
+	unsigned GetSpeed();
 };
