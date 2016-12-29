@@ -50,8 +50,7 @@ bool CCar::SetGear(int gear)
 	unsigned currentGearMaxSpeed = availableSpeedRangesMap.find(gear)->second.max;
 	bool canSetGear = m_isEngineOn &&( (gear == -1) && (m_direction == Direction::stop) ||
 		((m_direction == Direction::stop || m_direction == Direction::forward) &&
-			m_speed <= currentGearMaxSpeed &&
-			m_speed >= currentGearMinSpeed));
+			m_speed <= currentGearMaxSpeed && m_speed >= currentGearMinSpeed && gear != -1));
 	if (canSetGear)
 	{
 		m_gear = gear;

@@ -95,9 +95,15 @@ BOOST_FIXTURE_TEST_SUITE(Car, CarFixture)
 		};
 
 		BOOST_FIXTURE_TEST_SUITE(TurnedOnEngineCar, TurnedOnEngineCarWithSpeed30OnFirstGear)
+			BOOST_AUTO_TEST_CASE(when_it_is_we_can_set_speed_20_and_can_not_set_rewerse_gear)
+			{
+				BOOST_CHECK(car.SetSpeed(20));
+				BOOST_CHECK(!car.SetGear(-1));
+			}
+
 			BOOST_AUTO_TEST_CASE(when_it_is_we_can_shift_gears_forward_and_set_speeds)
 			{
-				BOOST_CHECK(car.SetGear(-1));
+				BOOST_CHECK(!car.SetGear(-1));
 				BOOST_CHECK(!car.EngineOff());
 				BOOST_CHECK(!car.SetSpeed(31));
 				BOOST_CHECK(car.SetGear(2));
