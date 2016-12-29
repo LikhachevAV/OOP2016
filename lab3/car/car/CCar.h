@@ -26,7 +26,7 @@ public:
 	bool EngineOff();
 	bool SetGear(int gear);
 	bool SetSpeed(int speed);
-	void Info(std::ostream & out);
+	void Info();
 
 private:
 	bool m_isEngineOn = false;

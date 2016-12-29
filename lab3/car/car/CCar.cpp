@@ -86,7 +86,7 @@ bool CCar::SetSpeed(int speed)
 	}
 }
 
-void CCar::Info(ostream & out)
+void CCar::Info()
 {
 	string engineStatus = m_isEngineOn ? "on" : "off";
 	string direction;
@@ -102,7 +102,7 @@ void CCar::Info(ostream & out)
 			direction = "backward";
 			break;
 	}
-	out << "Car engine is " << engineStatus << endl
+	cout << "Car engine is " << engineStatus << endl
 		<< "Current direction: " << direction << endl
 		<< "current gear: " << m_gear << endl
 		<< "current speed: " << m_speed << endl;
