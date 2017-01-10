@@ -9,7 +9,7 @@ struct CarFixture
 BOOST_FIXTURE_TEST_SUITE(Car, CarFixture)
 
 	BOOST_AUTO_TEST_SUITE(SetGear_function)
-		BOOST_AUTO_TEST_CASE(can_not_set_gear_on_turned_of_engine)
+		BOOST_AUTO_TEST_CASE(can_not_set_gear_on_turned_off_engine)
 		{
 			BOOST_CHECK(!car.SetGear(1));
 		}
@@ -65,17 +65,18 @@ BOOST_FIXTURE_TEST_SUITE(Car, CarFixture)
 		BOOST_AUTO_TEST_CASE(can_not_turn_off_engine_when_speed_is_not_0)
 		{
 			BOOST_CHECK(car.SetGear(1));
+			BOOST_CHECK_EQUAL(car.GetGear(), 1);
 			BOOST_CHECK(car.SetSpeed(30));
+			BOOST_CHECK_EQUAL(car.GetSpeed(), (unsigned)30);
 			BOOST_CHECK(!car.EngineOff());
 			BOOST_CHECK(car.IsEngineOn());
 		}
 
-		BOOST_AUTO_TEST_CASE(can_set_first_gear_and_set_speed_30_when_engine_is_turned_on_and_speed_is_0)
+		BOOST_AUTO_TEST_CASE(can_not_set_same_gear)
 		{
-			car.EngineOn();
 			BOOST_CHECK(car.SetGear(1));
-			car.SetSpeed(30);
-			BOOST_CHECK(car.SetGear(1));
+			BOOST_CHECK_EQUAL(car.GetGear(), 1);
+			BOOST_CHECK(!car.SetGear(1));
 		}
 
 		BOOST_AUTO_TEST_CASE(can_not_set_first_gear_when_direction_is_backward)
@@ -83,6 +84,9 @@ BOOST_FIXTURE_TEST_SUITE(Car, CarFixture)
 			car.SetGear(-1);
 			car.SetSpeed(20);
 			BOOST_CHECK(!car.SetGear(1));
+			BOOST_CHECK_EQUAL(car.GetGear(), -1);
+			BOOST_CHECK_EQUAL((int)car.GetDirection(), (int)Direction::backward);
+			BOOST_CHECK_EQUAL(car.GetSpeed(), (unsigned)20);
 		}
 
 		struct TurnedOnEngineCarWithSpeed30OnFirstGear : TurnedOnEngineCar
@@ -99,6 +103,7 @@ BOOST_FIXTURE_TEST_SUITE(Car, CarFixture)
 			{
 				BOOST_CHECK(car.SetSpeed(20));
 				BOOST_CHECK(!car.SetGear(-1));
+				BOOST_CHECK_EQUAL(car.GetGear(), 1);
 			}
 
 			BOOST_AUTO_TEST_CASE(when_it_is_we_can_shift_gears_forward_and_set_speeds)

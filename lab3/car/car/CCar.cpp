@@ -39,6 +39,7 @@ bool CCar::EngineOn()
 {
 	if (m_isEngineOn)
 	{
+		m_lastErrorDescription = "Engine is already on!";
 		return false;
 	}
 	else
@@ -69,7 +70,9 @@ bool CCar::SetGear(int gear)
 {
 	unsigned currentGearMinSpeed = availableSpeedRangesMap.find(gear)->second.min;
 	unsigned currentGearMaxSpeed = availableSpeedRangesMap.find(gear)->second.max;
-	bool canSetGear = m_isEngineOn &&( (gear == -1) && (m_direction == Direction::stop) ||
+	bool canSetGear = m_isEngineOn &&
+		m_gear != gear &&
+		(gear == 0 || (gear == -1) && (m_direction == Direction::stop) ||
 		((m_direction == Direction::stop || m_direction == Direction::forward) &&
 			m_speed <= currentGearMaxSpeed && m_speed >= currentGearMinSpeed && gear != -1));
 	if (canSetGear)
