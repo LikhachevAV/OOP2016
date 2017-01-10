@@ -14,6 +14,15 @@ struct TurnedOnEngineCar : CarFixture
 	}
 };
 
+struct CarWithBackwardDirection : TurnedOnEngineCar
+{
+	CarWithBackwardDirection()
+	{
+		car.SetGear(-1);
+		car.SetSpeed(20);
+	}
+};
+
 struct TurnedOnEngineCarWithSpeed30OnFirstGear : TurnedOnEngineCar
 {
 	TurnedOnEngineCarWithSpeed30OnFirstGear()
@@ -100,6 +109,13 @@ BOOST_FIXTURE_TEST_SUITE(WhenCarDirectionIsForwardAndSpeedIsNot0, TurnedOnEngine
 		BOOST_CHECK(car.SetSpeed(20));
 		BOOST_CHECK(!car.SetGear(-1));
 		BOOST_CHECK_EQUAL(car.GetGear(), 1);
+	}
+
+	BOOST_AUTO_TEST_CASE(SetSpeed_function_switch_direction_to_STOP_if_speed_value_0)
+	{
+		BOOST_CHECK(car.SetSpeed(0));
+		BOOST_CHECK_EQUAL(car.GetSpeed(), (unsigned)0);
+		BOOST_CHECK_EQUAL((int)car.GetDirection(), (int)Direction::stop);
 	}
 
 	BOOST_AUTO_TEST_CASE(when_it_is_we_can_shift_gears_forward_and_set_speeds)
