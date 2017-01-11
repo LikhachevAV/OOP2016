@@ -26,6 +26,7 @@ private:
 	unsigned m_speed = 0;
 	Direction m_direction = Direction::stop;
 	std::string m_lastErrorDescription;
+	void SetDirection();
 
 public:
 	const bool IsEngineOn();

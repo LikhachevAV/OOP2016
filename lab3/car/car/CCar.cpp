@@ -78,7 +78,7 @@ bool CCar::SetGear(int gear)
 	if (canSetGear)
 	{
 		m_gear = gear;
-		m_direction = (gear == -1) ? Direction::backward : Direction::forward;
+		SetDirection();
 		return true;
 	}
 	else
@@ -96,6 +96,10 @@ bool CCar::SetSpeed(unsigned speed)
 	unsigned currentGearMinSpeed = availableSpeedRangesMap.find(m_gear)->second.min;
 	unsigned currentGearMaxSpeed = availableSpeedRangesMap.find(m_gear)->second.max;
 	auto canSetSpeed = [&]() {
+		if (!m_isEngineOn)
+		{
+			return false;
+		}
 		if (m_gear == 0 && speed > m_speed)
 		{
 			return false;
@@ -107,10 +111,7 @@ bool CCar::SetSpeed(unsigned speed)
 	if (canSetSpeed())
 	{
 		m_speed = speed;
-		if (m_speed == 0)
-		{
-			m_direction = Direction::stop;
-		}
+		SetDirection();
 		return true;
 	}
 	else
@@ -123,5 +124,22 @@ bool CCar::SetSpeed(unsigned speed)
 			.append(to_string(currentGearMaxSpeed))
 			.append("!");
 		return false;
+	}
+}
+
+void CCar::SetDirection()
+{
+	if (m_speed == 0 && m_direction != Direction::stop)
+	{
+		m_direction = Direction::stop;
+	} else
+	if (m_gear == -1 && m_direction != Direction::backward)
+	{
+		m_direction = Direction::backward;
+	}
+	else
+	if (m_direction != Direction::forward)
+	{
+		m_direction = Direction::forward;
 	}
 }
