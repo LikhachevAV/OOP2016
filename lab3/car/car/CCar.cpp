@@ -95,10 +95,16 @@ bool CCar::SetSpeed(unsigned speed)
 {
 	unsigned currentGearMinSpeed = availableSpeedRangesMap.find(m_gear)->second.min;
 	unsigned currentGearMaxSpeed = availableSpeedRangesMap.find(m_gear)->second.max;
-	bool canSetSpeed = m_speed != speed &&
-		speed >= currentGearMinSpeed &&
-		speed <= currentGearMaxSpeed;
-	if (canSetSpeed)
+	auto canSetSpeed = [&]() {
+		if (m_gear == 0 && speed > m_speed)
+		{
+			return false;
+		}
+		return (m_speed != speed &&
+			speed >= currentGearMinSpeed &&
+			speed <= currentGearMaxSpeed);
+	};
+	if (canSetSpeed())
 	{
 		m_speed = speed;
 		if (m_speed == 0)
