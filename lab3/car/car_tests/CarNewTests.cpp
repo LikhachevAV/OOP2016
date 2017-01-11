@@ -101,25 +101,36 @@ struct InFifthGearWithMaxSpeed150 : InFourthGearWithMaxSpeed90 {
 	}
 };
 
-BOOST_FIXTURE_TEST_SUITE(WhenCarEngineIsOff, CarFixture)
+BOOST_FIXTURE_TEST_SUITE(When_car_engine_is_off, CarFixture)
 
 	BOOST_AUTO_TEST_SUITE(SetGear_function)
-		BOOST_AUTO_TEST_CASE(can_not_set_gear)
+		BOOST_AUTO_TEST_CASE(can_not_set_reverse_gear)
 		{
-			BOOST_CHECK(!car.SetGear(1));
+			BOOST_CHECK(!car.SetGear(-1));
+		}
+		BOOST_AUTO_TEST_CASE(can_not_set_same_gear)
+		{
+			BOOST_CHECK(!car.SetGear(0));
+		}
+	BOOST_AUTO_TEST_SUITE_END()
+
+	BOOST_AUTO_TEST_SUITE(SetSpeed_function)
+		BOOST_AUTO_TEST_CASE(can_not_same_speed)
+		{
+			BOOST_CHECK(!car.SetSpeed(0));
 		}
 	BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_AUTO_TEST_SUITE_END()
+//#########################
 
 BOOST_FIXTURE_TEST_SUITE(WhenCarEngineIsOn, TurnedOnEngineCar)
 
-BOOST_AUTO_TEST_SUITE(SetGear_function)
-BOOST_AUTO_TEST_CASE(can_set_gear)
-	{
-		BOOST_CHECK(car.SetGear(1));
-	}
+	BOOST_AUTO_TEST_SUITE(SetGear_function)
+		BOOST_AUTO_TEST_CASE(can_set_gear)
+		{
+			BOOST_CHECK(car.SetGear(1));
+		}
 	BOOST_AUTO_TEST_SUITE_END()
 
-		BOOST_AUTO_TEST_SUITE_END()
-
+BOOST_AUTO_TEST_SUITE_END()

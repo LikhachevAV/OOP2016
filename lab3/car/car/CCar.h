@@ -1,8 +1,8 @@
 ﻿#pragma once
 #include "stdafx.h"
 
-static const int MIN_SPEED = 0;
-static const int MAX_SPEED = 150;
+static const unsigned MIN_SPEED = 0;
+static const unsigned MAX_SPEED = 150;
 struct SpeedRange
 {
 	unsigned min;
@@ -36,5 +36,5 @@ public:
 	bool EngineOn();
 	bool EngineOff();
 	bool SetGear(int gear);
-	bool SetSpeed(int speed);
+	bool SetSpeed(unsigned speed);
 };
