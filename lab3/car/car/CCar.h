@@ -8,7 +8,7 @@ struct SpeedRange
 	unsigned min;
 	unsigned max;
 };
-static const std::map<int, SpeedRange> availableSpeedRangesMap = { { -1,{ MIN_SPEED,20 } },
+static const std::map<int, SpeedRange> availableSpeedRangesMap = { { -1,{ MIN_SPEED, 20 } },
 																   { 0,{ 0, 0 } },
 																   { 1,{ 0, 30 } },
 																   { 2,{ 20, 50 } },
