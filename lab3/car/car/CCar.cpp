@@ -129,16 +129,15 @@ bool CCar::SetSpeed(unsigned speed)
 
 void CCar::SetDirection()
 {
-	if (m_speed == 0 && m_direction != Direction::stop)
+	if (m_speed == 0)
 	{
 		m_direction = Direction::stop;
 	} else
-	if (m_gear == -1 && m_direction != Direction::backward)
+	if (m_gear == -1)
 	{
 		m_direction = Direction::backward;
 	}
 	else
-	if (m_direction != Direction::forward)
 	{
 		m_direction = Direction::forward;
 	}
