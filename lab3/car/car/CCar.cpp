@@ -59,7 +59,7 @@ bool CCar::EngineOff()
 	{
 		m_lastErrorDescription = "";
 		m_lastErrorDescription.append("Can't turn off the cars engine!")
-			.append(" Current gear must be 0,speed must be 0 and engine must be turned on!");
+			.append(" Current gear must be 0, speed must be 0 and engine must be turned on!");
 		return false;
 	}
 }
@@ -140,13 +140,15 @@ void CCar::SetDirection()
 	if (m_speed == 0)
 	{
 		m_direction = Direction::stop;
-	} else
-	if (m_gear == -1 && m_direction != Direction::forward)
-	{
-		m_direction = Direction::backward;
-	} else
-	if (m_direction != Direction::backward)
-	{
-		m_direction = Direction::forward;
 	}
+	else
+		if (m_gear == -1 && m_direction != Direction::forward)
+		{
+			m_direction = Direction::backward;
+		}
+		else
+			if (m_direction != Direction::backward)
+			{
+				m_direction = Direction::forward;
+			}
 }
