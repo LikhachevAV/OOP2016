@@ -1,14 +1,10 @@
 ﻿#include "stdafx.h"
 #include "CCar.h"
 #pragma warning (push, 3)
-#include <boost/phoenix.hpp>
 #pragma warning (pop)
 #pragma warning(disable: 4503)
 
 using namespace std;
-using namespace std::placeholders;
-using namespace boost::phoenix::placeholders;
-using namespace boost::phoenix;
 
 const bool CCar::IsEngineOn()
 {
@@ -70,8 +66,8 @@ bool CCar::EngineOff()
 
 bool CCar::SetGear(int gear)
 {
+	m_lastErrorDescription = "";
 	auto setErrorMessage = [&]() {
-		m_lastErrorDescription = "";
 		m_lastErrorDescription.append("Can not set gear ")
 			.append(to_string(gear))
 			.append("!");
@@ -93,7 +89,6 @@ bool CCar::SetGear(int gear)
 	{
 		m_gear = gear;
 		SetDirection();
-		m_lastErrorDescription = "";
 		return true;
 	}
 	else
@@ -105,6 +100,7 @@ bool CCar::SetGear(int gear)
 
 bool CCar::SetSpeed(unsigned speed)
 {
+	m_lastErrorDescription = "";
 	unsigned currentGearMinSpeed = availableSpeedRangesMap.find(m_gear)->second.min;
 	unsigned currentGearMaxSpeed = availableSpeedRangesMap.find(m_gear)->second.max;
 	auto canSetSpeed = [&]() {
@@ -124,7 +120,6 @@ bool CCar::SetSpeed(unsigned speed)
 	{
 		m_speed = speed;
 		SetDirection();
-		m_lastErrorDescription = "";
 		return true;
 	}
 	else
