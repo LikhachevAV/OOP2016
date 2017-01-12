@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "..\car\CCar.h"
-#include "CarNewTests.h"
+#include "CarTests.h"
 
 BOOST_FIXTURE_TEST_SUITE(When_car_engine_is_off, CarFixture)
 
