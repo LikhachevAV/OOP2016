@@ -48,16 +48,16 @@ bool CCar::EngineOn()
 
 bool CCar::EngineOff()
 {
+	m_lastErrorDescription = "";
 	bool canTurnOffEngine = (m_gear == 0) && (m_speed == 0) && m_isEngineOn;
 	if (canTurnOffEngine)
 	{
 		m_isEngineOn = false;
-		m_lastErrorDescription = "";
+		
 		return true;
 	}
 	else
 	{
-		m_lastErrorDescription = "";
 		m_lastErrorDescription.append("Can't turn off the cars engine!")
 			.append(" Current gear must be 0, speed must be 0 and engine must be turned on!");
 		return false;

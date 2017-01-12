@@ -1,6 +1,9 @@
 #pragma once
 
 std::string blankString;
+std::string engineOffError =
+"Can't turn off the cars engine! Current gear must be 0, speed must be 0 and engine must be turned on!";
+
 
 void CarStatesCheck(CCar & car, bool isEngineOn, int gear, unsigned speed, Direction direction, std::string error)
 {
