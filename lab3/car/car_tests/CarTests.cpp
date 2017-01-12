@@ -36,6 +36,12 @@ auto canNotSwitchAndCheckGearAndSpeed = [&](CCar car, int gear, unsigned speed) 
 	CarStatesCheck(car, false, 0, 0, Direction::stop, GetSetSpeedError(car.GetGear()));
 };
 
+BOOST_AUTO_TEST_CASE(can_engine_on)
+{	
+	BOOST_CHECK(car.EngineOn());
+	CarStatesCheck(car, true, 0, 0, Direction::stop, blankString);
+}
+
 BOOST_AUTO_TEST_CASE(can_not_switch_less_than_MIN_GEAR_gear)
 {
 	canNotSwitchAndCheckGearAndSpeed(car, -2, 0);
