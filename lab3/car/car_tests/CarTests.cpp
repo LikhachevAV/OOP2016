@@ -147,4 +147,10 @@ BOOST_FIXTURE_TEST_SUITE(When_car_on_fifth_gear_and_its_speed_150, InFifthGearWi
 		BOOST_CHECK(!car.SetGear(6));
 		CarStatesCheck(car, true, 5, 150, Direction::forward);
 	}
+
+	BOOST_AUTO_TEST_CASE(can_set_neutral_gear)
+	{
+		BOOST_CHECK(car.SetGear(0));
+		CarStatesCheck(car, true, 0, 150, Direction::forward);
+	}
 BOOST_AUTO_TEST_SUITE_END()
