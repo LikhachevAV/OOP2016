@@ -1,7 +1,8 @@
 #pragma once
+#include "stdafx.h"
 
-std::string blankString;
-std::string engineOffError =
+const std::string blankString;
+const std::string engineOffError =
 "Can't turn off the cars engine! Current gear must be 0, speed must be 0 and engine must be turned on!";
 
 
