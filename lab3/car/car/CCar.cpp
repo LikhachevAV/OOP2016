@@ -68,6 +68,10 @@ bool CCar::EngineOff()
 
 bool CCar::SetGear(int gear)
 {
+	if (gear < MIN_GEAR || gear > MAX_GEAR)
+	{
+		return false;
+	}
 	unsigned currentGearMinSpeed = availableSpeedRangesMap.find(gear)->second.min;
 	unsigned currentGearMaxSpeed = availableSpeedRangesMap.find(gear)->second.max;
 	bool canSetGear = m_isEngineOn &&

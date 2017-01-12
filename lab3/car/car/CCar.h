@@ -3,13 +3,16 @@
 
 static const unsigned MIN_SPEED = 0;
 static const unsigned MAX_SPEED = 150;
+static const int MIN_GEAR = -1;
+static const int MAX_GEAR = 5;
+
 struct SpeedRange
 {
 	unsigned min;
 	unsigned max;
 };
 static const std::map<int, SpeedRange> availableSpeedRangesMap = { { -1,{ MIN_SPEED, 20 } },
-																   { 0,{ 0, 0 } },
+																   { 0,{ MIN_SPEED, MAX_SPEED } },
 																   { 1,{ 0, 30 } },
 																   { 2,{ 20, 50 } },
 																   { 3,{ 30, 60 } },
