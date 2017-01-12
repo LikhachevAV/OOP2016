@@ -68,8 +68,16 @@ bool CCar::EngineOff()
 
 bool CCar::SetGear(int gear)
 {
+	auto setErrorMessage = [&]() {
+		m_lastErrorDescription = "";
+		m_lastErrorDescription.append("Can not set gear ")
+			.append(to_string(gear))
+			.append("!");
+	};
+
 	if (gear < MIN_GEAR || gear > MAX_GEAR)
-	{
+	{	
+		setErrorMessage();
 		return false;
 	}
 	unsigned currentGearMinSpeed = availableSpeedRangesMap.find(gear)->second.min;
@@ -87,10 +95,7 @@ bool CCar::SetGear(int gear)
 	}
 	else
 	{
-		m_lastErrorDescription = "";
-		m_lastErrorDescription.append("Can not set gear ")
-			.append(to_string(gear))
-			.append("!");
+		setErrorMessage();
 		return false;
 	}
 }
