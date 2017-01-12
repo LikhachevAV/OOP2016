@@ -197,11 +197,12 @@ BOOST_FIXTURE_TEST_SUITE(When_car_on_second_gear_and_its_speed_50, InSecondGearW
 BOOST_AUTO_TEST_SUITE_END()
 //#########################
 
-/*BOOST_FIXTURE_TEST_SUITE(When_car_on_third_gear_and_its_speed_60, InThirdGearWithMaxSpeed60)
+BOOST_FIXTURE_TEST_SUITE(When_car_on_third_gear_and_its_speed_60, InThirdGearWithMaxSpeed60)
 	BOOST_AUTO_TEST_CASE(can_not_set_speed_more_than_60)
 	{
 		BOOST_CHECK(!car.SetSpeed(61));
-		CarStatesCheck(car, true, 3, 60, Direction::forward);
+		CarStatesCheck(car, true, 3, 60, Direction::forward,
+			GetSetSpeedError(3));
 	}
 BOOST_AUTO_TEST_SUITE_END()
 //#########################
@@ -210,48 +211,56 @@ BOOST_FIXTURE_TEST_SUITE(When_car_on_fourth_gear_and_its_speed_90, InFourthGearW
 	BOOST_AUTO_TEST_CASE(can_not_set_speed_less_than_30)
 	{
 		BOOST_CHECK(!car.SetSpeed(29));
-		CarStatesCheck(car, true, 4, 90, Direction::forward);
+		CarStatesCheck(car, true, 4, 90, Direction::forward,
+			GetSetSpeedError(4));
 	}
 BOOST_AUTO_TEST_SUITE_END()
 //#########################
 
 BOOST_FIXTURE_TEST_SUITE(When_car_on_fifth_gear_and_its_speed_150, InFifthGearWithMaxSpeed150)
-BOOST_AUTO_TEST_CASE(can_set_speed_50)
-{
-	BOOST_CHECK(car.SetSpeed(50));
-	CarStatesCheck(car, true, 5, 50, Direction::forward);
-}
-BOOST_AUTO_TEST_CASE(can_set_speed_more_than_150)
-{
-	BOOST_CHECK(!car.SetSpeed(151));
-	CarStatesCheck(car, true, 5, 150, Direction::forward);
-}
-BOOST_AUTO_TEST_CASE(can_not_set_gear_more_than_5)
-{
-	BOOST_CHECK(!car.SetGear(6));
-	CarStatesCheck(car, true, 5, 150, Direction::forward);
-}
+	BOOST_AUTO_TEST_CASE(can_set_speed_50)
+	{
+		BOOST_CHECK(car.SetSpeed(50));
+		CarStatesCheck(car, true, 5, 50, Direction::forward,
+			blankString);
+	}
+	BOOST_AUTO_TEST_CASE(can_not_set_speed_more_than_150)
+	{
+		BOOST_CHECK(!car.SetSpeed(151));
+		CarStatesCheck(car, true, 5, 150, Direction::forward,
+			GetSetSpeedError(5));
+	}
+	BOOST_AUTO_TEST_CASE(can_not_set_gear_more_than_5)
+	{
+		BOOST_CHECK(!car.SetGear(6));
+		CarStatesCheck(car, true, 5, 150, Direction::forward,
+			GetSetGearError(6));
+	}
 
-BOOST_AUTO_TEST_CASE(can_set_neutral_gear)
-{
-	BOOST_CHECK(car.SetGear(0));
-	CarStatesCheck(car, true, 0, 150, Direction::forward);
-}
+	BOOST_AUTO_TEST_CASE(can_set_neutral_gear)
+	{
+		BOOST_CHECK(car.SetGear(0));
+		CarStatesCheck(car, true, 0, 150, Direction::forward,
+			blankString);
+	}
 BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_FIXTURE_TEST_SUITE(Reverse_gear, TurnedOnEngineCar)
 	BOOST_AUTO_TEST_CASE(can_set_in_neutral_gear_on_speed_0)
 	{
 		BOOST_CHECK(car.SetGear(-1));
-		CarStatesCheck(car, true, -1, 0, Direction::stop);
+		CarStatesCheck(car, true, -1, 0, Direction::stop,
+			blankString);
 	}
 	BOOST_AUTO_TEST_CASE(can_set_in_first_gear_on_speed_0)
 	{
 		BOOST_CHECK(car.SetGear(1));
-		CarStatesCheck(car, true, 1, 0, Direction::stop);
+		CarStatesCheck(car, true, 1, 0, Direction::stop,
+			blankString);
 		BOOST_CHECK(car.SetGear(-1));
-		CarStatesCheck(car, true, -1, 0, Direction::stop);
+		CarStatesCheck(car, true, -1, 0, Direction::stop,
+			blankString);
 	}
 BOOST_AUTO_TEST_SUITE_END()
-*/
+
 //#########################
