@@ -23,14 +23,6 @@ enum struct Direction { backward, stop, forward };
 
 class CCar
 {
-private:
-	bool m_isEngineOn = false;
-	int m_gear = 0;
-	unsigned m_speed = 0;
-	Direction m_direction = Direction::stop;
-	std::string m_lastErrorDescription;
-	void SetDirection();
-
 public:
 	const bool IsEngineOn();
 	const Direction GetDirection();
@@ -41,4 +33,11 @@ public:
 	bool EngineOff();
 	bool SetGear(int gear);
 	bool SetSpeed(unsigned speed);
+private:
+	bool m_isEngineOn = false;
+	int m_gear = 0;
+	unsigned m_speed = 0;
+	Direction m_direction = Direction::stop;
+	std::string m_lastErrorDescription;
+	void SetDirection();
 };

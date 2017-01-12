@@ -91,6 +91,12 @@ BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_FIXTURE_TEST_SUITE(When_car_engine_is_on, TurnedOnEngineCar)
 
+BOOST_AUTO_TEST_CASE(can_engine_off)
+{
+	BOOST_CHECK(car.EngineOff());
+	CarStatesCheck(car, false, 0, 0, Direction::stop,
+		blankString);
+}
 BOOST_AUTO_TEST_CASE(can_not_speed_up)
 {
 	BOOST_CHECK(!car.SetSpeed(10));
