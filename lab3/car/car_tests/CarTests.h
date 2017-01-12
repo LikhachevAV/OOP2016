@@ -2,6 +2,7 @@
 #include "stdafx.h"
 
 const std::string blankString;
+const std::string engineOnError = "Engine is already on!";
 const std::string engineOffError =
 "Can't turn off the cars engine! Current gear must be 0, speed must be 0 and engine must be turned on!";
 
