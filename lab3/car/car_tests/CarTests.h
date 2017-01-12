@@ -83,3 +83,12 @@ struct InFifthGearWithMaxSpeed150 : InFourthGearWithMaxSpeed90 {
 		CarStatesCheck(car, true, 5, 150, Direction::forward);
 	}
 };
+
+struct InNeutralGearWithMaxSpeed30 : InFirstGearWithMaxSpeed30
+{
+	InNeutralGearWithMaxSpeed30()
+	{
+		BOOST_CHECK(car.SetGear(0));
+		CarStatesCheck(car, true, 0, 30, Direction::forward);
+	}
+};

@@ -45,6 +45,7 @@ bool CCar::EngineOn()
 	else
 	{
 		m_isEngineOn = true;
+		m_lastErrorDescription = "";
 		return true;
 	}
 }
@@ -55,6 +56,7 @@ bool CCar::EngineOff()
 	if (canTurnOffEngine)
 	{
 		m_isEngineOn = false;
+		m_lastErrorDescription = "";
 		return true;
 	}
 	else
@@ -76,7 +78,7 @@ bool CCar::SetGear(int gear)
 	};
 
 	if (gear < MIN_GEAR || gear > MAX_GEAR)
-	{	
+	{
 		setErrorMessage();
 		return false;
 	}
@@ -91,6 +93,7 @@ bool CCar::SetGear(int gear)
 	{
 		m_gear = gear;
 		SetDirection();
+		m_lastErrorDescription = "";
 		return true;
 	}
 	else
@@ -121,6 +124,7 @@ bool CCar::SetSpeed(unsigned speed)
 	{
 		m_speed = speed;
 		SetDirection();
+		m_lastErrorDescription = "";
 		return true;
 	}
 	else
@@ -142,11 +146,11 @@ void CCar::SetDirection()
 	{
 		m_direction = Direction::stop;
 	} else
-	if (m_gear == -1)
+	if (m_gear == -1 && m_direction != Direction::forward)
 	{
 		m_direction = Direction::backward;
-	}
-	else
+	} else
+	if (m_direction != Direction::backward)
 	{
 		m_direction = Direction::forward;
 	}
