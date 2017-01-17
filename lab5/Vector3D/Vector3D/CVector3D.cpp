@@ -81,6 +81,10 @@ void CVector3D::operator-= (CVector3D const & vector1)
 
 CVector3D CVector3D::operator/ (double scalar) const 
 {
+	if (scalar == 0)
+	{
+		throw invalid_argument("Divizion by zero error!");
+	}
 	CVector3D result;
 	result.x = x / scalar;
 	result.y = y / scalar;

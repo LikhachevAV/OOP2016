@@ -127,4 +127,19 @@ BOOST_FIXTURE_TEST_SUITE(Operator_, TwoVectors3DFixtureOne)
 		BOOST_CHECK_EQUAL(result.y, (y1 / scalar));
 		BOOST_CHECK_EQUAL(result.z, (z1 / scalar));
 	}
+
+	BOOST_AUTO_TEST_CASE(division_on_scalar_operator_throw_exception_by_divizion_zero)
+	{
+		auto scalar = 0;
+		bool isThrowedException = false;
+		try
+		{
+			CVector3D result = vector1 / scalar;
+		}
+		catch (invalid_argument& e)
+		{
+			isThrowedException = true;
+		}
+		BOOST_CHECK(isThrowedException);
+	}
 BOOST_AUTO_TEST_SUITE_END()
