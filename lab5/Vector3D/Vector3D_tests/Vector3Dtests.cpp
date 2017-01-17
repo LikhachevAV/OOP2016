@@ -53,6 +53,22 @@ BOOST_FIXTURE_TEST_SUITE(Operator_, TwoVectors3DFixtureOne)
 		BOOST_CHECK_EQUAL(resultVector.z, vector1.z);
 	}
 
+	BOOST_AUTO_TEST_CASE(unary_minus_return_vector_multipied_on_minus_one)
+	{
+		CVector3D resultVector = -vector1;
+		BOOST_CHECK_EQUAL(resultVector.x, vector1.x * -1);
+		BOOST_CHECK_EQUAL(resultVector.y, vector1.y * -1);
+		BOOST_CHECK_EQUAL(resultVector.z, vector1.z * -1);
+	}
+
+	BOOST_AUTO_TEST_CASE(binary_minus_return_vector_result_of_difference_between_two_vectors)
+	{
+		CVector3D resultVector = vector1 - vector2;
+		BOOST_CHECK_EQUAL(resultVector.x, (vector1.x - vector2.x));
+		BOOST_CHECK_EQUAL(resultVector.y, (vector1.y - vector2.y));
+		BOOST_CHECK_EQUAL(resultVector.z, (vector1.z - vector2.z));
+	}
+
 	BOOST_AUTO_TEST_CASE(multiply_vector_on_scalar_multiply_vectors_fields_on_scalar_value)
 	{
 		auto scalar = 5;
