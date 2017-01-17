@@ -52,4 +52,22 @@ BOOST_FIXTURE_TEST_SUITE(Operator_, TwoVectors3DFixtureOne)
 		BOOST_CHECK_EQUAL(resultVector.y, vector1.y);
 		BOOST_CHECK_EQUAL(resultVector.z, vector1.z);
 	}
+
+	BOOST_AUTO_TEST_CASE(multiply_vector_on_scalar_multiply_vectors_fields_on_scalar_value)
+	{
+		auto scalar = 5;
+		CVector3D resultVector = vector1 * scalar;
+		BOOST_CHECK_EQUAL(resultVector.x, vector1.x * scalar);
+		BOOST_CHECK_EQUAL(resultVector.y, vector1.y * scalar);
+		BOOST_CHECK_EQUAL(resultVector.z, vector1.z * scalar);
+	}
+
+	BOOST_AUTO_TEST_CASE(multiply_scalar_on_vector_multiply_vectors_fields_on_scalar_value)
+	{
+		auto scalar = -3.2;
+		CVector3D resultVector = scalar * vector1;
+		BOOST_CHECK_EQUAL(resultVector.x, vector1.x * scalar);
+		BOOST_CHECK_EQUAL(resultVector.y, vector1.y * scalar);
+		BOOST_CHECK_EQUAL(resultVector.z, vector1.z * scalar);
+	}
 BOOST_AUTO_TEST_SUITE_END()
