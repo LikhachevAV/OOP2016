@@ -64,3 +64,10 @@ CVector3D operator* (double scalar, CVector3D const & vector3d)
 	result.z = scalar * vector3d.z;
 	return result;
 };
+
+void CVector3D::operator+= (CVector3D const & vector1)
+{
+	x += vector1.x;
+	y += vector1.y;
+	z += vector1.z;
+};

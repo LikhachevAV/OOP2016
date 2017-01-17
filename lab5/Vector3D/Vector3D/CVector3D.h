@@ -1,4 +1,6 @@
-﻿class CVector3D
+﻿#include "targetver.h"
+
+class CVector3D
 {
 public:
 
@@ -21,6 +23,8 @@ public:
 	friend CVector3D operator* (CVector3D const & vector3d, double scalar);
 
 	friend CVector3D operator* (double scalar, CVector3D const & vector3d);
+
+	void operator+= (CVector3D const & vector1);
 
 	double x, y, z;
 };
