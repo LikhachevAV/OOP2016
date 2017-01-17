@@ -94,4 +94,12 @@ BOOST_FIXTURE_TEST_SUITE(Operator_, TwoVectors3DFixtureOne)
 		BOOST_CHECK_EQUAL(vector1.y, vector2.y + y1);
 		BOOST_CHECK_EQUAL(vector1.z, vector2.z + z1);
 	}
+
+	BOOST_AUTO_TEST_CASE(plus_equals_changes_fields_of_first_vector_result_will_be_sum_of_their_appropriate_fields_)
+	{
+		vector2 += vector1;
+		BOOST_CHECK_EQUAL(vector2.x, vector1.x + x2);
+		BOOST_CHECK_EQUAL(vector2.y, vector1.y + y2);
+		BOOST_CHECK_EQUAL(vector2.z, vector1.z + z2);
+	}
 BOOST_AUTO_TEST_SUITE_END()
