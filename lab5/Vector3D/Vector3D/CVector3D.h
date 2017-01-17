@@ -19,6 +19,7 @@ public:
 	CVector3D operator/ (double scalar) const;
 	void operator*= (double scalar);
 	void operator/= (double scalar);
+	bool operator==(CVector3D const & vector1) const;
 
 	double x, y, z;
 };
