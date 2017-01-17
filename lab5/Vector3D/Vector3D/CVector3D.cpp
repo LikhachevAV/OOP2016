@@ -18,7 +18,7 @@ CVector3D::CVector3D(double x0, double y0, double z0)
 	z = z0;
 }
 
-CVector3D CVector3D::operator+ (const CVector3D & vector1) const
+CVector3D CVector3D::operator+ (CVector3D const & vector1) const
 {
 	CVector3D result;
 	result.x = x + vector1.x;
@@ -32,7 +32,7 @@ CVector3D CVector3D::operator+ () const
 	return *this;
 }
 
-CVector3D CVector3D::operator- (const CVector3D & vector1) const
+CVector3D CVector3D::operator- (CVector3D const & vector1) const
 {
 	CVector3D result;
 	result.x = x - vector1.x;
@@ -47,7 +47,7 @@ CVector3D CVector3D::CVector3D::operator- () const
 	return *this * -1;
 }
 
-CVector3D operator* (const CVector3D & vector3d, double scalar)
+CVector3D operator* (CVector3D const & vector3d, double scalar)
 {
 	CVector3D result;
 	result.x = vector3d.x * scalar;
@@ -56,7 +56,7 @@ CVector3D operator* (const CVector3D & vector3d, double scalar)
 	return result;
 };
 
-CVector3D operator* (double scalar, const CVector3D & vector3d)
+CVector3D operator* (double scalar, CVector3D const & vector3d)
 {
 	CVector3D result;
 	result.x = scalar * vector3d.x;
