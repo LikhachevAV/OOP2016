@@ -18,6 +18,11 @@ CVector3D::CVector3D(double x0, double y0, double z0)
 	z = z0;
 }
 
+double CVector3D::GetLength()const
+{
+	return sqrt(x * x + y * y + z * z);
+}
+
 CVector3D CVector3D::operator+ (CVector3D const & vector1) const
 {
 	CVector3D result;
@@ -121,6 +126,5 @@ bool CVector3D::operator!=(CVector3D const & vector1) const
 }
 
 /* TODO:
-GetLength()
 Normalize()
 */

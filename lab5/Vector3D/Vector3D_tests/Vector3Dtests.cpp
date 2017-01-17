@@ -190,7 +190,6 @@ BOOST_FIXTURE_TEST_SUITE(operator_double_equal, TwoVectors3DFixtureOne)
 		BOOST_CHECK(vector3.x == vector1.x);
 		BOOST_CHECK(vector3.y == vector1.y);
 		BOOST_CHECK(vector3.z == vector1.z);
-
 	}
 
 	BOOST_AUTO_TEST_CASE(return_false_when_not_all_fields_of_both_vectors_are_equal)
@@ -215,3 +214,15 @@ BOOST_FIXTURE_TEST_SUITE(operator_not_equal, TwoVectors3DFixtureOne)
 		BOOST_CHECK(vector3 != vector1);
 	}
 BOOST_AUTO_TEST_SUITE_END()
+
+BOOST_AUTO_TEST_CASE(GetLength_function_return_length_of_vector)
+{
+	CVector3D v1(3, 0, 0);
+	BOOST_CHECK_EQUAL(v1.GetLength(), 3);
+}
+
+BOOST_AUTO_TEST_CASE(GetLength_function_return_length_of_vector1)
+{
+	CVector3D v1(2, -2, 0);
+	BOOST_CHECK_EQUAL(v1.GetLength(), sqrt(8));
+}
