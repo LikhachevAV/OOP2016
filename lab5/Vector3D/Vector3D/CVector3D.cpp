@@ -76,7 +76,7 @@ CVector3D  CVector3D::operator-= (CVector3D const & vector1)
 	return *this;
 };
 
-CVector3D CVector3D::operator/ (double scalar) const 
+const CVector3D CVector3D::operator/ (double scalar) const 
 {
 	if (scalar == 0)
 	{

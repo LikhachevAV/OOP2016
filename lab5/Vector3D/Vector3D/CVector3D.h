@@ -15,7 +15,7 @@ public:
 	const CVector3D operator- () const;
 	CVector3D operator+= (CVector3D const & vector1);
 	CVector3D operator-= (CVector3D const & vector1);
-	CVector3D operator/ (double scalar) const;
+	const CVector3D operator/ (double scalar) const;
 	CVector3D operator*= (double scalar);
 	CVector3D operator/= (double scalar);
 	bool operator==(CVector3D const & vector1) const;
