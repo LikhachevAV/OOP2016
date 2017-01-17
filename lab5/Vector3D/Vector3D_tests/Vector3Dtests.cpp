@@ -202,16 +202,16 @@ BOOST_FIXTURE_TEST_SUITE(operator_double_equal, TwoVectors3DFixtureOne)
 BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_FIXTURE_TEST_SUITE(operator_not_equal, TwoVectors3DFixtureOne)
-BOOST_AUTO_TEST_CASE(return_true_when_not_all_fields_of_both_vectors_are_equal)
-{
-	BOOST_CHECK(vector2 != vector1);
-	BOOST_CHECK(vector1.x != vector2.x || vector1.y != vector2.y || vector1.z != vector2.z);
-}
+	BOOST_AUTO_TEST_CASE(return_true_when_not_all_fields_of_both_vectors_are_equal)
+	{
+		BOOST_CHECK(vector2 != vector1);
+		BOOST_CHECK(vector1.x != vector2.x || vector1.y != vector2.y || vector1.z != vector2.z);
+	}
 
-BOOST_AUTO_TEST_CASE(return_false_when_all_fields_of_both_vectors_are_equal)
-{
-	CVector3D vector3(vector1);
-	vector3.x++;
-	BOOST_CHECK(vector3 != vector1);
-}
+	BOOST_AUTO_TEST_CASE(return_false_when_all_fields_of_both_vectors_are_equal)
+	{
+		CVector3D vector3(vector1);
+		vector3.x++;
+		BOOST_CHECK(vector3 != vector1);
+	}
 BOOST_AUTO_TEST_SUITE_END()
