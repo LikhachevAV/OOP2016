@@ -39,9 +39,9 @@ BOOST_AUTO_TEST_SUITE_END()
 BOOST_FIXTURE_TEST_SUITE(Operator_, TwoVectors3DFixtureOne)
 	BOOST_AUTO_TEST_CASE(plus_return_vector_with_sum_values_of_two_vectors)
 	{
-		vector1 + vector2;
-		BOOST_CHECK_EQUAL(vector1.x, (x1 + x2));
-		BOOST_CHECK_EQUAL(vector1.y, (y1 + y2));
-		BOOST_CHECK_EQUAL(vector1.z, (z1 + z2));
+		CVector3D sumVector = vector1 + vector2;
+		BOOST_CHECK_EQUAL(sumVector.x, (vector1.x + vector2.x));
+		BOOST_CHECK_EQUAL(sumVector.y, (vector1.y + vector2.y));
+		BOOST_CHECK_EQUAL(sumVector.z, (vector1.z + vector2.z));
 	}
 BOOST_AUTO_TEST_SUITE_END()

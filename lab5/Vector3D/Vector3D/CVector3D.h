@@ -10,7 +10,7 @@ public:
 
 	void Normalize();
 
-	CVector3D operator+ (const CVector3D & vectoor1);
+	CVector3D operator+ (const CVector3D & vectoor1)  const;
 
 	double x, y, z;
 };
