@@ -17,3 +17,11 @@ CVector3D::CVector3D(double x0, double y0, double z0)
 	y = y0;
 	z = z0;
 }
+
+CVector3D CVector3D::operator+ (const CVector3D & vector1)
+{
+	x += vector1.x;
+	y += vector1.y;
+	z += vector1.z;
+	return *this;
+}
