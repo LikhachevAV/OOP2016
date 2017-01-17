@@ -182,21 +182,45 @@ BOOST_FIXTURE_TEST_SUITE(Operator_, TwoVectors3DFixtureOne)
 
 BOOST_AUTO_TEST_SUITE_END()
 
-BOOST_FIXTURE_TEST_SUITE(operator_double_equal, TwoVectors3DFixtureOne)
+BOOST_AUTO_TEST_SUITE(operator_double_equal)
 	BOOST_AUTO_TEST_CASE(return_true_when_all_fields_of_both_vectors_are_equal)
 	{
-		CVector3D vector3(vector1);
+		CVector3D vector1 = {1, 2, 3};
+		CVector3D vector3 = { 1, 2, 3 };
 		BOOST_CHECK(vector3 == vector1);
 		BOOST_CHECK(vector3.x == vector1.x);
 		BOOST_CHECK(vector3.y == vector1.y);
 		BOOST_CHECK(vector3.z == vector1.z);
 	}
 
-	BOOST_AUTO_TEST_CASE(return_false_when_not_all_fields_of_both_vectors_are_equal)
+	BOOST_AUTO_TEST_CASE(return_false_when_x_of_both_vectors_not_are_equal)
 	{
-		CVector3D vector3(vector1);
-		vector3.x++;
+		CVector3D vector1 = { 1, 2, 3 };
+		CVector3D vector3 = { 4, 2, 3 };
 		BOOST_CHECK(!(vector3 == vector1));
+		BOOST_CHECK(vector3.x != vector1.x);
+		BOOST_CHECK(vector3.y == vector1.y);
+		BOOST_CHECK(vector3.z == vector1.z);
+	}
+
+	BOOST_AUTO_TEST_CASE(return_false_when_y_of_both_vectors_not_are_equal)
+	{
+		CVector3D vector1 = { 1, 2, 3 };
+		CVector3D vector3 = { 1, 5, 3 };
+		BOOST_CHECK(!(vector3 == vector1));
+		BOOST_CHECK(vector3.x == vector1.x);
+		BOOST_CHECK(vector3.y != vector1.y);
+		BOOST_CHECK(vector3.z == vector1.z);
+	}
+
+	BOOST_AUTO_TEST_CASE(return_false_when_z_of_both_vectors_not_are_equal)
+	{
+		CVector3D vector1 = { 1, 2, 3 };
+		CVector3D vector3 = { 1, 2, 17 };
+		BOOST_CHECK(!(vector3 == vector1));
+		BOOST_CHECK(vector3.x == vector1.x);
+		BOOST_CHECK(vector3.y == vector1.y);
+		BOOST_CHECK(vector3.z != vector1.z);
 	}
 BOOST_AUTO_TEST_SUITE_END()
 
