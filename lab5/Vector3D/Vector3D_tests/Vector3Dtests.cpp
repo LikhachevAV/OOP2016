@@ -266,14 +266,20 @@ BOOST_AUTO_TEST_SUITE(operator_not_equal)
 	}
 BOOST_AUTO_TEST_SUITE_END()
 
-BOOST_AUTO_TEST_CASE(GetLength_function_return_length_of_vector)
-{
-	CVector3D v1(3, 0, 0);
-	BOOST_CHECK_EQUAL(v1.GetLength(), 3);
-}
+BOOST_AUTO_TEST_SUITE(GetLength_function)
+	BOOST_AUTO_TEST_CASE(return_0_when_all_vectors_coordinates_are_equla_0)
+	{
+		CVector3D v1 = {0, 0, 0};
+		BOOST_CHECK_EQUAL(v1.GetLength(), 0);
+	}
 
-BOOST_AUTO_TEST_CASE(GetLength_function_return_length_of_vector1)
-{
-	CVector3D v1(2, -2, 0);
-	BOOST_CHECK_EQUAL(v1.GetLength(), sqrt(8));
-}
+	BOOST_AUTO_TEST_CASE(return_not_0_when_vectors_coordinates_are_not_equal_0)
+	{
+		double x = 2;
+		double y = -5;
+		double z = 17;
+		CVector3D v1 = { x, y, z };
+		double expectedLength = sqrt(x * x + y * y + z * z);
+		BOOST_CHECK_EQUAL(v1.GetLength(), expectedLength);
+	}
+BOOST_AUTO_TEST_SUITE_END()
