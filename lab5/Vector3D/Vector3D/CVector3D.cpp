@@ -115,8 +115,12 @@ bool CVector3D::operator==(CVector3D const & vector1) const
 	return (x == vector1.x) && (y == vector1.y) && (z == vector1.z);
 }
 
+bool CVector3D::operator!=(CVector3D const & vector1) const
+{
+	return (x != vector1.x) || (y != vector1.y) || (z != vector1.z);
+}
+
 /* TODO:
-!=
 GetLength()
 Normalize()
 */
