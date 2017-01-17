@@ -283,3 +283,27 @@ BOOST_AUTO_TEST_SUITE(GetLength_function)
 		BOOST_CHECK_EQUAL(v1.GetLength(), expectedLength);
 	}
 BOOST_AUTO_TEST_SUITE_END()
+
+BOOST_AUTO_TEST_SUITE(DotProduct_function)
+	BOOST_AUTO_TEST_CASE(return_0_when_both_vectors_lengths_are_0)
+	{
+		CVector3D v1 = {0, 0, 0};
+		CVector3D v2 = { 0, 0, 0 };
+		BOOST_CHECK_EQUAL(DotProduct(v1, v2), 0);
+	}
+
+	BOOST_AUTO_TEST_CASE(return_scalar_multiply_value_of_two_vectors)
+	{
+		double x1 = 1;
+		double y1 = 2;
+		double z1 = 3;
+		double x2 = 4;
+		double y2 = 5;
+		double z2 = 6;
+
+		CVector3D v1 = { x1, y1, z1 };
+		CVector3D v2 = { x2, y2, z2 };
+		double expectedResult = x1 * x2 + y1 * y2 + z1 * z2;
+		BOOST_CHECK_EQUAL(DotProduct(v1, v2), expectedResult);
+	}
+BOOST_AUTO_TEST_SUITE_END()
