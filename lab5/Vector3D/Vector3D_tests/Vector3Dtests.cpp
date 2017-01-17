@@ -132,6 +132,7 @@ BOOST_FIXTURE_TEST_SUITE(Operator_, TwoVectors3DFixtureOne)
 	{
 		auto scalar = 0;
 		bool isThrowedException = false;
+		std::string exceptionText = "Divizion by zero error!";
 		try
 		{
 			CVector3D result = vector1 / scalar;
@@ -139,7 +140,20 @@ BOOST_FIXTURE_TEST_SUITE(Operator_, TwoVectors3DFixtureOne)
 		catch (invalid_argument& e)
 		{
 			isThrowedException = true;
+			BOOST_CHECK_EQUAL(e.what(), exceptionText);
 		}
 		BOOST_CHECK(isThrowedException);
 	}
+
+	BOOST_AUTO_TEST_CASE(mutiply_equals_operator_multiply_vectors_fields_on_scalar)
+	{
+		auto scalar = 0.2;
+		vector1 *= scalar;
+		BOOST_CHECK_EQUAL(vector1.x, (x1 * scalar));
+		BOOST_CHECK_EQUAL(vector1.y, (y1 * scalar));
+		BOOST_CHECK_EQUAL(vector1.z, (z1 * scalar));
+	}
+
 BOOST_AUTO_TEST_SUITE_END()
+
+//BOOST_CHECK_EXCEPTION(fail(), std::logic_error, correctMessage)

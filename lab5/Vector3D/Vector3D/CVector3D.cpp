@@ -92,8 +92,14 @@ CVector3D CVector3D::operator/ (double scalar) const
 	return result;
 }
 
+void CVector3D::operator*= (double scalar)
+{
+	x *= scalar;
+	y *= scalar;
+	z *= scalar;
+}
+
 /* TODO:
-*=
 /=
 ==
 !=

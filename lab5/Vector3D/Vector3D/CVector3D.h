@@ -16,7 +16,8 @@ public:
 	friend CVector3D operator* (double scalar, CVector3D const & vector3d);
 	void operator+= (CVector3D const & vector1);
 	void operator-= (CVector3D const & vector1);
-	CVector3D CVector3D::operator/ (double scalar) const;
+	CVector3D operator/ (double scalar) const;
+	void operator*= (double scalar);
 
 	double x, y, z;
 };
