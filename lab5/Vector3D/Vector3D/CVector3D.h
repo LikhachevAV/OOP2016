@@ -12,5 +12,7 @@ public:
 
 	CVector3D operator+ (const CVector3D & vectoor1)  const;
 
+	CVector3D operator+ () const;
+
 	double x, y, z;
 };

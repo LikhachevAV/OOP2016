@@ -26,3 +26,8 @@ CVector3D CVector3D::operator+ (const CVector3D & vector1) const
 	rezult.z = z + vector1.z;
 	return rezult;
 }
+
+CVector3D CVector3D::operator+ () const
+{
+	return *this;
+}
