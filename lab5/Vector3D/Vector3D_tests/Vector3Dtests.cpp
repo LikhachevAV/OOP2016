@@ -87,7 +87,7 @@ BOOST_FIXTURE_TEST_SUITE(Operator_, TwoVectors3DFixtureOne)
 		BOOST_CHECK_EQUAL(resultVector.z, vector1.z * scalar);
 	}
 
-	BOOST_AUTO_TEST_CASE(plus_equals_changes_fields_of_first_vector_result_will_be_sum_of_their_appropriate_fields)
+	BOOST_AUTO_TEST_CASE(plus_equals_operator_changes_fields_of_first_vector_result_will_be_sum_of_their_appropriate_fields)
 	{
 		vector1 += vector2;
 		BOOST_CHECK_EQUAL(vector1.x, vector2.x + x1);
@@ -95,11 +95,36 @@ BOOST_FIXTURE_TEST_SUITE(Operator_, TwoVectors3DFixtureOne)
 		BOOST_CHECK_EQUAL(vector1.z, vector2.z + z1);
 	}
 
-	BOOST_AUTO_TEST_CASE(plus_equals_changes_fields_of_first_vector_result_will_be_sum_of_their_appropriate_fields_)
+	BOOST_AUTO_TEST_CASE(plus_equals_operator_changes_fields_of_first_vector_result_will_be_sum_of_their_appropriate_fields_)
 	{
 		vector2 += vector1;
 		BOOST_CHECK_EQUAL(vector2.x, vector1.x + x2);
 		BOOST_CHECK_EQUAL(vector2.y, vector1.y + y2);
 		BOOST_CHECK_EQUAL(vector2.z, vector1.z + z2);
+	}
+
+	BOOST_AUTO_TEST_CASE(minus_equals_operator_changes_fields_of_first_vector_result_will_be_difference_of_their_appropriate_fields)
+	{
+		vector1 -= vector2;
+		BOOST_CHECK_EQUAL(vector1.x, x1 - x2);
+		BOOST_CHECK_EQUAL(vector1.y, y1 - y2);
+		BOOST_CHECK_EQUAL(vector1.z, z1 - z2);
+	}
+
+	BOOST_AUTO_TEST_CASE(minus_equals_operator_changes_fields_of_first_vector_result_will_be_difference_of_their_appropriate_fields_)
+	{
+		vector2 -= vector1;
+		BOOST_CHECK_EQUAL(vector2.x, x2 - x1);
+		BOOST_CHECK_EQUAL(vector2.y, y2 - y1);
+		BOOST_CHECK_EQUAL(vector2.z, z2 - z1);
+	}
+
+	BOOST_AUTO_TEST_CASE(division_on_scalar_operator_divide_vectors_fields_on_scalar_value)
+	{
+		auto scalar = 12;
+		CVector3D result = vector1 / scalar;
+		BOOST_CHECK_EQUAL(result.x, (x1 / scalar));
+		BOOST_CHECK_EQUAL(result.y, (y1 / scalar));
+		BOOST_CHECK_EQUAL(result.z, (z1 / scalar));
 	}
 BOOST_AUTO_TEST_SUITE_END()

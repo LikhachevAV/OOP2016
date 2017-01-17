@@ -71,3 +71,28 @@ void CVector3D::operator+= (CVector3D const & vector1)
 	y += vector1.y;
 	z += vector1.z;
 };
+
+void CVector3D::operator-= (CVector3D const & vector1)
+{
+	x -= vector1.x;
+	y -= vector1.y;
+	z -= vector1.z;
+};
+
+CVector3D CVector3D::operator/ (double scalar) const 
+{
+	CVector3D result;
+	result.x = x / scalar;
+	result.y = y / scalar;
+	result.z = z / scalar;
+	return result;
+}
+
+/* TODO:
+*=
+/=
+==
+!=
+GetLength()
+Normalize()
+*/
