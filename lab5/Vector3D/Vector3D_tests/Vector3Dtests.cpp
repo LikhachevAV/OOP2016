@@ -307,3 +307,31 @@ BOOST_AUTO_TEST_SUITE(DotProduct_function)
 		BOOST_CHECK_EQUAL(DotProduct(v1, v2), expectedResult);
 	}
 BOOST_AUTO_TEST_SUITE_END()
+
+BOOST_AUTO_TEST_SUITE(CrossProduct_function)
+	BOOST_AUTO_TEST_CASE(return_vector_with_length_0_when_both_vectors_length_is_0)
+	{
+		CVector3D v1 = { 0, 0, 0 };
+		CVector3D v2 = { 0, 0, 0 };
+		CVector3D result = CrossProduct(v1, v2);
+		BOOST_CHECK_EQUAL(result.GetLength(), 0);
+	}
+
+	BOOST_AUTO_TEST_CASE(return_new_vector)
+	{
+		double x1 = 1;
+		double y1 = 2;
+		double z1 = 3;
+		double x2 = 4;
+		double y2 = 5;
+		double z2 = 6;
+		CVector3D v1 = { x1, y1, z1 };
+		CVector3D v2 = { x2, y2, z2 };
+		double x3 = y1 * z2 - z1 * y2;
+		double y3 = z1 * x2 - x1 * z2;
+		double z3 = x1 * y2 - y1 * x2;
+		CVector3D result = CrossProduct(v1, v2);
+		CVector3D expectedResult = {x3, y3, z3};
+		BOOST_CHECK(result == expectedResult);
+	}
+BOOST_AUTO_TEST_SUITE_END()

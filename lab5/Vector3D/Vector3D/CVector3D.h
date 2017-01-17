@@ -29,3 +29,4 @@ public:
 CVector3D operator* (CVector3D const & vector3d, double scalar);
 CVector3D operator* (double scalar, CVector3D const & vector3d);
 double DotProduct(CVector3D const& vector1, CVector3D const& vector2);
+const CVector3D CrossProduct(CVector3D const& vector1, CVector3D const& vector2);

@@ -35,6 +35,14 @@ double DotProduct(CVector3D const& vector1, CVector3D const& vector2)
 	return vector1.x * vector2.x + vector1.y * vector2.y + vector1.z * vector2.z;
 }
 
+const CVector3D CrossProduct(CVector3D const& vector1, CVector3D const& vector2)
+{
+	return{ vector1.y * vector2.z - 
+		vector1.z * vector2.y, vector1.z * vector2.x - 
+		vector1.x * vector2.z, vector1.x * vector2.y - 
+		vector1.y * vector2.x };
+}
+
 const CVector3D CVector3D::operator+ (CVector3D const & vector1) const
 {
 	return{ x + vector1.x, y + vector1.y, z + vector1.z };
