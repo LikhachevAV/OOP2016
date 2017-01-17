@@ -154,6 +154,30 @@ BOOST_FIXTURE_TEST_SUITE(Operator_, TwoVectors3DFixtureOne)
 		BOOST_CHECK_EQUAL(vector1.z, (z1 * scalar));
 	}
 
-BOOST_AUTO_TEST_SUITE_END()
+	BOOST_AUTO_TEST_CASE(divizion_equals_operator_divide_vectors_fields_on_scalar)
+	{
+		auto scalar = 3.5;
+		vector1 /= scalar;
+		BOOST_CHECK_EQUAL(vector1.x, (x1 / scalar));
+		BOOST_CHECK_EQUAL(vector1.y, (y1 / scalar));
+		BOOST_CHECK_EQUAL(vector1.z, (z1 / scalar));
+	}
 
-//BOOST_CHECK_EXCEPTION(fail(), std::logic_error, correctMessage)
+	BOOST_AUTO_TEST_CASE(division_equal_on_scalar_operator_throw_exception_by_divizion_zero)
+	{
+		auto scalar = 0;
+		bool isThrowedException = false;
+		std::string exceptionText = "Divizion by zero error!";
+		try
+		{
+			vector1 /= scalar;
+		}
+		catch (invalid_argument& e)
+		{
+			isThrowedException = true;
+			BOOST_CHECK_EQUAL(e.what(), exceptionText);
+		}
+		BOOST_CHECK(isThrowedException);
+	}
+
+BOOST_AUTO_TEST_SUITE_END()

@@ -99,6 +99,17 @@ void CVector3D::operator*= (double scalar)
 	z *= scalar;
 }
 
+void CVector3D::operator/= (double scalar)
+{
+	if (scalar == 0)
+	{
+		throw invalid_argument("Divizion by zero error!");
+	}
+	x /= scalar;
+	y /= scalar;
+	z /= scalar;
+}
+
 /* TODO:
 /=
 ==

@@ -18,6 +18,7 @@ public:
 	void operator-= (CVector3D const & vector1);
 	CVector3D operator/ (double scalar) const;
 	void operator*= (double scalar);
+	void operator/= (double scalar);
 
 	double x, y, z;
 };
