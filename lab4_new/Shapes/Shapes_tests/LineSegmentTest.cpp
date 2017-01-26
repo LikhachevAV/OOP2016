@@ -26,3 +26,14 @@ BOOST_AUTO_TEST_SUITE(GetPerimeter_function)
 		CLineSegment lineSegment = { start, end, color };
 	}
 BOOST_AUTO_TEST_SUITE_END()
+
+BOOST_AUTO_TEST_SUITE(GetArea_function)
+	BOOST_AUTO_TEST_CASE(always_return_zero)
+	{
+		string color = "white";
+		CLineSegment lineSegment(CPoint(), CPoint(), color);
+		BOOST_CHECK_EQUAL(0.0, lineSegment.GetArea());
+		lineSegment = CLineSegment(CPoint(-2, 2), CPoint(18.2, 44.5), color);
+		BOOST_CHECK_EQUAL(0.0, lineSegment.GetArea());
+	}
+BOOST_AUTO_TEST_SUITE_END()
