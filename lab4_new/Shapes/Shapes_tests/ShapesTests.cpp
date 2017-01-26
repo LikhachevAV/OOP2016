@@ -41,6 +41,7 @@ BOOST_AUTO_TEST_SUITE(ToString_function)
 	}
 BOOST_AUTO_TEST_SUITE_END()
 
+/*
 BOOST_AUTO_TEST_SUITE(GetPerimeter_function)
 	BOOST_AUTO_TEST_CASE(return_zero_if_startPoin_and_endPoint_are_equal)
 	{
@@ -53,3 +54,5 @@ BOOST_AUTO_TEST_SUITE(GetPerimeter_function)
 		//BOOST_CHECK_EQUAL("(2.2, 4.5)", point.ToString());
 	}
 BOOST_AUTO_TEST_SUITE_END()
+
+*/
