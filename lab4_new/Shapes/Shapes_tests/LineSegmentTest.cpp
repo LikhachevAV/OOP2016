@@ -49,6 +49,5 @@ BOOST_AUTO_TEST_SUITE(ToString_function)
 		lineSegment = CLineSegment(CPoint(-2, 2), CPoint(18.2, 44.5), color);
 		expectedStr = "line start point (-2.0, 2.0), end point (18.2, 44.5), color red";
 		BOOST_CHECK_EQUAL(expectedStr, lineSegment.ToString());
-		
 	}
 BOOST_AUTO_TEST_SUITE_END()
