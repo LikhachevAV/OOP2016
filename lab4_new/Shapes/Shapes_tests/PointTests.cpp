@@ -40,19 +40,3 @@ BOOST_AUTO_TEST_SUITE(ToString_function)
 		BOOST_CHECK_EQUAL("(2.2, 4.5)", point.ToString());
 	}
 BOOST_AUTO_TEST_SUITE_END()
-
-/*
-BOOST_AUTO_TEST_SUITE(GetPerimeter_function)
-	BOOST_AUTO_TEST_CASE(return_zero_if_startPoin_and_endPoint_are_equal)
-	{
-		CPoint start(0, 0);
-		CPoint end(0, 0);
-		string color = "white";
-		CLineSegment lineSegment = { start, end, color };
-		//BOOST_CHECK_EQUAL("(0.0, 0.0)", point.ToString());
-		//point = CPoint(2.22, 4.49);
-		//BOOST_CHECK_EQUAL("(2.2, 4.5)", point.ToString());
-	}
-BOOST_AUTO_TEST_SUITE_END()
-
-*/
