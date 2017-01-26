@@ -1,5 +1,5 @@
 #pragma once
-#include "Point.h"
+#include "CPoint.h"
 #include "Shape.h"
 
 class CLineSegment : public CShape

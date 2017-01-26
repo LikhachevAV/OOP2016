@@ -181,7 +181,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CLineSegment.h" />
-    <ClInclude Include="Point.h" />
+    <ClInclude Include="CPoint.h" />
     <ClInclude Include="IShape.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="stdafx.h" />

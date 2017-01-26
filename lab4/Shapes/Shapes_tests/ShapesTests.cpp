@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "..\Shapes\Point.h"
+#include "..\Shapes\CPoint.h"
 
 using namespace std;
 

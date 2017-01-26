@@ -11,3 +11,8 @@ double CLineSegment::GetPerimeter() const
 {
 	return 0.0;
 }
+
+std::string CLineSegment::ToString() const
+{
+	return "";
+}

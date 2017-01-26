@@ -2,7 +2,7 @@
 #include "..\Shapes\CLineSegment.h"
 
 using namespace std;
-
+/*
 BOOST_AUTO_TEST_SUITE(ToString_function)
 BOOST_AUTO_TEST_CASE(return_CPoiint_instance_coordinates_in_text_format)
 {
@@ -12,3 +12,4 @@ BOOST_AUTO_TEST_CASE(return_CPoiint_instance_coordinates_in_text_format)
 	BOOST_CHECK_EQUAL("(2.2, 4.5)", point.ToString());
 }
 BOOST_AUTO_TEST_SUITE_END()
+*/
