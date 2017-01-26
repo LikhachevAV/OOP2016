@@ -5,9 +5,19 @@ CLineSegment::CLineSegment(CPoint const & startPoint, CPoint const & endPoint, s
 	m_startPoint(startPoint),
 	m_endPoint(endPoint),
 	CShape(outlineColor)
-{}
+{
+}
+
+CLineSegment::~CLineSegment()
+{
+}
 
 double CLineSegment::GetPerimeter() const
+{
+	return GetDistance(m_startPoint, m_endPoint);
+}
+
+double CLineSegment::GetArea() const
 {
 	return 0.0;
 }

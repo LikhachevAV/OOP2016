@@ -1,6 +1,7 @@
 #pragma once
 #include "IShape.h"
 #include "CPoint.h"
+
 class CShape : public IShape
 {
 public:
@@ -15,4 +16,4 @@ private:
 	std::string m_color;
 };
 
-double GetDistance(CPoint const & a, CPoint const & b);
+double GetDistance(CPoint const& a, CPoint const& b);

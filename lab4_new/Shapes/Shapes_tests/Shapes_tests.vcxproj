@@ -177,13 +177,17 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Shapes\CLineSegment.h" />
     <ClInclude Include="..\Shapes\CPoint.h" />
+    <ClInclude Include="..\Shapes\Shape.h" />
     <ClInclude Include="ShapesTests.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Shapes\CLineSegment.cpp" />
     <ClCompile Include="..\Shapes\CPoint.cpp" />
+    <ClCompile Include="..\Shapes\Shape.cpp" />
     <ClCompile Include="ShapesTests.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
