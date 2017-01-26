@@ -1,6 +1,5 @@
 #include "stdafx.h"
-#include "..\Shapes\CPoint.h"
-#include "ShapesTests.h"
+#include "..\Shapes\Point.h"
 
 using namespace std;
 

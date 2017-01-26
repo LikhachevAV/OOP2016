@@ -1,7 +1,5 @@
 #include "stdafx.h"
-#include "CPoint.h"
-
-using namespace std;
+#include "Point.h"
 
 CPoint::CPoint(double x0, double y0):
 	x(x0),
@@ -9,10 +7,10 @@ CPoint::CPoint(double x0, double y0):
 {
 }
 
-string CPoint::ToString()
+std::string CPoint::ToString() const
 {
-	stringstream strm;
-	strm << fixed << setprecision(1)
+	std::stringstream strm;
+	strm << std::fixed << std::setprecision(1)
 		<< "(" << x << ", " << y << ")";
 	return strm.str();
 }

@@ -10,5 +10,5 @@ public:
 
 	CPoint() = default;
 
-	std::string ToString();
+	std::string ToString() const;
 };
