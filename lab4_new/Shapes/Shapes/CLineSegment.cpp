@@ -24,5 +24,15 @@ double CLineSegment::GetArea() const
 
 std::string CLineSegment::ToString() const
 {
-	return "";
+	std::stringstream strm;
+	strm << std::fixed << std::setprecision(1)
+		<< "line start point "
+		<< m_startPoint.ToString()
+		<< ", "
+		<< "end point "
+		<< m_endPoint.ToString()
+		<< ", "
+		<< "color "
+		<< GetOutlineColor();
+	return strm.str();
 }

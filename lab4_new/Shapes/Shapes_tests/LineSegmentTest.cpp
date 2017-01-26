@@ -37,3 +37,18 @@ BOOST_AUTO_TEST_SUITE(GetArea_function)
 		BOOST_CHECK_EQUAL(0.0, lineSegment.GetArea());
 	}
 BOOST_AUTO_TEST_SUITE_END()
+
+BOOST_AUTO_TEST_SUITE(ToString_function)
+	BOOST_AUTO_TEST_CASE(lineSegment_data_in_strin_format)
+	{
+		string color = "white";
+		CLineSegment lineSegment(CPoint(), CPoint(), color);
+		string expectedStr = "line start point (0.0, 0.0), end point (0.0, 0.0), color white";
+		BOOST_CHECK_EQUAL(expectedStr, lineSegment.ToString());
+		color = "red";
+		lineSegment = CLineSegment(CPoint(-2, 2), CPoint(18.2, 44.5), color);
+		expectedStr = "line start point (-2.0, 2.0), end point (18.2, 44.5), color red";
+		BOOST_CHECK_EQUAL(expectedStr, lineSegment.ToString());
+		
+	}
+BOOST_AUTO_TEST_SUITE_END()
