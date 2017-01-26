@@ -11,11 +11,8 @@ CPoint::CPoint(double x0, double y0):
 
 string CPoint::ToString()
 {
-	string pointStr;
-	pointStr.append("point [")
-		.append(to_string(x))
-		.append(", ")
-		.append(to_string(y))
-		.append(']');
-	return pointStr;
+	stringstream strm;
+	strm << fixed << setprecision(1)
+		<< "(" << x << ", " << y << ")";
+	return strm.str();
 }

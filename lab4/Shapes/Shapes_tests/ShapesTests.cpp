@@ -28,14 +28,6 @@ BOOST_AUTO_TEST_SUITE(CPoint_class_instance)
 		BOOST_CHECK_EQUAL(point.y, 22.0);
 	}
 
-	BOOST_AUTO_TEST_CASE(can_set_coordinates_after_constructor)
-	{
-		CPoint point;
-		point.x = 7;
-		point.y = 22;
-		BOOST_CHECK_EQUAL(point.x, 7.0);
-		BOOST_CHECK_EQUAL(point.y, 22.0);
-	}
 BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_AUTO_TEST_SUITE(ToString_function)
@@ -43,6 +35,6 @@ BOOST_AUTO_TEST_SUITE(ToString_function)
 	{
 		CPoint point;
 		string resut = point.ToString();
-		BOOST_CHECK_EQUAL("point [0.0, 0.0]", point.ToString());
+		BOOST_CHECK_EQUAL("(0.0, 0.0)", point.ToString());
 	}
 BOOST_AUTO_TEST_SUITE_END()

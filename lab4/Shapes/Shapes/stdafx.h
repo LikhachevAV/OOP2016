@@ -9,7 +9,9 @@
 
 #include <tchar.h>
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <math.h>
+#include <sstream>
 
 // TODO: reference additional headers your program requires here
