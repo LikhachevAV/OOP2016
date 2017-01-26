@@ -1,9 +1,8 @@
 #include "stdafx.h"
 #include "Shape.h"
 
-
 CShape::CShape(std::string const& outlineColor) :
-	m_color(outlineColor)
+	m_outlineColor(outlineColor)
 {
 }
 
@@ -13,7 +12,7 @@ CShape::~CShape()
 
 std::string CShape::GetOutlineColor() const
 {
-	return m_color;
+	return m_outlineColor;
 }
 
 double GetDistance(CPoint const & a, CPoint const & b)

@@ -13,7 +13,7 @@ public:
 	std::string GetOutlineColor() const override;
 
 private:
-	std::string m_color;
+	std::string m_outlineColor;
 };
 
 double GetDistance(CPoint const& a, CPoint const& b);
