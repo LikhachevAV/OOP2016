@@ -13,3 +13,7 @@ public:
 
 	std::string ToString() const;
 };
+
+bool operator== (CPoint const &l, CPoint const &r);
+
+bool operator!= (CPoint const &l, CPoint const &r);

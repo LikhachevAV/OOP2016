@@ -14,3 +14,13 @@ std::string CPoint::ToString() const
 		<< "(" << x << ", " << y << ")";
 	return strm.str();
 }
+
+bool operator== (CPoint const &l, CPoint const &r)
+{
+	return ((l.x == r.x) && (l.y == r.y));
+}
+
+bool operator!= (CPoint const &l, CPoint const &r)
+{
+	return ((l.x != r.x) || (l.y != r.y));
+}

@@ -11,7 +11,8 @@ public:
 	);
 	double GetArea() const override = 0;
 	double GetPerimeter() const override = 0;
-	std::string GetFillColor() const final;
+	std::string GetFillColor() const final override;
+	std::string GetOutlineColor() const final;
 	virtual ~CSolidShape();
 
 private:
