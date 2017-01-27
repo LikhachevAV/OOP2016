@@ -20,8 +20,9 @@ BOOST_AUTO_TEST_SUITE(Circle_constructor)
 		BOOST_CHECK(circle.GetCenter() == CPoint(0, 0));
 		BOOST_CHECK_EQUAL(circle.GetOutlineColor(), outlineColor);
 		BOOST_CHECK_EQUAL(circle.GetFillColor(), fillColor);
-		BOOST_CHECK_EQUAL(circle.GetPerimeter(), diameter);
+		auto perimeter = M_PI * diameter;
+		BOOST_CHECK_EQUAL(circle.GetPerimeter(), perimeter);
 		auto area = GetCircleArea(diameter);
-		BOOST_CHECK_EQUAL(circle.GetArea(), area);
+		BOOST_CHECK_EQUAL(circle.GetArea(), area); 
 	}
 BOOST_AUTO_TEST_SUITE_END()
