@@ -41,7 +41,7 @@ BOOST_AUTO_TEST_SUITE(ToString_function)
 BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_AUTO_TEST_SUITE(double_equal_operator)
-	BOOST_AUTO_TEST_CASE(return_true_if_points_are_equal)
+	BOOST_AUTO_TEST_CASE(return_true_when_points_are_equal)
 	{
 		CPoint a;
 		CPoint b;
@@ -51,5 +51,21 @@ BOOST_AUTO_TEST_SUITE(double_equal_operator)
 		a = CPoint(x, y);
 		b = CPoint(x, y);
 		BOOST_CHECK(a == b);
+	}
+
+	BOOST_AUTO_TEST_CASE(return_false_when_coordinates_x_are_not_equal)
+	{
+		CPoint a;
+		CPoint b;
+		a.x = -1.2;
+		BOOST_CHECK(!(a == b));
+	}
+
+	BOOST_AUTO_TEST_CASE(return_false_when_coordinates_y_are_not_equal)
+	{
+		CPoint a;
+		CPoint b;
+		b.y = 822.3;
+		BOOST_CHECK(!(a == b));
 	}
 BOOST_AUTO_TEST_SUITE_END()
