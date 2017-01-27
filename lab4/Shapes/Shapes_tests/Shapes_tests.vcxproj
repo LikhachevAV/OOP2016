@@ -174,17 +174,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\Shapes\Circle.h" />
-    <ClInclude Include="..\Shapes\CLineSegment.h" />
-    <ClInclude Include="..\Shapes\CPoint.h" />
-    <ClInclude Include="..\Shapes\ISolidShape.h" />
-    <ClInclude Include="..\Shapes\Shape.h" />
-    <ClInclude Include="..\Shapes\SolidShape.h" />
     <ClInclude Include="CircleTests.h" />
-    <ClInclude Include="ShapesTests.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
