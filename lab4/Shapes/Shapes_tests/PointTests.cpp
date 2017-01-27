@@ -69,3 +69,37 @@ BOOST_AUTO_TEST_SUITE(double_equal_operator)
 		BOOST_CHECK(!(a == b));
 	}
 BOOST_AUTO_TEST_SUITE_END()
+
+BOOST_AUTO_TEST_SUITE(not_equals_operator)
+	BOOST_AUTO_TEST_CASE(return_false_when_points_are_equal)
+	{
+		CPoint a;
+		CPoint b;
+		BOOST_CHECK(!(a != b));
+	}
+
+	BOOST_AUTO_TEST_CASE(return_true_when_coordinates_x_are_not_equal)
+	{
+		CPoint a;
+		CPoint b;
+		a.x = 72;
+		BOOST_CHECK(a != b);
+	}
+
+	BOOST_AUTO_TEST_CASE(return_true_when_coordinates_y_are_not_equal)
+	{
+		CPoint a;
+		CPoint b;
+		b.y = -2.92;
+		BOOST_CHECK(a != b);
+	}
+
+	BOOST_AUTO_TEST_CASE(return_true_when_coordinates_x_and_y_are_not_equal)
+	{
+		CPoint a;
+		CPoint b;
+		a.x = 87;
+		b.y = -2.92;
+		BOOST_CHECK(a != b);
+	}
+BOOST_AUTO_TEST_SUITE_END()
