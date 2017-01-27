@@ -20,7 +20,7 @@ std::string CCircle::ToString() const
 
 double CCircle::GetArea() const
 {
-	return 0.0;
+	return M_PI * m_diameter * m_diameter / 4;
 }
 
 double CCircle::GetPerimeter() const

@@ -5,13 +5,15 @@
 
 #pragma once
 
+#define _USE_MATH_DEFINES  
+#include <cmath>  
 #include "targetver.h"
-
 #include <tchar.h>
 #include <iostream>
 #include <string>
 #include <math.h>
 #include <sstream>
 #include <iomanip>
+
 
 // TODO: reference additional headers your program requires here
