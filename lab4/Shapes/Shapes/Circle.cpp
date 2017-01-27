@@ -25,7 +25,7 @@ double CCircle::GetArea() const
 
 double CCircle::GetPerimeter() const
 {
-	return 0.0;
+	return m_diameter;
 }
 
 CPoint CCircle::GetCenter() const

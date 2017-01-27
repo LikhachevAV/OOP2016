@@ -174,7 +174,6 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="CircleTests.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -185,6 +184,7 @@
     <ClCompile Include="..\Shapes\ISolidShape.cpp" />
     <ClCompile Include="..\Shapes\Shape.cpp" />
     <ClCompile Include="..\Shapes\SolidShape.cpp" />
+    <ClCompile Include="CircleTests.cpp" />
     <ClCompile Include="LineSegmentTest.cpp" />
     <ClCompile Include="PointTests.cpp" />
     <ClCompile Include="stdafx.cpp">

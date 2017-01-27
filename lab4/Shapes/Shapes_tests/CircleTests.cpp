@@ -1,7 +1,6 @@
 #pragma once
 #include "stdafx.h"
 #include "..\Shapes\Circle.h"
-#include "CircleTests.h"
 
 using namespace std;
 
@@ -13,7 +12,9 @@ BOOST_AUTO_TEST_SUITE(Circle_constructor)
 		string outlineColor = "red";
 		string fillColor = "white";
 		CCircle circle(center, diameter, outlineColor, fillColor);
-		//BOOST_CHECK_EQUAL(circle.GetCenter(), CPoint(0, 0)); // todo
-		//BOOST_CHECK_EQUAL();
+		BOOST_CHECK(circle.GetCenter() == CPoint(0, 0));
+		BOOST_CHECK_EQUAL(circle.GetOutlineColor(), outlineColor);
+		BOOST_CHECK_EQUAL(circle.GetFillColor(), fillColor);
+		BOOST_CHECK_EQUAL(circle.GetPerimeter(), diameter);
 	}
 BOOST_AUTO_TEST_SUITE_END()
