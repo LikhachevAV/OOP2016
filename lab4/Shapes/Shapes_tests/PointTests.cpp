@@ -40,11 +40,15 @@ BOOST_AUTO_TEST_SUITE(ToString_function)
 	}
 BOOST_AUTO_TEST_SUITE_END()
 
-BOOST_AUTO_TEST_SUITE(double_equal_operator)
+struct twoPointsWithDefaultWalue
+{
+	CPoint a;
+	CPoint b;
+};
+
+BOOST_FIXTURE_TEST_SUITE(double_equal_operator, twoPointsWithDefaultWalue)
 	BOOST_AUTO_TEST_CASE(return_true_when_points_are_equal)
 	{
-		CPoint a;
-		CPoint b;
 		BOOST_CHECK(a == b);
 		double x = -2.2;
 		double y = 32.4;
@@ -55,49 +59,37 @@ BOOST_AUTO_TEST_SUITE(double_equal_operator)
 
 	BOOST_AUTO_TEST_CASE(return_false_when_coordinates_x_are_not_equal)
 	{
-		CPoint a;
-		CPoint b;
 		a.x = -1.2;
 		BOOST_CHECK(!(a == b));
 	}
 
 	BOOST_AUTO_TEST_CASE(return_false_when_coordinates_y_are_not_equal)
 	{
-		CPoint a;
-		CPoint b;
 		b.y = 822.3;
 		BOOST_CHECK(!(a == b));
 	}
 BOOST_AUTO_TEST_SUITE_END()
 
-BOOST_AUTO_TEST_SUITE(not_equals_operator)
+BOOST_FIXTURE_TEST_SUITE(not_equals_operator, twoPointsWithDefaultWalue)
 	BOOST_AUTO_TEST_CASE(return_false_when_points_are_equal)
 	{
-		CPoint a;
-		CPoint b;
 		BOOST_CHECK(!(a != b));
 	}
 
 	BOOST_AUTO_TEST_CASE(return_true_when_coordinates_x_are_not_equal)
 	{
-		CPoint a;
-		CPoint b;
 		a.x = 72;
 		BOOST_CHECK(a != b);
 	}
 
 	BOOST_AUTO_TEST_CASE(return_true_when_coordinates_y_are_not_equal)
 	{
-		CPoint a;
-		CPoint b;
 		b.y = -2.92;
 		BOOST_CHECK(a != b);
 	}
 
 	BOOST_AUTO_TEST_CASE(return_true_when_coordinates_x_and_y_are_not_equal)
 	{
-		CPoint a;
-		CPoint b;
 		a.x = 87;
 		b.y = -2.92;
 		BOOST_CHECK(a != b);
