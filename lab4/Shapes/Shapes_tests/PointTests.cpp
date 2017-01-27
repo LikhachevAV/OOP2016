@@ -39,3 +39,17 @@ BOOST_AUTO_TEST_SUITE(ToString_function)
 		BOOST_CHECK_EQUAL("(2.2, 4.5)", point.ToString());
 	}
 BOOST_AUTO_TEST_SUITE_END()
+
+BOOST_AUTO_TEST_SUITE(double_equal_operator)
+	BOOST_AUTO_TEST_CASE(return_true_if_points_are_equal)
+	{
+		CPoint a;
+		CPoint b;
+		BOOST_CHECK(a == b);
+		double x = -2.2;
+		double y = 32.4;
+		a = CPoint(x, y);
+		b = CPoint(x, y);
+		BOOST_CHECK(a == b);
+	}
+BOOST_AUTO_TEST_SUITE_END()
