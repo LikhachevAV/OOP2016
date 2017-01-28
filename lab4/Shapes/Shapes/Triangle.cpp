@@ -26,7 +26,9 @@ double CTriangle::GetArea() const
 
 double CTriangle::GetPerimeter() const
 {
-	return 0.0;
+	return Get2PointsDistance(m_a, m_b) +
+		Get2PointsDistance(m_b, m_c) +
+		Get2PointsDistance(m_c, m_a);
 }
 
 CPoint CTriangle::GetVertexA() const

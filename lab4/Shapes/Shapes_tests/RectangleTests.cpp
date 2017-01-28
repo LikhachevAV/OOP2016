@@ -10,7 +10,7 @@ auto getHeight = [&](CRectangle rectangle) {
 	return abs(rectangle.GetLeftTop().y - rectangle.GetRightBottom().y);
 };
 
-auto getPerimeter = [&](CRectangle rectangle) {
+auto getTrianglePerimeter = [&](CRectangle rectangle) {
 	return 2 * (getWidth(rectangle) + getHeight(rectangle));
 };
 
@@ -30,7 +30,7 @@ BOOST_AUTO_TEST_SUITE(CRectangle_)
 		BOOST_CHECK(rectangle.GetRightBottom() == rightBottom);
 		BOOST_CHECK_EQUAL(rectangle.GetWidth(), getWidth(rectangle));
 		BOOST_CHECK_EQUAL(rectangle.GetHeight(), getHeight(rectangle));
-		BOOST_CHECK_EQUAL(rectangle.GetPerimeter(), getPerimeter(rectangle));
+		BOOST_CHECK_EQUAL(rectangle.GetPerimeter(), getTrianglePerimeter(rectangle));
 		BOOST_CHECK_EQUAL(rectangle.GetArea(), getArea(rectangle));
 		string rectangleOutStr = "rectangle (1.0, 13.0) (4.0, 3.0) blue green";
 		BOOST_CHECK_EQUAL(rectangle.ToString(), rectangleOutStr);
