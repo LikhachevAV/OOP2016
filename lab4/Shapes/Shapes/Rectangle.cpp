@@ -40,7 +40,7 @@ CPoint CRectangle::GetRightBottom() const
 
 double CRectangle::GetHeight() const
 {
-	return 0.0;
+	return abs(m_leftTop.y - m_rightBottom.y);
 }
 
 double CRectangle::GetWidth() const
