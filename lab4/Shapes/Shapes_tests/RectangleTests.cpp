@@ -10,6 +10,10 @@ auto getHeight = [&](CRectangle rectangle) {
 	return abs(rectangle.GetLeftTop().y - rectangle.GetRightBottom().y);
 };
 
+auto getPerimeter = [&](CRectangle rectangle) {
+	return 2 * (getWidth(rectangle) + getHeight(rectangle));
+};
+
 BOOST_AUTO_TEST_SUITE(CRectangle_)
 	BOOST_AUTO_TEST_CASE(can_create_rectangle_instance)
 	{
@@ -21,7 +25,7 @@ BOOST_AUTO_TEST_SUITE(CRectangle_)
 		BOOST_CHECK(rectangle.GetLeftTop() == leftTop);
 		BOOST_CHECK(rectangle.GetRightBottom() == rightBottom);
 		BOOST_CHECK(rectangle.GetWidth(), getWidth(rectangle));
-		auto height = getHeight(rectangle);
 		BOOST_CHECK(rectangle.GetHeight(), getHeight(rectangle));
+		BOOST_CHECK(rectangle.GetPerimeter(), getPerimeter(rectangle));
 	}
 BOOST_AUTO_TEST_SUITE_END()

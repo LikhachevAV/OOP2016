@@ -25,7 +25,7 @@ double CRectangle::GetArea() const
 
 double CRectangle::GetPerimeter() const
 {
-	return 0.0;
+	return 2 * (GetHeight() + GetWidth());
 }
 
 CPoint CRectangle::GetLeftTop() const
