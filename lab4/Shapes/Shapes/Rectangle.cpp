@@ -20,7 +20,7 @@ std::string CRectangle::ToString() const
 
 double CRectangle::GetArea() const
 {
-	return 0.0;
+	return GetHeight() * GetWidth();
 }
 
 double CRectangle::GetPerimeter() const

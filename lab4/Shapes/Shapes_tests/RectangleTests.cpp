@@ -14,6 +14,10 @@ auto getPerimeter = [&](CRectangle rectangle) {
 	return 2 * (getWidth(rectangle) + getHeight(rectangle));
 };
 
+auto getArea = [&](CRectangle rectangle) {
+	return getWidth(rectangle) * getHeight(rectangle);
+};
+
 BOOST_AUTO_TEST_SUITE(CRectangle_)
 	BOOST_AUTO_TEST_CASE(can_create_rectangle_instance)
 	{
@@ -24,8 +28,9 @@ BOOST_AUTO_TEST_SUITE(CRectangle_)
 		CRectangle rectangle(leftTop, rightBottom, outlineColor, fillColor);
 		BOOST_CHECK(rectangle.GetLeftTop() == leftTop);
 		BOOST_CHECK(rectangle.GetRightBottom() == rightBottom);
-		BOOST_CHECK(rectangle.GetWidth(), getWidth(rectangle));
-		BOOST_CHECK(rectangle.GetHeight(), getHeight(rectangle));
-		BOOST_CHECK(rectangle.GetPerimeter(), getPerimeter(rectangle));
+		BOOST_CHECK_EQUAL(rectangle.GetWidth(), getWidth(rectangle));
+		BOOST_CHECK_EQUAL(rectangle.GetHeight(), getHeight(rectangle));
+		BOOST_CHECK_EQUAL(rectangle.GetPerimeter(), getPerimeter(rectangle));
+		BOOST_CHECK_EQUAL(rectangle.GetArea(), getArea(rectangle));
 	}
 BOOST_AUTO_TEST_SUITE_END()
