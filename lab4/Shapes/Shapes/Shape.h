@@ -16,4 +16,4 @@ private:
 	std::string m_outlineColor;
 };
 
-double GetDistance(CPoint const& a, CPoint const& b);
+double Get2PointsDistance(CPoint const& a, CPoint const& b);

@@ -14,8 +14,12 @@ CCircle::~CCircle()
 
 std::string CCircle::ToString() const
 {
-	std::string s;
-	return s;
+	//circle 0.0 12.2 red white
+	std::stringstream strm;
+	strm << std::fixed << std::setprecision(1)
+		<< "circle " << m_center.ToString() << " " << m_diameter << " "
+		<< GetOutlineColor() << " " << GetFillColor();
+	return strm.str();
 }
 
 double CCircle::GetArea() const

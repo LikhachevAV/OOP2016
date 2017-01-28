@@ -24,5 +24,7 @@ BOOST_AUTO_TEST_SUITE(Circle_constructor)
 		BOOST_CHECK_EQUAL(circle.GetPerimeter(), perimeter);
 		auto area = GetCircleArea(diameter);
 		BOOST_CHECK_EQUAL(circle.GetArea(), area); 
+		string circleOutStr = "circle (0.0, 0.0) 12.2 red white";
+		BOOST_CHECK_EQUAL(circle.ToString(), circleOutStr);
 	}
 BOOST_AUTO_TEST_SUITE_END()

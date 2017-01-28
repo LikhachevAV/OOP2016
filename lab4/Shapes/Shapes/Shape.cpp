@@ -15,7 +15,7 @@ std::string CShape::GetOutlineColor() const
 	return m_outlineColor;
 }
 
-double GetDistance(CPoint const & a, CPoint const & b)
+double Get2PointsDistance(CPoint const & a, CPoint const & b)
 {
 	return sqrt((b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y));
 }
