@@ -182,11 +182,13 @@
     <ClCompile Include="..\Shapes\CLineSegment.cpp" />
     <ClCompile Include="..\Shapes\CPoint.cpp" />
     <ClCompile Include="..\Shapes\ISolidShape.cpp" />
+    <ClCompile Include="..\Shapes\Rectangle.cpp" />
     <ClCompile Include="..\Shapes\Shape.cpp" />
     <ClCompile Include="..\Shapes\SolidShape.cpp" />
     <ClCompile Include="CircleTests.cpp" />
     <ClCompile Include="LineSegmentTest.cpp" />
     <ClCompile Include="PointTests.cpp" />
+    <ClCompile Include="RectangleTests.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
