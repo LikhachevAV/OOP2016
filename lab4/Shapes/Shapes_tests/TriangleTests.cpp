@@ -15,5 +15,8 @@ BOOST_AUTO_TEST_SUITE(CTriangle_)
 		BOOST_CHECK(t1.GetVertexA() == a);
 		BOOST_CHECK(t1.GetVertexB() == b);
 		BOOST_CHECK(t1.GetVertexC() == c);
+		BOOST_CHECK_EQUAL(t1.GetOutlineColor(), outlineColor);
+		BOOST_CHECK_EQUAL(t1.GetFillColor(), fillColor);
+		
 	}
 BOOST_AUTO_TEST_SUITE_END()
