@@ -15,7 +15,11 @@ CRectangle::~CRectangle()
 
 std::string CRectangle::ToString() const
 {
-	return std::string();
+	std::stringstream strm;
+	strm << std::fixed << std::setprecision(1)
+		<< "rectangle " << m_leftTop.ToString() << " " << m_rightBottom.ToString() << " "
+		<< GetOutlineColor() << " " << GetFillColor();
+	return strm.str();
 }
 
 double CRectangle::GetArea() const

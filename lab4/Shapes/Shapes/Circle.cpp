@@ -14,7 +14,6 @@ CCircle::~CCircle()
 
 std::string CCircle::ToString() const
 {
-	//circle 0.0 12.2 red white
 	std::stringstream strm;
 	strm << std::fixed << std::setprecision(1)
 		<< "circle " << m_center.ToString() << " " << m_diameter << " "

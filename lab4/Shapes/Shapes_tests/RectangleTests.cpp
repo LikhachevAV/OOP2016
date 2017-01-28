@@ -32,5 +32,7 @@ BOOST_AUTO_TEST_SUITE(CRectangle_)
 		BOOST_CHECK_EQUAL(rectangle.GetHeight(), getHeight(rectangle));
 		BOOST_CHECK_EQUAL(rectangle.GetPerimeter(), getPerimeter(rectangle));
 		BOOST_CHECK_EQUAL(rectangle.GetArea(), getArea(rectangle));
+		string rectangleOutStr = "rectangle (1.0, 13.0) (4.0, 3.0) blue green";
+		BOOST_CHECK_EQUAL(rectangle.ToString(), rectangleOutStr);
 	}
 BOOST_AUTO_TEST_SUITE_END()
