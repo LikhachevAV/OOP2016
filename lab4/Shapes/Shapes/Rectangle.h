@@ -1,7 +1,6 @@
 #pragma once
 #include "SolidShape.h"
-class CRectangle :
-	public CSolidShape
+class CRectangle : public CSolidShape
 {
 public:
 	CRectangle(CPoint const &leftTop, CPoint const & rightBottom,
