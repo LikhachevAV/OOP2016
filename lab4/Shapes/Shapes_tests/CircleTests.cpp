@@ -45,4 +45,13 @@ BOOST_AUTO_TEST_SUITE(Circle_constructor)
 		string circleOutStr = "circle (-3.0, 2.5) 10.0 purple blue";
 		BOOST_CHECK_EQUAL(circle.ToString(), circleOutStr);
 	}
+
+	BOOST_AUTO_TEST_CASE(move_negative_diameter_value_to_positive)
+	{
+		CPoint center(-3, 2.5);
+		double diameter = -1;
+		string outlineColor = "purple";
+		string fillColor = "blue";
+		CCircle circle(center, -diameter, outlineColor, fillColor);
+	}
 BOOST_AUTO_TEST_SUITE_END()

@@ -4,7 +4,7 @@
 CCircle::CCircle(CPoint const & center, double diameter, std::string const & outlineColor, std::string fillColor) :
 	CSolidShape(outlineColor, fillColor),
 	m_center(center),
-	m_diameter(diameter)
+	m_diameter(abs(diameter))
 {
 }
 
