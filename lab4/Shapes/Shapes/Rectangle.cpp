@@ -45,5 +45,5 @@ double CRectangle::GetHeight() const
 
 double CRectangle::GetWidth() const
 {
-	return 0.0;
+	return abs(m_rightBottom.x - m_leftTop.x);
 }
