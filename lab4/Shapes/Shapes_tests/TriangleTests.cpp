@@ -3,13 +3,15 @@
 
 using namespace std;
 
-BOOST_AUTO_TEST_SUITE(CTriangle_)
-
-auto getTrianglePerimeter = [&](CTriangle const & triangle) {
+double GetTrianglePerimeter(CTriangle const & triangle)
+{
 	return Get2PointsDistance(triangle.GetVertexA(), triangle.GetVertexB()) +
 		Get2PointsDistance(triangle.GetVertexB(), triangle.GetVertexC()) +
 		Get2PointsDistance(triangle.GetVertexC(), triangle.GetVertexA());
 };
+
+BOOST_AUTO_TEST_SUITE(CTriangle_)
+
 	BOOST_AUTO_TEST_CASE(constructor_can_create_instance)
 	{
 		CPoint a(0, 0);
@@ -23,6 +25,7 @@ auto getTrianglePerimeter = [&](CTriangle const & triangle) {
 		BOOST_CHECK(t1.GetVertexC() == c);
 		BOOST_CHECK_EQUAL(t1.GetOutlineColor(), outlineColor);
 		BOOST_CHECK_EQUAL(t1.GetFillColor(), fillColor);
-		BOOST_CHECK_EQUAL(t1.GetPerimeter(), getTrianglePerimeter(t1));
+		BOOST_CHECK_EQUAL(t1.GetPerimeter(), GetTrianglePerimeter(t1));
+		//BOOST_CHECK_EQUAL()
 	}
 BOOST_AUTO_TEST_SUITE_END()
