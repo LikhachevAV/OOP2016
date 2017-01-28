@@ -21,7 +21,14 @@ std::string CTriangle::ToString() const
 
 double CTriangle::GetArea() const
 {
-	return 0.0;
+	double abLength = Get2PointsDistance(m_a, m_b);
+	double bcLength = Get2PointsDistance(m_b, m_c);
+	double caLength = Get2PointsDistance(m_c, m_a);
+	double perimeter = GetPerimeter();
+	return sqrt(perimeter *
+	(perimeter - abLength) *
+	(perimeter - bcLength) *
+	(perimeter - caLength));
 }
 
 double CTriangle::GetPerimeter() const
