@@ -52,6 +52,7 @@ BOOST_AUTO_TEST_SUITE(Circle_constructor)
 		double diameter = -1;
 		string outlineColor = "purple";
 		string fillColor = "blue";
-		CCircle circle(center, -diameter, outlineColor, fillColor);
+		CCircle circle(center, abs(diameter), outlineColor, fillColor);
+		BOOST_CHECK_EQUAL(circle.GetDiameter(), abs(diameter));
 	}
 BOOST_AUTO_TEST_SUITE_END()

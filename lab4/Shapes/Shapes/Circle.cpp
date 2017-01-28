@@ -36,3 +36,8 @@ CPoint CCircle::GetCenter() const
 {
 	return m_center;
 }
+
+double CCircle::GetDiameter() const
+{
+	return m_diameter;
+}

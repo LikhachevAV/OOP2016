@@ -12,6 +12,7 @@ public:
 	double GetArea() const override;
 	double GetPerimeter() const override;
 	CPoint GetCenter() const;
+	double GetDiameter() const;
 
 private:
 	CPoint m_center;
