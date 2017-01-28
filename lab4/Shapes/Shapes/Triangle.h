@@ -12,6 +12,9 @@ public:
 	std::string ToString() const override;
 	double GetArea() const override;
 	double GetPerimeter() const override;
+	CPoint GetVertexA() const;
+	CPoint GetVertexB() const;
+	CPoint GetVertexC() const;
 
 private:
 	CPoint m_a;

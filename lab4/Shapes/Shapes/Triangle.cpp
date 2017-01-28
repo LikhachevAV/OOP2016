@@ -28,3 +28,18 @@ double CTriangle::GetPerimeter() const
 {
 	return 0.0;
 }
+
+CPoint CTriangle::GetVertexA() const
+{
+	return m_a;
+}
+
+CPoint CTriangle::GetVertexB() const
+{
+	return m_b;
+}
+
+CPoint CTriangle::GetVertexC() const
+{
+	return m_c;
+}
