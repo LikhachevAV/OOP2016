@@ -1,6 +1,6 @@
 #pragma once
 #include "IShape.h"
-#include "CPoint.h"
+#include "Point.h"
 
 class CShape : public IShape
 {

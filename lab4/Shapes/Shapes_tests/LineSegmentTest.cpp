@@ -1,6 +1,6 @@
 #pragma once
 #include "stdafx.h"
-#include "..\Shapes\CLineSegment.h"
+#include "..\Shapes\LineSegment.h"
 
 using namespace std;
 

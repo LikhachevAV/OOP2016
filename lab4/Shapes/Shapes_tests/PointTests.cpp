@@ -1,6 +1,6 @@
 #pragma once
 #include "stdafx.h"
-#include "..\Shapes\CPoint.h"
+#include "..\Shapes\Point.h"
 
 using namespace std;
 
