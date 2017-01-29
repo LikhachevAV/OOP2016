@@ -21,14 +21,11 @@ std::string CTriangle::ToString() const
 
 double CTriangle::GetArea() const
 {
-	double abLength = Get2PointsDistance(m_a, m_b);
-	double bcLength = Get2PointsDistance(m_b, m_c);
-	double caLength = Get2PointsDistance(m_c, m_a);
-	double perimeter = GetPerimeter();
-	return sqrt(perimeter *
-	(perimeter - abLength) *
-	(perimeter - bcLength) *
-	(perimeter - caLength));
+	double semiPerimeter = GetPerimeter() / 2;
+	return sqrt(semiPerimeter  *
+	(semiPerimeter - GetAbLength()) *
+	(semiPerimeter - GetBcLength()) *
+	(semiPerimeter - GetCaLength()));
 }
 
 double CTriangle::GetPerimeter() const
@@ -53,17 +50,17 @@ CPoint CTriangle::GetVertexC() const
 	return m_c;
 }
 
-double CTriangle::GetAbLength()
+double CTriangle::GetAbLength() const
 {
 	return Get2PointsDistance(m_a, m_b);
 }
 
-double CTriangle::GetBcLength()
+double CTriangle::GetBcLength() const
 {
 	return Get2PointsDistance(m_b, m_c);
 }
 
-double CTriangle::GetCaLength()
+double CTriangle::GetCaLength() const
 {
 	return Get2PointsDistance(m_c, m_a);
 }

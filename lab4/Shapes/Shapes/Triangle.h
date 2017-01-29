@@ -20,7 +20,8 @@ private:
 	CPoint m_a;
 	CPoint m_b;
 	CPoint m_c;
-	double GetAbLength();
-	double GetBcLength();
-	double GetCaLength();
+
+	double GetAbLength() const;
+	double GetBcLength() const;
+	double GetCaLength() const;
 };

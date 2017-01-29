@@ -12,14 +12,14 @@ double GetTrianglePerimeter(CTriangle const & triangle)
 
 double GetTriangleArea(CTriangle const & triangle)
 {
-	double perimeter = GetTrianglePerimeter(triangle);
+	double semiPerimeter = GetTrianglePerimeter(triangle) / 2;
 	double abLength = Get2PointsDistance(triangle.GetVertexA(), triangle.GetVertexB());
 	double bcLength = Get2PointsDistance(triangle.GetVertexB(), triangle.GetVertexC());
 	double caLength = Get2PointsDistance(triangle.GetVertexC(), triangle.GetVertexA());
-	return sqrt(perimeter *
-	(perimeter - abLength) *
-	(perimeter - bcLength) *
-	(perimeter - caLength));
+	return sqrt(semiPerimeter *
+	(semiPerimeter - abLength) *
+	(semiPerimeter - bcLength) *
+	(semiPerimeter - caLength));
 }
 
 BOOST_AUTO_TEST_SUITE(CTriangle_)
