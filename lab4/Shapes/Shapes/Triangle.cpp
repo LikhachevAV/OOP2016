@@ -52,3 +52,18 @@ CPoint CTriangle::GetVertexC() const
 {
 	return m_c;
 }
+
+double CTriangle::GetAbLength()
+{
+	return Get2PointsDistance(m_a, m_b);
+}
+
+double CTriangle::GetBcLength()
+{
+	return Get2PointsDistance(m_b, m_c);
+}
+
+double CTriangle::GetCaLength()
+{
+	return Get2PointsDistance(m_c, m_a);
+}
