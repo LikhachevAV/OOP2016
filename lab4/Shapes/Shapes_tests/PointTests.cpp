@@ -95,3 +95,25 @@ BOOST_FIXTURE_TEST_SUITE(not_equals_operator, twoPointsWithDefaultWalue)
 		BOOST_CHECK(a != b);
 	}
 BOOST_AUTO_TEST_SUITE_END()
+
+BOOST_AUTO_TEST_SUITE(FromString_function_from_stream)
+	BOOST_AUTO_TEST_CASE(can_return_new_point_with_coordinates_0_0)
+	{
+		string inStr = "(0.0, 0.0)";
+		CPoint point = FromString(inStr);
+		BOOST_CHECK(point == CPoint());
+	}
+
+	BOOST_AUTO_TEST_CASE(return_new_point)
+	{
+		string inStr = "(1.0, 2.2)";
+		CPoint point = FromString(inStr);
+		BOOST_CHECK(point == CPoint(1.0, 2.2));
+	}
+
+	BOOST_AUTO_TEST_CASE(throw_exception_when_can_not_read_string)
+	{
+		string inStr = "0, 0";
+		BOOST_CHECK_THROW(FromString(inStr), std::exception);
+	}
+BOOST_AUTO_TEST_SUITE_END()
