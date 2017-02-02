@@ -16,7 +16,15 @@ CTriangle::~CTriangle()
 
 std::string CTriangle::ToString() const
 {
-	return std::string();
+	std::stringstream strm;
+	strm << std::fixed << std::setprecision(1)
+		<< "triangle with area: " << GetArea() << ", and "
+		<< "perimeter: " << GetPerimeter() << ", "
+		<< "with outline color "
+		<< GetOutlineColor() << " and "
+		<< "fill color "
+		<< GetFillColor();
+	return strm.str();
 }
 
 double CTriangle::GetArea() const

@@ -18,8 +18,12 @@ std::string CRectangle::ToString() const
 {
 	std::stringstream strm;
 	strm << std::fixed << std::setprecision(1)
-		<< "rectangle " << m_leftTop.ToString() << " " << m_rightBottom.ToString() << " "
-		<< GetOutlineColor() << " " << GetFillColor();
+		<< "rectangle with area: " << GetArea() << ", and "
+		<< "perimeter: " << GetPerimeter() << ", "
+		<< "with outline color "
+		<< GetOutlineColor() << " and "
+		<< "fill color "
+		<< GetFillColor();
 	return strm.str();
 }
 

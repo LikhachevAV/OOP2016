@@ -18,6 +18,19 @@ auto getArea = [&](CRectangle rectangle) {
 	return getWidth(rectangle) * getHeight(rectangle);
 };
 
+std::string RectangleToString(CRectangle const &rectangle)
+{
+	std::stringstream strm;
+	strm << std::fixed << std::setprecision(1)
+		<< "rectangle with area: " << rectangle.GetArea() << ", and "
+		<< "perimeter: " << rectangle.GetPerimeter() << ", "
+		<< "with outline color "
+		<< rectangle.GetOutlineColor() << " and "
+		<< "fill color "
+		<< rectangle.GetFillColor();
+	return strm.str();
+}
+
 BOOST_AUTO_TEST_SUITE(CRectangle_)
 	BOOST_AUTO_TEST_CASE(can_create_rectangle_instance)
 	{
@@ -32,7 +45,7 @@ BOOST_AUTO_TEST_SUITE(CRectangle_)
 		BOOST_CHECK_EQUAL(rectangle.GetHeight(), getHeight(rectangle));
 		BOOST_CHECK_EQUAL(rectangle.GetPerimeter(), getTrianglePerimeter(rectangle));
 		BOOST_CHECK_EQUAL(rectangle.GetArea(), getArea(rectangle));
-		string rectangleOutStr = "rectangle (1.0, 13.0) (4.0, 3.0) blue green";
+		string rectangleOutStr = RectangleToString(rectangle);
 		BOOST_CHECK_EQUAL(rectangle.ToString(), rectangleOutStr);
 	}
 BOOST_AUTO_TEST_SUITE_END()
