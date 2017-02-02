@@ -13,9 +13,11 @@ public:
 	double GetPerimeter() const override;
 	CPoint GetCenter() const;
 	double GetRadius() const;
+	bool Equals(CCircle const &circe) const;
 
 private:
 	CPoint m_center;
 	double m_radius = 0;
 };
 
+std::istream &operator >> (std::istream &is, CCircle &circle);

@@ -40,3 +40,16 @@ double CCircle::GetRadius() const
 {
 	return m_radius;
 }
+
+bool CCircle::Equals(CCircle const & circe) const
+{
+	return m_center == circe.GetCenter() &&
+		m_radius == circe.GetRadius() &&
+		GetOutlineColor().compare(circe.GetOutlineColor()) == 0 &&
+		GetFillColor().compare(circe.GetFillColor()) == 0;
+}
+
+std::istream & operator >> (std::istream & is, CCircle & circle)
+{
+	return is;
+}
