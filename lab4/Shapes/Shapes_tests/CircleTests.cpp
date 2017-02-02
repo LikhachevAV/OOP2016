@@ -9,6 +9,19 @@ double GetCircleArea(double radius)
 	return M_PI * radius * radius;
 }
 
+string CircleToString(CCircle const& circle)
+{
+	stringstream strm;
+	strm << std::fixed << std::setprecision(1)
+		<< "circle with area: " << circle.GetArea() << ", and "
+		<< "perimeter: " << circle.GetPerimeter() << ", "
+		<< "with outline color "
+		<< circle.GetOutlineColor() << " and "
+		<< "fill color "
+		<< circle.GetFillColor();
+	return strm.str();
+}
+
 BOOST_AUTO_TEST_SUITE(Circle_constructor)
 	BOOST_AUTO_TEST_CASE(can_construct_circle_with_center_0_0)
 	{
@@ -24,7 +37,7 @@ BOOST_AUTO_TEST_SUITE(Circle_constructor)
 		BOOST_CHECK_EQUAL(circle.GetPerimeter(), perimeter);
 		auto area = GetCircleArea(radius);
 		BOOST_CHECK_EQUAL(circle.GetArea(), area); 
-		string circleOutStr = "circle (0.0, 0.0) 12.2 red white";
+		string circleOutStr = CircleToString(circle);
 		BOOST_CHECK_EQUAL(circle.ToString(), circleOutStr);
 	}
 
@@ -42,7 +55,7 @@ BOOST_AUTO_TEST_SUITE(Circle_constructor)
 		BOOST_CHECK_EQUAL(circle.GetPerimeter(), perimeter);
 		auto area = GetCircleArea(diameter);
 		BOOST_CHECK_EQUAL(circle.GetArea(), area);
-		string circleOutStr = "circle (-3.0, 2.5) 10.0 purple blue";
+		string circleOutStr = CircleToString(circle);
 		BOOST_CHECK_EQUAL(circle.ToString(), circleOutStr);
 	}
 
