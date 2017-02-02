@@ -1,10 +1,10 @@
 #include "stdafx.h"
 #include "Circle.h"
 
-CCircle::CCircle(CPoint const & center, double diameter, std::string const & outlineColor, std::string fillColor) :
+CCircle::CCircle(CPoint const & center, double radius, std::string const & outlineColor, std::string fillColor) :
 	CSolidShape(outlineColor, fillColor),
 	m_center(center),
-	m_diameter(abs(diameter))
+	m_radius(abs(radius))
 {
 }
 
@@ -16,19 +16,19 @@ std::string CCircle::ToString() const
 {
 	std::stringstream strm;
 	strm << std::fixed << std::setprecision(1)
-		<< "circle " << m_center.ToString() << " " << m_diameter << " "
+		<< "circle " << m_center.ToString() << " " << m_radius << " "
 		<< GetOutlineColor() << " " << GetFillColor();
 	return strm.str();
 }
 
 double CCircle::GetArea() const
 {
-	return M_PI * m_diameter * m_diameter / 4;
+	return M_PI * m_radius * m_radius;
 }
 
 double CCircle::GetPerimeter() const
 {
-	return M_PI * m_diameter;
+	return 2 * M_PI * m_radius;
 }
 
 CPoint CCircle::GetCenter() const
@@ -36,7 +36,7 @@ CPoint CCircle::GetCenter() const
 	return m_center;
 }
 
-double CCircle::GetDiameter() const
+double CCircle::GetRadius() const
 {
-	return m_diameter;
+	return m_radius;
 }

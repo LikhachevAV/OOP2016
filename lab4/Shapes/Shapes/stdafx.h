@@ -14,6 +14,7 @@
 #include <math.h>
 #include <sstream>
 #include <iomanip>
+#include <vector>
 
 
 // TODO: reference additional headers your program requires here
