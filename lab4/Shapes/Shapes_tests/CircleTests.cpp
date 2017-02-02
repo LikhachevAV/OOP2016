@@ -117,3 +117,45 @@ BOOST_AUTO_TEST_SUITE(Equals_function)
 		BOOST_CHECK(!c1.Equals(c2));
 	}
 BOOST_AUTO_TEST_SUITE_END()
+
+BOOST_AUTO_TEST_SUITE(operator_read_cirlce_from_stream)
+	BOOST_AUTO_TEST_CASE(can_read_cirlce)
+	{
+		CCircle circle(CPoint(0, 0), 0, "", "");
+		string inStr = "(10, 10) 17.0 white white";
+		stringstream strm(inStr);
+		strm >> circle;
+		CCircle expectedCircle(CPoint(10, 10), 17, "white", "white");
+		BOOST_CHECK(circle.Equals(expectedCircle));
+	}
+
+	BOOST_AUTO_TEST_CASE(throw_exception_when_can_not_center_read)
+	{
+		CCircle circle(CPoint(0, 0), 0, "", "");
+		string inStr = "10, 10) 17.0 white white";
+		stringstream strm(inStr);
+		BOOST_CHECK_THROW(strm >> circle, std::exception);
+		CCircle expectedCircle(CPoint(10, 10), 17, "white", "white");
+		BOOST_CHECK(!circle.Equals(expectedCircle));
+	}
+
+	BOOST_AUTO_TEST_CASE(throw_exception_when_can_not_radius_read)
+	{
+		CCircle circle(CPoint(0, 0), 0, "", "");
+		string inStr = "(10, 10) # white white";
+		stringstream strm(inStr);
+		BOOST_CHECK_THROW(strm >> circle, std::exception);
+		CCircle expectedCircle(CPoint(10, 10), 17, "white", "white");
+		BOOST_CHECK(!circle.Equals(expectedCircle));
+	}
+
+	BOOST_AUTO_TEST_CASE(throw_exception_when_can_not_outline_and_fill_colors_read)
+	{
+		CCircle circle(CPoint(0, 0), 0, "", "");
+		string inStr = "(10, 10) 22";
+		stringstream strm(inStr);
+		BOOST_CHECK_THROW(strm >> circle, std::exception);
+		CCircle expectedCircle(CPoint(10, 10), 17, "white", "white");
+		BOOST_CHECK(!circle.Equals(expectedCircle));
+	}
+BOOST_AUTO_TEST_SUITE_END()

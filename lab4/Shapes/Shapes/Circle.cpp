@@ -51,5 +51,14 @@ bool CCircle::Equals(CCircle const & circe) const
 
 std::istream & operator >> (std::istream & is, CCircle & circle)
 {
+	CPoint center;
+	double radius;
+	std::string outLineColor;
+	std::string fillColor;
+	if (!(is >> center >> radius >> outLineColor >> fillColor))
+	{
+		throw std::exception("Circle reading exception");
+	}
+	circle = CCircle(center, radius, outLineColor, fillColor);
 	return is;
 }
