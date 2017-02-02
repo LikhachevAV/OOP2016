@@ -25,59 +25,52 @@ bool operator!= (CPoint const &l, CPoint const &r)
 	return ((l.x != r.x) || (l.y != r.y));
 }
 
-CPoint FromString(std::string const &inStr)
-{	
-	std::stringstream strm(inStr);
-	char ch = '#';
-	double x;
-	double y;
-	auto throwException = [] () {
-		throw std::exception("Point format reading exception");
-	};
-	if (!strm.get(ch) || (ch != '('))
-	{
-		throwException();
-	}
-	if (!(strm >> x))
-	{
-		throwException();
-	}
-	if (!strm.get(ch) || (ch != ','))
-	{
-		throwException();
-	}
-	if (!(strm >> y))
-	{
-		throwException();
-	}
-	if (!strm.get(ch) || (ch != ')'))
-	{
-		throwException();
-	}
-	return CPoint(x, y);
-}
-
 std::istream &operator>> (std::istream &is, CPoint & point)
 {
 	char ch = ' ';
+	double x;
+	double y;
 	auto throwException = []() {
 		throw std::exception("Point format reading exception");
 	};
-	if (is.get(ch) && ch == ' ')
+	auto protectedReadCh = [&]() {
+		if (!is.eof())
+		{
+			is.get(ch);
+		}
+		else 
+		{
+			throwException();
+		}
+	};
+	protectedReadCh();
+	if (ch == ' ')
 	{
-		is.get(ch);
+		protectedReadCh();
 	} else
 	if (ch != '(')
 	{
 		throwException();
 	}
-	if (!(is >> point.x) || !(is.get(ch) || ch != ','))
+	if (!(is >> x))
 	{
 		throwException();
 	}
-	if (!(is >> point.y) || !(is.get(ch) || ch != ')'))
+	protectedReadCh();
+	if (ch != ',')
 	{
 		throwException();
 	}
+	if (!(is >> y))
+	{
+		throwException();
+	}
+	protectedReadCh();
+	if (ch != ')')
+	{
+		throwException();
+	}
+	CPoint resultPoint(x, y);
+	point = resultPoint;
 	return is;
 }

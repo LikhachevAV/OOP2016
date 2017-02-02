@@ -7,8 +7,8 @@ using namespace std;
 void ReadShapes()
 {
 	std::vector<IShape> shapes;
-	CCircle circle();
-	shapes.pop_back(circle);
+//	CCircle circle();
+//	shapes.pop_back(circle);
 }
 
 int main()
