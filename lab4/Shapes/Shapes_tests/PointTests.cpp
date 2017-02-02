@@ -113,7 +113,41 @@ BOOST_AUTO_TEST_SUITE(FromString_function_from_stream)
 
 	BOOST_AUTO_TEST_CASE(throw_exception_when_can_not_read_string)
 	{
-		string inStr = "0, 0";
+		string inStr = "";
+		BOOST_CHECK_THROW(FromString(inStr), std::exception);
+		inStr = "0, 0";
+		BOOST_CHECK_THROW(FromString(inStr), std::exception);
+		inStr = "(0, 0";
+		BOOST_CHECK_THROW(FromString(inStr), std::exception);
+		inStr = "(0 0)";
+		BOOST_CHECK_THROW(FromString(inStr), std::exception);
+	}
+BOOST_AUTO_TEST_SUITE_END()
+
+BOOST_AUTO_TEST_SUITE(operator_read_from_stream)
+	BOOST_AUTO_TEST_CASE(can_read_point)
+	{
+		string inStr = "(1.0, 2.2)";
+		CPoint point;
+		stringstream stream(inStr);
+		BOOST_CHECK(stream >> point);
+		BOOST_CHECK(point == CPoint(1.0, 2.2));
+	}
+
+	BOOST_AUTO_TEST_CASE(throw_exception_when_can_not_read_string)
+	{
+		CPoint point;
+		string inStr = "";
+		stringstream strm(inStr);
+		BOOST_CHECK_THROW(strm >> point, std::exception);
+		inStr = "0, 0";
+		strm = stringstream(inStr);
+		BOOST_CHECK_THROW(FromString(inStr), std::exception);
+		inStr = "(0, 0";
+		strm = stringstream(inStr);
+		BOOST_CHECK_THROW(FromString(inStr), std::exception);
+		inStr = "(0 0)";
+		strm = stringstream(inStr);
 		BOOST_CHECK_THROW(FromString(inStr), std::exception);
 	}
 BOOST_AUTO_TEST_SUITE_END()
