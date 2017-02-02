@@ -20,4 +20,4 @@ bool operator!= (CPoint const &l, CPoint const &r);
 
 CPoint FromString(std::string const &inStr);
 
-std::istream &operator >> (std::istream &is, CPoint & point);
+std::istream &operator>> (std::istream &is, CPoint & point);

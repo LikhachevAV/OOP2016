@@ -57,14 +57,17 @@ CPoint FromString(std::string const &inStr)
 	return CPoint(x, y);
 }
 
-std::istream &operator >> (std::istream &is, CPoint & point)
+std::istream &operator>> (std::istream &is, CPoint & point)
 {
-	char ch;
+	char ch = ' ';
 	auto throwException = []() {
 		throw std::exception("Point format reading exception");
 	};
-
-	if (!is.get(ch) || ch != '(')
+	if (is.get(ch) && ch == ' ')
+	{
+		is.get(ch);
+	} else
+	if (ch != '(')
 	{
 		throwException();
 	}

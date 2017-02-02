@@ -15,6 +15,7 @@ public:
 	CPoint GetVertexA() const;
 	CPoint GetVertexB() const;
 	CPoint GetVertexC() const;
+	bool Equals(CTriangle const &triangle) const;
 
 private:
 	CPoint m_a;
@@ -25,3 +26,5 @@ private:
 	double GetBcLength() const;
 	double GetCaLength() const;
 };
+
+std::istream & operator >> (std::istream & is, CTriangle & triangle);

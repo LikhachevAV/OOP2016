@@ -48,6 +48,15 @@ CPoint CTriangle::GetVertexC() const
 	return m_c;
 }
 
+bool CTriangle::Equals(CTriangle const & triangle) const
+{
+	return m_a == triangle.GetVertexA() &&
+		m_b == triangle.GetVertexB() &&
+		m_c == triangle.GetVertexC() &&
+		GetOutlineColor().compare(triangle.GetOutlineColor()) == 0 &&
+		GetFillColor().compare(triangle.GetFillColor()) == 0;
+}
+
 double CTriangle::GetAbLength() const
 {
 	return Get2PointsDistance(m_a, m_b);
@@ -61,4 +70,20 @@ double CTriangle::GetBcLength() const
 double CTriangle::GetCaLength() const
 {
 	return Get2PointsDistance(m_c, m_a);
+}
+
+std::istream & operator >> (std::istream & is, CTriangle & triangle)
+{
+	CPoint a;
+	CPoint b;
+	CPoint c;
+	std::string outLineColor;
+	std::string fillClolor;
+	if (!(is >> a >> b >> c >> outLineColor >> fillClolor))
+	{
+		throw std::exception("Triangle from istream reading exceprtion");
+	}
+	CTriangle resultTriangle(a, b, c, outLineColor, fillClolor);
+	triangle = resultTriangle;
+	return is;
 }
