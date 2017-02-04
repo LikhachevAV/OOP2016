@@ -15,6 +15,8 @@
 #include <sstream>
 #include <iomanip>
 #include <vector>
+#include <boost/shared_ptr.hpp>
+#include <map>
 
 
 // TODO: reference additional headers your program requires here
