@@ -22,7 +22,15 @@ void ReadShapes(vector<shared_ptr<IShape>> shapesVector)
 		auto typeIt = shapeTypesMap.find(sType);
 		switch (typeIt->second) {
 		case ShapeTypeEnum::circle:
-			//Read circle from stream;
+			try{
+				auto sp = make_shared<CCircle>(CPoint(0, 0), 0, "", "");
+				strm >> *sp;
+				shapesVector.push_back(sp);
+			}
+			catch (std::exception e)
+			{
+				cout << e.what() << endl;
+			}
 			break;
 		case ShapeTypeEnum::rectangle:
 			//Read rectangle from stream
