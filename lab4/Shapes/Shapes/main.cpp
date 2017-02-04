@@ -22,9 +22,12 @@ void ReadShapes(vector<shared_ptr<IShape>> shapesVector)
 		auto typeIt = shapeTypesMap.find(sType);
 		switch (typeIt->second) {
 		case ShapeTypeEnum::circle:
+			//Read circle from stream;
 			break;
 		case ShapeTypeEnum::rectangle:
+			//Read rectangle from stream
 			break;
+			//Read triangle from stream
 		case ShapeTypeEnum::triangle:
 			break;
 		}

@@ -2,7 +2,7 @@
 #include "IShape.h"
 #include "Point.h"
 
-class CShape : public IShape
+class CShape : public virtual IShape
 {
 public:
 	CShape(std::string const& outlineColor);
