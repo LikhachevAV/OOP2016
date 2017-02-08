@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "IShape.h"
 #include "Circle.h"
+#include "Rectangle.h"
+#include "Triangle.h"
 
 using namespace std;
 
@@ -10,12 +12,12 @@ map<string, ShapeTypeEnum> shapeTypesMap = { {"circle", ShapeTypeEnum::circle},
 								{"rectangle", ShapeTypeEnum::rectangle },
 								{"triangle", ShapeTypeEnum::triangle} };
 
-void ReadShapes(vector<shared_ptr<IShape>> shapesVector)
+void ReadShapes(vector<shared_ptr<IShape>> shapesVector, istream & in)
 {
 	string line;
 	while (!cin.eof())
 	{
-		getline(cin, line);
+		getline(in, line);
 		stringstream strm(line);
 		string sType;
 		strm >> sType;
@@ -33,10 +35,19 @@ void ReadShapes(vector<shared_ptr<IShape>> shapesVector)
 			}
 			break;
 		case ShapeTypeEnum::rectangle:
-			//Read rectangle from stream
 			break;
 			//Read triangle from stream
 		case ShapeTypeEnum::triangle:
+			try {
+				auto sp = make_shared<CTriangle>(CPoint(0, 0),
+					CPoint(0, 0), CPoint(0, 0), "", "");
+				strm >> *sp;
+				shapesVector.push_back(sp);
+			}
+			catch (std::exception e)
+			{
+				cout << e.what() << endl;
+			}
 			break;
 		}
 	}
@@ -45,5 +56,6 @@ void ReadShapes(vector<shared_ptr<IShape>> shapesVector)
 int main()
 {
 	vector<shared_ptr<IShape>> shapes;
+	ReadShapes(shapes, cin);
 	return 0;
 }
