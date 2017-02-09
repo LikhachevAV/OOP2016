@@ -11,12 +11,17 @@ public:
 		m_pointer = nullptr;
 	}
 
-	template<typename T> CMyIterator() : 
+	CMyIterator() : 
 		m_pointer(nullptr)
 	{
 	}
 
-	template<typename T> CMyIterator(const CMyIterator& it) :
+	CMyIterator(T* p) :
+		m_pointer(p)
+	{
+	}
+
+	CMyIterator(const CMyIterator& it) :
 		m_pointer(it.m_pointer)
 	{
 	}

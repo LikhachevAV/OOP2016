@@ -4,12 +4,12 @@
 #include <algorithm>
 #include "MyIterator.h"
 
-template<typename T>
+template <typename T>
 class CMyArray
 {
 public:
-	typedef CMyIter<T> iterator;
-	typedef CMyIter<const T> const_iterator;
+	typedef CMyIterator<T> iterator;
+	typedef CMyIterator<const T> const_iterator;
 	typedef std::reverse_iterator<iterator> reverse_iterator;
 	typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
 
