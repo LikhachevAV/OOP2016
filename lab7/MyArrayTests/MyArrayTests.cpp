@@ -142,5 +142,19 @@ BOOST_FIXTURE_TEST_SUITE(MyArray, EmptyStringArray)
 				t--;
 			}
 		}
+		BOOST_AUTO_TEST_CASE(_forward_and_backward_using_rbegin_and_rend)
+		{
+			for (auto i = 0; i < 3; ++i)
+			{
+				arr.Append(i);
+			}
+			auto t = 0;
+			for (auto it = arr.rbegin(); it != arr.rend(); it++)
+			{
+				std::cout << it->value << endl;
+				//BOOST_CHECK_EQUAL(it->value, t);
+				//t++;
+			}
+		}
 	BOOST_AUTO_TEST_SUITE_END()
 BOOST_AUTO_TEST_SUITE_END()
