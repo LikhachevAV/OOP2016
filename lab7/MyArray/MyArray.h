@@ -123,6 +123,12 @@ public:
 		return iterator(m_begin);
 	}
 
+	iterator end()
+	{
+		return iterator(m_end);
+	}
+
+
 private:
 	static void DeleteItems(T *begin, T *end)
 	{

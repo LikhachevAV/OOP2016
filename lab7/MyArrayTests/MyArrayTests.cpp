@@ -109,5 +109,17 @@ BOOST_FIXTURE_TEST_SUITE(MyArray, EmptyStringArray)
 			}
 			BOOST_CHECK_EQUAL(arr.begin()->value, 1);
 		}
+		BOOST_AUTO_TEST_CASE(return_end_iterator)
+		{
+			for (auto i = 1; i < 3; ++i)
+			{
+				arr.Append(i);
+			}
+			auto itEnd = arr.end();
+			itEnd--;
+			auto lastIndex = arr.GetSize() - 1;
+			BOOST_CHECK_EQUAL(itEnd->value, arr[lastIndex].value);
+		}
+
 	BOOST_AUTO_TEST_SUITE_END()
 BOOST_AUTO_TEST_SUITE_END()
