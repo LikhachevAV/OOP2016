@@ -81,10 +81,27 @@ void PrintShapes(ostream & out, vector<shared_ptr<IShape>> const &shapes)
 	}
 }
 
+shared_ptr<IShape> GetMinPerimeterShapePtr(vector<shared_ptr<IShape>> const &shapes)
+{
+	auto less_perimeter = [&](shared_ptr<IShape> const& sh1, shared_ptr<IShape> const& sh2) {
+		return sh1->GetPerimeter() < sh2->GetPerimeter();
+	};
+	return *min_element(shapes.begin(), shapes.end(), less_perimeter);
+}
+
+void PrintShapeWithMinPerimeter(ostream & out, vector<shared_ptr<IShape>> const & shapes)
+{
+	if (shapes.size() > 0)
+	{
+		cout << "Shape with min perimeter is " << GetMinPerimeterShapePtr(shapes)->ToString() << endl;
+	}
+}
+
 int main()
 {
 	vector<shared_ptr<IShape>> shapes;
 	ReadShapes(shapes, cin);
 	PrintShapes(cout, shapes);
+	PrintShapeWithMinPerimeter(cout, shapes);
 	return 0;
 }

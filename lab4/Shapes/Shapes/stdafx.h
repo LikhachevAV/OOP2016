@@ -17,6 +17,7 @@
 #include <vector>
 #include <boost/shared_ptr.hpp>
 #include <map>
+#include <algorithm>  
 
 
 // TODO: reference additional headers your program requires here
