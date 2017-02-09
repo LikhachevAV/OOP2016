@@ -1,0 +1,4 @@
+triangle (0, 0) (12, 1) (2, -3) red green
+circle (0, 0) 10 blue white
+rectangle (10, 10) (-1, 20) grey black
+
