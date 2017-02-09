@@ -12,12 +12,16 @@ map<string, ShapeTypeEnum> shapeTypesMap = { {"circle", ShapeTypeEnum::circle},
 								{"rectangle", ShapeTypeEnum::rectangle },
 								{"triangle", ShapeTypeEnum::triangle} };
 
-void ReadShapes(vector<shared_ptr<IShape>> shapesVector, istream & in)
+void ReadShapes(vector<shared_ptr<IShape>> & shapesVector, istream & in)
 {
 	string line;
-	while (!cin.eof())
+	while (!in.eof())
 	{
 		getline(in, line);
+		if (in.eof())
+		{
+			break;
+		}
 		stringstream strm(line);
 		string sType;
 		strm >> sType;
@@ -53,9 +57,25 @@ void ReadShapes(vector<shared_ptr<IShape>> shapesVector, istream & in)
 	}
 }
 
+void PrintShapes(ostream & out, vector<shared_ptr<IShape>> const &shapes)
+{
+	if (shapes.size() > 0)
+	{
+		for (auto pShape : shapes)
+		{
+			out << pShape->ToString() << endl;
+		}
+	}
+	else
+	{
+		out << "Shapes vector empty!" << endl;
+	}
+}
+
 int main()
 {
 	vector<shared_ptr<IShape>> shapes;
 	ReadShapes(shapes, cin);
+	PrintShapes(cout, shapes);
 	return 0;
 }
