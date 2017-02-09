@@ -99,6 +99,7 @@ BOOST_FIXTURE_TEST_SUITE(MyArray, EmptyStringArray)
 		}
 	BOOST_AUTO_TEST_SUITE_END()
 
+
 	BOOST_AUTO_TEST_SUITE(access_to_iterators_methods)
 		BOOST_AUTO_TEST_CASE(return_begin_iterator)
 		{

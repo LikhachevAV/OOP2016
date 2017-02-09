@@ -10,8 +10,6 @@ class CMyArray
 public:
 	typedef CMyIterator<T> iterator;
 	typedef CMyIterator<const T> const_iterator;
-	typedef std::reverse_iterator<iterator> reverse_iterator;
-	typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
 
 	CMyArray() = default;
 
