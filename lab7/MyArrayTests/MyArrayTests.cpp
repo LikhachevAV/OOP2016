@@ -120,6 +120,27 @@ BOOST_FIXTURE_TEST_SUITE(MyArray, EmptyStringArray)
 			auto lastIndex = arr.GetSize() - 1;
 			BOOST_CHECK_EQUAL(itEnd->value, arr[lastIndex].value);
 		}
+	BOOST_AUTO_TEST_SUITE_END()
 
+	BOOST_AUTO_TEST_SUITE(can_use_iterators_to_loop_array)
+		BOOST_AUTO_TEST_CASE(_forward_and_backward)
+		{
+			for (auto i = 0; i < 3; ++i)
+			{
+				arr.Append(i);
+			}
+			auto t = 0;
+			for (auto it = arr.begin(); it != arr.end(); it++)
+			{
+				BOOST_CHECK_EQUAL(it->value, t);
+				t++;
+			}
+			t = arr.GetSize() - 1;
+			for (auto it = arr.end() - 1; it >= arr.begin(); it--)
+			{
+				BOOST_CHECK_EQUAL(it->value, t);
+				t--;
+			}
+		}
 	BOOST_AUTO_TEST_SUITE_END()
 BOOST_AUTO_TEST_SUITE_END()

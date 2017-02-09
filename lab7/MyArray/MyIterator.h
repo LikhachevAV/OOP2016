@@ -32,12 +32,12 @@ public:
 		return *this;
 	}
 
-	CMyIterator& operator!=(CMyIterator const& other) const
+	bool operator!=(CMyIterator const& other) const
 	{
 		return m_pointer != other.m_pointer;
 	}
 
-	CMyIterator&& operator==(CMyIterator const& other) const
+	bool operator==(CMyIterator const& other) const
 	{
 		return m_pointer == other.m_pointer;
 	}
@@ -115,7 +115,7 @@ public:
 		return m_pointer >= other.m_pointer;
 	}
 
-	CMyIterator& operator-(ptrdiff_t n) const
+	CMyIterator operator-(ptrdiff_t n) const
 	{
 		return m_pointer - n;
 	}
