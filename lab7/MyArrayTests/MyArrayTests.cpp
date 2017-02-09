@@ -72,6 +72,7 @@ BOOST_FIXTURE_TEST_SUITE(MyArray, EmptyStringArray)
 	BOOST_AUTO_TEST_SUITE(operator_get_array_item_by_index)
 		BOOST_AUTO_TEST_CASE(throw_exception_when_index_more_than_array_size)
 		{
+			BOOST_CHECK_EQUAL(arr.GetSize(), 0);
 			BOOST_CHECK_THROW(arr[1].value, std::out_of_range);
 		}
 		BOOST_AUTO_TEST_CASE(return_item)
@@ -82,5 +83,19 @@ BOOST_FIXTURE_TEST_SUITE(MyArray, EmptyStringArray)
 				BOOST_CHECK_EQUAL(arr[i].value, i);
 			}
 		}		
+	BOOST_AUTO_TEST_SUITE_END()
+
+	BOOST_AUTO_TEST_SUITE(Clear_function)
+		BOOST_AUTO_TEST_CASE(delete_all_array_items)
+		{
+			for (auto i = 0; i < 3; ++i)
+			{
+				arr.Append(i);
+			}
+			BOOST_CHECK_EQUAL(arr.GetSize(), 3);
+			arr.Clear();
+			BOOST_CHECK_EQUAL(arr.GetSize(), 0);
+			BOOST_CHECK_EQUAL(arr.GetCapacity(), 0);
+		}
 	BOOST_AUTO_TEST_SUITE_END()
 BOOST_AUTO_TEST_SUITE_END()
