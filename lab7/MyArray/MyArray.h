@@ -87,6 +87,25 @@ public:
 	{
 		DeleteItems(m_begin, m_end);
 	}
+
+	T& operator[](size_t index)
+	{
+		if (index >= GetSize())
+		{
+			throw std::out_of_range("Index out of range");
+		}
+		return *(m_begin + index);
+	}
+
+	const T& operator[](size_t index) const
+	{
+		if (index >= GetSize())
+		{
+			throw std::out_of_range("Index out of range");
+		}
+		return *(m_begin + index);
+	}
+
 private:
 	static void DeleteItems(T *begin, T *end)
 	{
@@ -108,7 +127,7 @@ private:
 
 	static void DestroyItems(T *from, T *to)
 	{
-		// dst - адрес объект, при конструирование которого было выброшено исключение
+		// from - адрес объект, при конструирование которого было выброшено исключение
 		// to - первый скорнструированный объект
 		while (to != from)
 		{
