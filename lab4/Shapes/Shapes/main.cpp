@@ -81,19 +81,31 @@ void PrintShapes(ostream & out, vector<shared_ptr<IShape>> const &shapes)
 	}
 }
 
-shared_ptr<IShape> GetMinPerimeterShapePtr(vector<shared_ptr<IShape>> const &shapes)
+void PrintShapeWithMinPerimeter(ostream & out, vector<shared_ptr<IShape>> const & shapes)
 {
 	auto less_perimeter = [&](shared_ptr<IShape> const& sh1, shared_ptr<IShape> const& sh2) {
 		return sh1->GetPerimeter() < sh2->GetPerimeter();
 	};
-	return *min_element(shapes.begin(), shapes.end(), less_perimeter);
-}
 
-void PrintShapeWithMinPerimeter(ostream & out, vector<shared_ptr<IShape>> const & shapes)
-{
+	auto shapeWithMinPerimeterPtr = *min_element(shapes.begin(), shapes.end(), less_perimeter);
+
 	if (shapes.size() > 0)
 	{
-		cout << "Shape with min perimeter is " << GetMinPerimeterShapePtr(shapes)->ToString() << endl;
+		cout << "Shape with min perimeter is " << shapeWithMinPerimeterPtr->ToString() << endl;
+	}
+}
+
+void PrintShapeWithMaxArea(ostream & out, vector<shared_ptr<IShape>> const & shapes)
+{
+	auto less_area = [&](shared_ptr<IShape> const& sh1, shared_ptr<IShape> const& sh2) {
+		return sh1->GetArea() < sh2->GetArea();
+	};
+
+	auto shapeWithMaxAreaPtr = *max_element(shapes.begin(), shapes.end(), less_area);
+
+	if (shapes.size() > 0)
+	{
+		cout << "Shape with max area is " << shapeWithMaxAreaPtr->ToString() << endl;
 	}
 }
 
@@ -103,5 +115,6 @@ int main()
 	ReadShapes(shapes, cin);
 	PrintShapes(cout, shapes);
 	PrintShapeWithMinPerimeter(cout, shapes);
+	PrintShapeWithMaxArea(cout, shapes);
 	return 0;
 }
