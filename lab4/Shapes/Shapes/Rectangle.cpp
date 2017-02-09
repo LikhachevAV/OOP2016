@@ -18,11 +18,11 @@ std::string CRectangle::ToString() const
 {
 	std::stringstream strm;
 	strm << std::fixed << std::setprecision(1)
-		<< "rectangle with area: " << GetArea() << ", and "
+		<< "rectangle with area: " << GetArea() << ", "
 		<< "perimeter: " << GetPerimeter() << ", "
-		<< "with outline color "
+		<< "outline color: "
 		<< GetOutlineColor() << " and "
-		<< "fill color "
+		<< "fill color: "
 		<< GetFillColor();
 	return strm.str();
 }
@@ -55,4 +55,19 @@ double CRectangle::GetHeight() const
 double CRectangle::GetWidth() const
 {
 	return abs(m_rightBottom.x - m_leftTop.x);
+}
+
+std::istream & operator >> (std::istream & is, CRectangle & rectangle)
+{
+	CPoint leftTop;
+	CPoint rightBottom;
+	std::string outLineColor;
+	std::string fillClolor;
+	if (!(is >> leftTop >> rightBottom >> outLineColor >> fillClolor))
+	{
+		throw std::exception("Triangle from istream reading exceprtion");
+	}
+	CRectangle resultRectangle(leftTop, rightBottom, outLineColor, fillClolor);
+	rectangle = resultRectangle;
+	return is;
 }

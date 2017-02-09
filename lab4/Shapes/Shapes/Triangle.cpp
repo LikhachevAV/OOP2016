@@ -18,11 +18,11 @@ std::string CTriangle::ToString() const
 {
 	std::stringstream strm;
 	strm << std::fixed << std::setprecision(1)
-		<< "triangle with area: " << GetArea() << ", and "
+		<< "triangle with area: " << GetArea() << ", "
 		<< "perimeter: " << GetPerimeter() << ", "
-		<< "with outline color "
+		<< "outline color: "
 		<< GetOutlineColor() << " and "
-		<< "fill color "
+		<< "fill color: "
 		<< GetFillColor();
 	return strm.str();
 }

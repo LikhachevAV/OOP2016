@@ -19,3 +19,5 @@ private:
 	CPoint m_rightBottom;
 };
 
+std::istream & operator>> (std::istream & is, CRectangle & rectangle);
+

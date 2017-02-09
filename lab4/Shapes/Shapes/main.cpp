@@ -39,8 +39,16 @@ void ReadShapes(vector<shared_ptr<IShape>> & shapesVector, istream & in)
 			}
 			break;
 		case ShapeTypeEnum::rectangle:
+			try {
+				auto sp = make_shared<CRectangle>(CPoint(0, 0), CPoint(0, 0), "", "");
+				strm >> *sp;
+				shapesVector.push_back(sp);
+			}
+			catch (std::exception e)
+			{
+				cout << e.what() << endl;
+			}
 			break;
-			//Read triangle from stream
 		case ShapeTypeEnum::triangle:
 			try {
 				auto sp = make_shared<CTriangle>(CPoint(0, 0),
@@ -64,7 +72,7 @@ void PrintShapes(ostream & out, vector<shared_ptr<IShape>> const &shapes)
 		out << "Shapes with following parameters are entered: " << endl;
 		for (auto pShape : shapes)
 		{
-			out << pShape->ToString() << endl;
+			out << "\t" << pShape->ToString() << endl;
 		}
 	}
 	else

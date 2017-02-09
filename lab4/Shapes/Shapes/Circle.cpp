@@ -16,11 +16,11 @@ std::string CCircle::ToString() const
 {
 	std::stringstream strm;
 	strm << std::fixed << std::setprecision(1)
-		<< "circle with area: " << GetArea() << ", and "
+		<< "circle with area: " << GetArea() << ", "
 		<< "perimeter: " << GetPerimeter() << ", "
-		<< "with outline color "
+		<< "outline color: "
 		<< GetOutlineColor() << " and "
-		<< "fill color "
+		<< "fill color: "
 		<< GetFillColor();
 	return strm.str();
 }
