@@ -10,6 +10,8 @@ class CMyArray
 public:
 	typedef CMyIterator<T> iterator;
 	typedef CMyIterator<const T> const_iterator;
+	typedef std::reverse_iterator<iterator> reverse_iterator;
+	typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
 
 	CMyArray() = default;
 
@@ -128,6 +130,25 @@ public:
 		return iterator(m_end);
 	}
 
+	reverse_iterator rbegin()
+	{
+		return reverse_iterator(end());
+	}
+
+	const_reverse_iterator rbegin() const
+	{
+		return const_reverse_iterator(end());
+	}
+
+	reverse_iterator rend()
+	{
+		return reverse_iterator(begin());
+	}
+
+	const_reverse_iterator rend() const
+	{
+		return const_reverse_iterator(begin());
+	}
 
 private:
 	static void DeleteItems(T *begin, T *end)
@@ -175,7 +196,6 @@ private:
 	{
 		free(p);
 	}
-
 
 private:
 	T *m_begin = nullptr;
