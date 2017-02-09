@@ -77,7 +77,7 @@ void PrintShapes(ostream & out, vector<shared_ptr<IShape>> const &shapes)
 	}
 	else
 	{
-		out << "Shapes vector empty!" << endl;
+		out << "Shapes vector is empty!" << endl;
 	}
 }
 
@@ -87,10 +87,9 @@ void PrintShapeWithMinPerimeter(ostream & out, vector<shared_ptr<IShape>> const 
 		return sh1->GetPerimeter() < sh2->GetPerimeter();
 	};
 
-	auto shapeWithMinPerimeterPtr = *min_element(shapes.begin(), shapes.end(), less_perimeter);
-
 	if (shapes.size() > 0)
 	{
+		auto shapeWithMinPerimeterPtr = *min_element(shapes.begin(), shapes.end(), less_perimeter);
 		cout << "Shape with min perimeter is " << shapeWithMinPerimeterPtr->ToString() << endl;
 	}
 }
@@ -101,10 +100,9 @@ void PrintShapeWithMaxArea(ostream & out, vector<shared_ptr<IShape>> const & sha
 		return sh1->GetArea() < sh2->GetArea();
 	};
 
-	auto shapeWithMaxAreaPtr = *max_element(shapes.begin(), shapes.end(), less_area);
-
 	if (shapes.size() > 0)
 	{
+		auto shapeWithMaxAreaPtr = *max_element(shapes.begin(), shapes.end(), less_area);
 		cout << "Shape with max area is " << shapeWithMaxAreaPtr->ToString() << endl;
 	}
 }
