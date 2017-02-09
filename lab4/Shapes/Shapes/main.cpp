@@ -18,7 +18,7 @@ void ReadShapes(vector<shared_ptr<IShape>> & shapesVector, istream & in)
 	while (!in.eof())
 	{
 		getline(in, line);
-		if (in.eof())
+		if (in.eof() || line.length() == 0)
 		{
 			break;
 		}
@@ -61,6 +61,7 @@ void PrintShapes(ostream & out, vector<shared_ptr<IShape>> const &shapes)
 {
 	if (shapes.size() > 0)
 	{
+		out << "Shapes with following parameters are entered: " << endl;
 		for (auto pShape : shapes)
 		{
 			out << pShape->ToString() << endl;
