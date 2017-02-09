@@ -148,12 +148,12 @@ BOOST_FIXTURE_TEST_SUITE(MyArray, EmptyStringArray)
 			{
 				arr.Append(i);
 			}
-			auto t = 0;
+			auto t = 2;
 			for (auto it = arr.rbegin(); it != arr.rend(); it++)
 			{
 				std::cout << it->value << endl;
-				//BOOST_CHECK_EQUAL(it->value, t);
-				//t++;
+				BOOST_CHECK_EQUAL(it->value, t);
+				t++;
 			}
 		}
 	BOOST_AUTO_TEST_SUITE_END()
