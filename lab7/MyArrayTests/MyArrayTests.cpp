@@ -98,19 +98,4 @@ BOOST_FIXTURE_TEST_SUITE(MyArray, EmptyStringArray)
 			BOOST_CHECK_EQUAL(arr.GetCapacity(), 0);
 		}
 	BOOST_AUTO_TEST_SUITE_END()
-
-	BOOST_AUTO_TEST_SUITE(access_to_iterators_methods)
-		BOOST_AUTO_TEST_CASE(begin_method_return_nullptr_by_default)
-		{
-			BOOST_CHECK(arr.begin() == nullptr);
-		}
-		BOOST_AUTO_TEST_CASE(return_begin_iterator)
-		{
-			for (auto i = 1; i < 3; ++i)
-			{
-				arr.Append(i);
-			}
-			BOOST_CHECK_EQUAL(*arr.begin(), 0);
-		}
-	BOOST_AUTO_TEST_SUITE_END()
 BOOST_AUTO_TEST_SUITE_END()

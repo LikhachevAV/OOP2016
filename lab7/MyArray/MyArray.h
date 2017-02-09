@@ -2,17 +2,11 @@
 
 #include <new>
 #include <algorithm>
-#include "MyIterator.h"
 
 template<typename T>
 class CMyArray
 {
 public:
-	typedef CMyIter<T> iterator;
-	typedef CMyIter<const T> const_iterator;
-	typedef std::reverse_iterator<iterator> reverse_iterator;
-	typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
-
 	CMyArray() = default;
 
 	CMyArray(const CMyArray& arr)
@@ -118,11 +112,6 @@ public:
 		m_begin = nullptr;
 		m_end = nullptr;
 		m_endOfCapacity = nullptr;
-	}
-
-	iterator begin()
-	{
-		return iterator(m_begin);
 	}
 
 private:
