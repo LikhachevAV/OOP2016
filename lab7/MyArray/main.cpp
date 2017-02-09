@@ -6,14 +6,21 @@ using namespace std;
 
 void main(void)
 {
-	CMyArray<string> array;
-	array.Append("Vasya");
-	array.Append("say");
-	array.Append("Hello");
+	CMyArray<string> stringArray;
+	stringArray.Append("Vasya");
+	stringArray.Append("say");
+	stringArray.Append("Hello");
+	stringArray.Append("!");
 	cout << "Print array, using begin, end iterators: " << endl;
-	for (auto it = array.begin(); it != array.end(); it++)
+	for (auto it = stringArray.begin(); it != stringArray.end(); it++)
 	{
 		cout << *it << " ";
 	}
-	cout << endl;
+	cout << endl << endl;
+	cout << "Print reverse array, using rbegin, rend iterators: " << endl;
+	for (auto it = stringArray.rbegin(); it != stringArray.rend(); it++)
+	{
+		cout << *it << " ";
+	}
+	cout << endl << endl;
 }
