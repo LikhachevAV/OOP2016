@@ -3,8 +3,34 @@
 #include <iostream>
 
 using namespace std;
+template <typename T>
+void PrintCMyArray(CMyArray<T> & arr, bool forward)
+{
+	iterator
+	if (forward)
+	{
+		string msg = string("Print array, using begin, end iterators:");
+		auto it1 = arr.begin();
+		auto it2 = arr.end();
+	}
+	else
+	{
+		string msg = string("Print array rewerse, using rbegin, rend iterators:");
+		auto it1 = arr.rbegin();
+		auto it2 = arr.rend();
+	}
+	auto printArray = [&](auto it1, auto it2) {
+		cout << msg << endl;
+		for (auto it = it1; it != it2; it++)
+		{
+			cout << *it << " ";
+		}
+		cout << endl << endl;
+	};
+	printArray(msg, it1, it2);
+}
 
-void main(void)
+int main()
 {
 	CMyArray<string> stringArray;
 	stringArray.Append("Vasya");
@@ -12,14 +38,24 @@ void main(void)
 	stringArray.Append("Hello");
 	stringArray.Append("!");
 
+	/*auto printArrInLoop = [&](string & msg, CMyArray<T> * arr0) {
+		for (auto it = arr0->begin(); it != arr0->end(); it++)
+		{
+			cout << *it << " ";
+		}
+		cout << endl << endl;
+	};
+*/
+	/*
 	cout << "Print string array, using begin, end iterators: " << endl;
 	for (auto it = stringArray.begin(); it != stringArray.end(); it++)
 	{
 		cout << *it << " ";
 	}
 	cout << endl << endl;
+	*/
 
-	cout << "Print reverse string array, using rbegin, rend iterators: " << endl;
+	PrintCMyArray(stringArray, true);
 	for (auto it = stringArray.rbegin(); it != stringArray.rend(); it++)
 	{
 		cout << *it << " ";
@@ -45,4 +81,5 @@ void main(void)
 		cout << *it << " ";
 	}
 	cout << endl << endl;
+	return 0;
 }
