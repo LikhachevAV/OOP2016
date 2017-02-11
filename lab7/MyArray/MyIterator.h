@@ -91,22 +91,22 @@ public:
 		return m_pointer - other.m_pointer;
 	}
 
-	bool operator<(CMyIterator const& other)
+	bool operator<(CMyIterator const& other) const
 	{
 		return m_pointer < other.m_pointer;
 	}
 
-	bool operator>(CMyIterator const& other)
+	bool operator>(CMyIterator const& other) const
 	{
 		return m_pointer > other.m_pointer;
 	}
 
-	bool operator<=(CMyIterator const& other)
+	bool operator<=(CMyIterator const& other) const
 	{
 		return m_pointer <= other.m_pointer;
 	}
 
-	bool operator>=(CMyIterator const& other)
+	bool operator>=(CMyIterator const& other) const
 	{
 		return m_pointer >= other.m_pointer;
 	}
