@@ -114,10 +114,7 @@ public:
 
 	void Clear()
 	{
-		DeleteItems(m_begin, m_end);
-		m_begin = nullptr;
-		m_end = nullptr;
-		m_endOfCapacity = nullptr;
+		DestroyItems(m_begin, m_end);
 	}
 
 	iterator begin()

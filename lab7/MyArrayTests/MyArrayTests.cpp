@@ -93,9 +93,10 @@ BOOST_FIXTURE_TEST_SUITE(MyArray, EmptyStringArray)
 				arr.Append(i);
 			}
 			BOOST_CHECK(arr.GetSize() == 3);
+			int beforeClearCapacity = arr.GetCapacity();
 			arr.Clear();
-			BOOST_CHECK(arr.GetSize() == 0);
-			BOOST_CHECK(arr.GetCapacity() == 0);
+			BOOST_CHECK(arr.GetSize() == 3);
+			BOOST_CHECK(arr.GetCapacity() == beforeClearCapacity);
 		}
 	BOOST_AUTO_TEST_SUITE_END()
 
