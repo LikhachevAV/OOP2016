@@ -157,4 +157,19 @@ BOOST_FIXTURE_TEST_SUITE(MyArray, EmptyStringArray)
 			}
 		}
 	BOOST_AUTO_TEST_SUITE_END()
+
+	BOOST_AUTO_TEST_SUITE(Resize_function)
+		BOOST_AUTO_TEST_CASE(make_array_capacity_equal_size)
+		{
+			for (auto i = 0; i < 3; ++i)
+			{
+				arr.Append(i);
+			}
+			BOOST_CHECK(arr.GetSize() != arr.GetCapacity());
+			arr.Resize();
+			int size = arr.GetSize();
+			int capacity = arr.GetCapacity();
+			BOOST_CHECK(arr.GetSize() == arr.GetCapacity());
+		}
+	BOOST_AUTO_TEST_SUITE_END()
 BOOST_AUTO_TEST_SUITE_END()

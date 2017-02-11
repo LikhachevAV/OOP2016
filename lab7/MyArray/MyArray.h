@@ -119,8 +119,7 @@ public:
 
 	void Resize()
 	{
-		DeleteItems(m_end, m_endOfCapacity);
-		m_endOfCapacity = m_end;
+		m_end = m_endOfCapacity;
 	}
 
 	iterator begin()
