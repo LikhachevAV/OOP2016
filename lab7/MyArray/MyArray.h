@@ -127,9 +127,18 @@ public:
 		return iterator(m_begin);
 	}
 
+	const_iterator begin() const
+	{
+		return const_iterator(m_begin);
+	}
+
 	iterator end()
 	{
 		return iterator(m_end);
+	}
+	const_iterator end() const
+	{
+		return const_iterator(m_end);
 	}
 
 	reverse_iterator rbegin()
