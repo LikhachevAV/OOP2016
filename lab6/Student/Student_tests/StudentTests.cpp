@@ -64,3 +64,25 @@ BOOST_AUTO_TEST_SUITE(can_create_student)
 		BOOST_CHECK_EQUAL(student.GetAge(), 60);
 	}
 BOOST_AUTO_TEST_SUITE_END()
+
+
+BOOST_AUTO_TEST_SUITE(SetAge_function)
+	CStudent student(surname, name, patronymic, 14);;
+	BOOST_AUTO_TEST_CASE(can_set_age_more_than_current)
+	{
+		BOOST_CHECK_NO_THROW(student.SetAge(15));
+		BOOST_CHECK_EQUAL(student.GetAge(), 15);
+	}
+
+	BOOST_AUTO_TEST_CASE(can_not_set_age_less_than_current)
+	{
+		BOOST_CHECK_EQUAL(student.GetAge(), 15);
+		BOOST_CHECK_THROW(student.SetAge(14), domain_error);
+	}
+
+	BOOST_AUTO_TEST_CASE(can_not_set_age_more_than_60)
+	{
+		BOOST_CHECK_THROW(student.SetAge(61), out_of_range);
+	}
+
+BOOST_AUTO_TEST_SUITE_END()

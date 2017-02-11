@@ -59,3 +59,19 @@ int CStudent::GetAge()
 {
 	return m_age;
 }
+
+void CStudent::SetAge(int age)
+{
+	if (age < 14 || age > 60)
+	{
+		throw std::out_of_range("Age value must be between 14 and 60");
+	}
+	if (age <= m_age)
+	{
+		throw std::domain_error("New age must be more, than current");
+	}
+	else
+	{
+		m_age = age;
+	}
+}

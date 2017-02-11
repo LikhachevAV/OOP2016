@@ -11,6 +11,7 @@ public:
 	std::string GetSurname();
 	std::string GetPatronymic();
 	int GetAge();
+	void SetAge(int age);
 
 private:
 	std::string m_name;
