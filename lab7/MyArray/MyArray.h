@@ -117,6 +117,12 @@ public:
 		DestroyItems(m_begin, m_end);
 	}
 
+	void Resize()
+	{
+		DeleteItems(m_end, m_endOfCapacity);
+		m_endOfCapacity = m_end;
+	}
+
 	iterator begin()
 	{
 		return iterator(m_begin);
