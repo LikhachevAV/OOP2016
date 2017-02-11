@@ -68,6 +68,17 @@ public:
 		return tmpCopy;
 	}
 
+	CMyIterator& operator+=(ptrdiff_t n)
+	{ 
+		m_ptr += n;
+		return *this;
+	}
+
+	CMyIterator& operator-=(ptrdiff_t n)
+	{ 
+		return *this += -n;
+	}
+
 	CMyIterator& operator--()
 	{
 		--m_pointer;
