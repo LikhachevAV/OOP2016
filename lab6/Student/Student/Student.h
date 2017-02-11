@@ -19,6 +19,9 @@ private:
 	std::string m_name;
 	std::string m_surname;
 	std::string m_patronymic;
-	int m_age = 14;
+	int const MIN_AGE = 14;
+	int const MAX_AGE = 60;
+	int m_age = MIN_AGE;
 };
 
+bool StringContainOnlySpaces(std::string const & s);

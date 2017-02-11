@@ -34,6 +34,11 @@ BOOST_AUTO_TEST_SUITE(Constructor_can_not_create_student)
 		BOOST_CHECK_THROW(CStudent student(name, surname, " ", 14), invalid_argument);
 	}
 
+	BOOST_AUTO_TEST_CASE(with_two_space_at_patronymic)
+	{
+		BOOST_CHECK_THROW(CStudent student(name, surname, "  ", 14), invalid_argument);
+	}
+
 	BOOST_AUTO_TEST_CASE(with_age_less_than_14)
 	{
 		BOOST_CHECK_THROW(CStudent student(name, surname, patronymic, 13), out_of_range);
