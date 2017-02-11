@@ -3,7 +3,7 @@
 class CStudent
 {
 public:
-	CStudent(std::string const & surname,  std::string const & name,
+	CStudent(std::string const & name,  std::string const & surname,
 		std::string const & patronymic, int age);
 	~CStudent();
 
@@ -12,6 +12,8 @@ public:
 	std::string GetPatronymic();
 	int GetAge();
 	void SetAge(int age);
+	void Rename(std::string const & name, std::string const & surname,
+		std::string const & patronymic);
 
 private:
 	std::string m_name;

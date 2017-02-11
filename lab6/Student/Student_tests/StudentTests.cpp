@@ -67,7 +67,7 @@ BOOST_AUTO_TEST_SUITE_END()
 
 
 BOOST_AUTO_TEST_SUITE(SetAge_function)
-	CStudent student(surname, name, patronymic, 14);;
+	CStudent student(surname, name, patronymic, 14);
 	BOOST_AUTO_TEST_CASE(can_set_age_more_than_current)
 	{
 		BOOST_CHECK_NO_THROW(student.SetAge(15));
@@ -84,5 +84,19 @@ BOOST_AUTO_TEST_SUITE(SetAge_function)
 	{
 		BOOST_CHECK_THROW(student.SetAge(61), out_of_range);
 	}
+	BOOST_AUTO_TEST_SUITE_END()
 
+		BOOST_AUTO_TEST_SUITE(Rename_function)
+		string name2 = "Petr";
+		string surname2 = "Petrov";
+		string patronymic2 = "Petrovich";
+
+	CStudent student(surname, name, patronymic, 14);
+	BOOST_AUTO_TEST_CASE(can_rename_student)
+	{
+		student.Rename(name2, surname2, patronymic2);
+		BOOST_CHECK_EQUAL(student.GetName(), name2);
+		BOOST_CHECK_EQUAL(student.GetSurname(), surname2);
+		BOOST_CHECK_EQUAL(student.GetPatronymic(), patronymic2);
+	}
 BOOST_AUTO_TEST_SUITE_END()
