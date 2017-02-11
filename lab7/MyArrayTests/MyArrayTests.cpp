@@ -169,7 +169,7 @@ BOOST_FIXTURE_TEST_SUITE(MyArray, EmptyStringArray)
 			arr.Resize();
 			int size = arr.GetSize();
 			int capacity = arr.GetCapacity();
-			BOOST_CHECK(arr.GetSize() == arr.GetCapacity());
+			BOOST_CHECK(size == capacity);
 		}
 	BOOST_AUTO_TEST_SUITE_END()
 BOOST_AUTO_TEST_SUITE_END()
