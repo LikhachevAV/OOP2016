@@ -6,10 +6,6 @@ template<typename T>
 class CMyIterator : public std::iterator<std::bidirectional_iterator_tag, T>
 {
 public:
-	~CMyIterator()
-	{
-		m_pointer = nullptr;
-	}
 
 	CMyIterator() : 
 		m_pointer(nullptr)
