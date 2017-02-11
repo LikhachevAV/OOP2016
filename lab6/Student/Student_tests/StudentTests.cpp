@@ -42,7 +42,15 @@ BOOST_AUTO_TEST_SUITE(can_create_student)
 		BOOST_CHECK_EQUAL(student.GetName(), name);
 		BOOST_CHECK_EQUAL(student.GetSurname(), surname);
 		BOOST_CHECK_EQUAL(student.GetPatronymic(), "");
+		BOOST_CHECK_EQUAL(student.GetAge(), 14);
 	}
 
-
+	BOOST_AUTO_TEST_CASE(when_its_age_equal_60)
+	{
+		CStudent student(surname, name, patronymic, 60);
+		BOOST_CHECK_EQUAL(student.GetName(), name);
+		BOOST_CHECK_EQUAL(student.GetSurname(), surname);
+		BOOST_CHECK_EQUAL(student.GetPatronymic(), patronymic);
+		BOOST_CHECK_EQUAL(student.GetAge(), 60);
+	}
 BOOST_AUTO_TEST_SUITE_END()
