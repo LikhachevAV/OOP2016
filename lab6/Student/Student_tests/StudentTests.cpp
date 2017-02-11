@@ -33,10 +33,20 @@ BOOST_AUTO_TEST_SUITE(Constructor_can_not_create_student)
 	{
 		BOOST_CHECK_THROW(CStudent student(name, surname, " ", 14), invalid_argument);
 	}
+
+	BOOST_AUTO_TEST_CASE(with_age_less_than_14)
+	{
+		BOOST_CHECK_THROW(CStudent student(name, surname, patronymic, 13), out_of_range);
+	}
+
+	BOOST_AUTO_TEST_CASE(with_age_more_than_60)
+	{
+		BOOST_CHECK_THROW(CStudent student(name, surname, patronymic, 61), out_of_range);
+	}
 BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_AUTO_TEST_SUITE(can_create_student)
-	BOOST_AUTO_TEST_CASE(with_empty_name_surname_patronymic_values_and_fourteen_age)
+	BOOST_AUTO_TEST_CASE(with_empty_name_surname_patronymic_values_and_14_age)
 	{
 		CStudent student(surname, name, "", 14);
 		BOOST_CHECK_EQUAL(student.GetName(), name);
