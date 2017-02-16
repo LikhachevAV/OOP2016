@@ -15,7 +15,5 @@ private:
 	double m_side1 = 0;
 	double m_side2 = 0;
 	double m_side3 = 0;
-	bool IsDegenerate() const;
+	bool IsDegenerate = false;
 };
-
-bool IsTriangle(double side1, double side2, double side3);
