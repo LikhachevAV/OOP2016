@@ -15,5 +15,5 @@ private:
 	double m_side1 = 0;
 	double m_side2 = 0;
 	double m_side3 = 0;
-	bool IsDegenerate = false;
+	bool m_isDegenerate = false;
 };

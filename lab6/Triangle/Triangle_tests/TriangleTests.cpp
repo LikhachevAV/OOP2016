@@ -29,4 +29,20 @@ BOOST_AUTO_TEST_SUITE(Can_not_create_triangle)
 	{
 		BOOST_CHECK_THROW(CTriangle triangle(0, 2, 0), std::domain_error);
 	}
+
+	BOOST_AUTO_TEST_CASE(with_max_size_more_than_sum_of_two_other_sides)
+	{
+		BOOST_CHECK_THROW(CTriangle triangle(3, 2, 6), std::domain_error);
+	}
+BOOST_AUTO_TEST_SUITE_END()
+
+BOOST_AUTO_TEST_SUITE(DegenerateTriangle)
+	BOOST_AUTO_TEST_CASE(have_zero_area)
+	{
+		CTriangle degenerateTriangle(7, 3, 4);
+		BOOST_CHECK_EQUAL(degenerateTriangle.GetSide1(), 7.0);
+		BOOST_CHECK_EQUAL(degenerateTriangle.GetSide2(), 3.0);
+		BOOST_CHECK_EQUAL(degenerateTriangle.GetSide3(), 4.0);
+		BOOST_CHECK_EQUAL(degenerateTriangle.GetArea(), 0);
+	}
 BOOST_AUTO_TEST_SUITE_END()

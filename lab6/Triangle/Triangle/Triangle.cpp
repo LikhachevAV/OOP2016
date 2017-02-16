@@ -21,6 +21,11 @@ CTriangle::CTriangle(double side1, double side2, double side3)
 		throw std::domain_error(error);
 	}
 
+	if (sides[2] == (sides[0] + sides[1]))
+	{
+		m_isDegenerate = true;
+	}
+
 	m_side1 = side1;
 	m_side2 = side2;
 	m_side3 = side3;
@@ -47,6 +52,10 @@ double CTriangle::GetSide3() const
 
 double CTriangle::GetArea() const
 {
+	if (m_isDegenerate)
+	{
+		return 0;
+	}
 	double p = GetPerimeter() / 2;
 	return sqrt(p * (p - m_side1) * (p - m_side2) * (p - m_side3));
 }
