@@ -10,7 +10,7 @@ auto GetTrianglePerimeter(CTriangle const & triangle)
 
 auto GetTriangleArea(CTriangle const & triangle)
 {
-	auto p = GetTrianglePerimeter(triangle);
+	auto p = GetTrianglePerimeter(triangle) / 2;
 	auto area = sqrt(p * (p - triangle.GetSide1()) * 
 		(p - triangle.GetSide2()) * (p - triangle.GetSide3()));
 	return area;
@@ -58,5 +58,17 @@ BOOST_AUTO_TEST_SUITE(DegenerateTriangle)
 		BOOST_CHECK_EQUAL(degenerateTriangle.GetSide3(), 4.0);
 		BOOST_CHECK_EQUAL(degenerateTriangle.GetArea(), 0);
 		BOOST_CHECK_EQUAL(degenerateTriangle.GetPerimeter(), GetTrianglePerimeter(degenerateTriangle));
+	}
+BOOST_AUTO_TEST_SUITE_END()
+
+BOOST_AUTO_TEST_SUITE(CTriangle_calss_object)
+	BOOST_AUTO_TEST_CASE(have_area_and_perimeter)
+	{
+		CTriangle triangle(2, 2, 3);
+		BOOST_CHECK_EQUAL(triangle.GetSide1(), 2);
+		BOOST_CHECK_EQUAL(triangle.GetSide2(), 2);
+		BOOST_CHECK_EQUAL(triangle.GetSide3(), 3);
+		BOOST_CHECK_EQUAL(triangle.GetPerimeter(), GetTrianglePerimeter(triangle));
+		BOOST_CHECK_EQUAL(triangle.GetArea(), GetTriangleArea(triangle));
 	}
 BOOST_AUTO_TEST_SUITE_END()
