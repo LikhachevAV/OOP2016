@@ -17,3 +17,5 @@ private:
 	double m_side3 = 0;
 	bool m_isDegenerate = false;
 };
+
+std::ostream & operator<<(std::ostream & out, CTriangle & triangle);

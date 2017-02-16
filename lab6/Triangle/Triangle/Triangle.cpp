@@ -69,3 +69,12 @@ bool IsTriangle(double side1, double side2, double side3)
 {
 	return (side1 >=0) && (side2 >= 0) && (side3 >= 0);
 }
+
+std::ostream & operator<<(std::ostream & out, CTriangle const & triangle)
+{
+	out << "Triangle with sides " << std::to_string(triangle.GetSide1()) << " " 
+		<< std::to_string(triangle.GetSide2()) << std::to_string(triangle.GetSide3()) << " "
+		<< "have perimeter: " << std::to_string(triangle.GetPerimeter()) << " "
+		<< "and area: " << std::to_string(triangle.GetArea());
+	return out;
+}
