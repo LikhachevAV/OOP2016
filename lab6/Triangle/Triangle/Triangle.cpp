@@ -68,7 +68,8 @@ double CTriangle::GetPerimeter() const
 std::ostream & operator<<(std::ostream & out, CTriangle & triangle)
 {
 	out << "Triangle with sides " << std::to_string(triangle.GetSide1()) << " " 
-		<< std::to_string(triangle.GetSide2()) << std::to_string(triangle.GetSide3()) << " "
+		<< std::to_string(triangle.GetSide2()) << " "
+		<< std::to_string(triangle.GetSide3()) << " "
 		<< "have perimeter: " << std::to_string(triangle.GetPerimeter()) << " "
 		<< "and area: " << std::to_string(triangle.GetArea());
 	return out;

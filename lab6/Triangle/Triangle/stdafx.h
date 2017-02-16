@@ -6,13 +6,14 @@
 #pragma once
 
 #define _USE_MATH_DEFINES  
-#include <cmath>  
+#include <cmath> 
 #include "targetver.h"
 #include <tchar.h>
 #include <iostream>
+#include <iomanip>
+#include <sstream>
 #include <string>
 #include <math.h>
-#include <sstream>
 #include <vector>
 #include <boost/shared_ptr.hpp>
 
