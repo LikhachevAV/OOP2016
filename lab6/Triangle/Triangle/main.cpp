@@ -16,7 +16,7 @@ bool ReadTriangle(istream & in, vector<double> & sides)
 int main()
 {
 	vector<double> sides(3);
-	while (!cin.eof())
+	do
 	{
 		cout << "Please, enter triangle sides: ";
 		if (!ReadTriangle(cin, sides))
@@ -35,6 +35,6 @@ int main()
 				cout << e.what() << endl;
 			}
 		}
-	}
+	} while (!cin.eof());
 	return 0;
 }
