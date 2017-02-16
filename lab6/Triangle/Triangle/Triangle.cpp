@@ -65,12 +65,7 @@ double CTriangle::GetPerimeter() const
 	return m_side1 + m_side2 + m_side3;
 }
 
-bool IsTriangle(double side1, double side2, double side3)
-{
-	return (side1 >=0) && (side2 >= 0) && (side3 >= 0);
-}
-
-std::ostream & operator<<(std::ostream & out, CTriangle const & triangle)
+std::ostream & operator<<(std::ostream & out, CTriangle & triangle)
 {
 	out << "Triangle with sides " << std::to_string(triangle.GetSide1()) << " " 
 		<< std::to_string(triangle.GetSide2()) << std::to_string(triangle.GetSide3()) << " "
