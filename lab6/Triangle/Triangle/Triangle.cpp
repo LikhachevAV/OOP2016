@@ -5,20 +5,20 @@ CTriangle::CTriangle(double side1, double side2, double side3)
 {
 	std::vector<double> sides = { side1, side2, side3 };
 	std::sort(sides.begin(), sides.end());
-	if (sides[0] < 0 ) //Имеются стороны с отрицательным значением
+	if (sides[0] < 0 ) //Have negative side
 	{
 		throw std::invalid_argument("Sides of the triangle can't have negative values");
 	}
-	if ((sides[2] == 0) || (sides[2] > sides[0] + sides[1])) // Все стороны равны 0 или одна сторна длинне суммы двух других
+	if ((sides[2] == 0) || (sides[2] > sides[0] + sides[1])) // All sides have zero value or max side val more, than sum of two other
 	{
 		std::string error;
-		error.append("Сan't create triangle with sides ")
+		error.append("Can't create triangle with sides ")
 			.append(std::to_string(side1))
 			.append(", ")
 			.append(std::to_string(side2))
 			.append(", ")
 			.append(std::to_string(side3));
-		throw std::invalid_argument(error);
+		throw std::domain_error(error);
 	}
 
 	m_side1 = side1;
