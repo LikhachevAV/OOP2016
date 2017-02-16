@@ -119,7 +119,12 @@ public:
 
 	void Resize()
 	{
-		m_end = m_endOfCapacity;
+		auto defaultValue = T();
+		while (m_end < m_endOfCapacity)
+		{
+			*m_end = defaultValue;
+			++m_end;
+		}
 	}
 
 	iterator begin()

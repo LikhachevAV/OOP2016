@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "..\MyArray\MyArray.h"
 
 using namespace std;
@@ -165,10 +165,13 @@ BOOST_FIXTURE_TEST_SUITE(MyArray, EmptyStringArray)
 			{
 				arr.Append(i);
 			}
-			BOOST_CHECK(arr.GetSize() != arr.GetCapacity());
-			arr.Resize();
 			int size = arr.GetSize();
 			int capacity = arr.GetCapacity();
+			BOOST_CHECK(size != capacity);
+			arr.Resize();
+			BOOST_CHECK_EQUAL((arr.end()-1)->value, 0); //Проверка, что после ресайза новые ячейки заполняются значениями по-умолчанию
+			size = arr.GetSize();
+			capacity = arr.GetCapacity();
 			BOOST_CHECK(size == capacity);
 		}
 	BOOST_AUTO_TEST_SUITE_END()
