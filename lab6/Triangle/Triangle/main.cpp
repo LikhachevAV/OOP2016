@@ -10,7 +10,7 @@ bool ReadTriangle(istream & in, vector<double> & sides)
 	stringstream strm(line);
 	return strm >> sides[0] &&
 		strm >> sides[1] &&
-		strm >> sides[3];
+		strm >> sides[2];
 }
 
 int main()
