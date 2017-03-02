@@ -52,6 +52,7 @@ public:
 
 	std::string & GetBackElement();
 	std::string const& GetBackElement()const;
+	void Clear();
 private:
 	size_t m_size = 0;
 	std::unique_ptr<Node> m_firstNode;

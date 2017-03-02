@@ -41,6 +41,19 @@ BOOST_FIXTURE_TEST_SUITE(String_list, EmptyStringList)
 			BOOST_CHECK_EQUAL(addressof(*it), addressof(list.GetBackElement()));
 		}
 	BOOST_AUTO_TEST_SUITE_END()
+
+	BOOST_AUTO_TEST_SUITE(after_claring_list)
+		BOOST_AUTO_TEST_CASE(it_is_empty)
+		{
+			auto oldSize = list.GetSize();
+			list.Append("one");
+			list.Append("two");
+			BOOST_CHECK_EQUAL(list.GetSize(), oldSize + 2);
+			list.Clear();
+			BOOST_CHECK(list.IsEmpty());
+		}
+	BOOST_AUTO_TEST_SUITE_END()
+
 	BOOST_AUTO_TEST_SUITE(iterator)
 		BOOST_AUTO_TEST_CASE(can_be_increnenting)
 		{
