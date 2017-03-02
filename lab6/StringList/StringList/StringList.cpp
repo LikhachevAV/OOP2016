@@ -60,6 +60,16 @@ CStringList::CIterator const CStringList::crbegin() const
 	return CIterator(m_lastNode->next.get());
 }
 
+CStringList::CIterator CStringList::rend()
+{
+	return CIterator(m_firstNode.get());
+}
+
+CStringList::CIterator const CStringList::crend() const
+{
+	return CIterator(m_firstNode.get());
+}
+
 std::string & CStringList::GetBackElement()
 {
 	assert(m_lastNode);
