@@ -50,6 +50,16 @@ CStringList::CIterator const CStringList::cend() const
 	return CIterator(m_lastNode->next.get());
 }
 
+CStringList::CIterator CStringList::rbegin()
+{
+	return CIterator(m_lastNode->next.get());
+}
+
+CStringList::CIterator const CStringList::crbegin() const
+{
+	return CIterator(m_lastNode->next.get());
+}
+
 std::string & CStringList::GetBackElement()
 {
 	assert(m_lastNode);

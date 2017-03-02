@@ -42,6 +42,10 @@ public:
 
 	CStringList::CIterator const cend() const;
 
+	CStringList::CIterator rbegin();
+
+	CStringList::CIterator const crbegin() const;
+
 	std::string & GetBackElement();
 	std::string const& GetBackElement()const;
 private:
