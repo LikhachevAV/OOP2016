@@ -35,6 +35,21 @@ CStringList::CIterator CStringList::begin()
 	return CIterator(m_firstNode.get());
 }
 
+CStringList::CIterator const CStringList::cbegin() const
+{
+	return CIterator(m_firstNode.get());
+}
+
+CStringList::CIterator CStringList::end()
+{
+	return CIterator(m_lastNode->next.get());
+}
+
+CStringList::CIterator const CStringList::cend() const
+{
+	return CIterator(m_lastNode->next.get());
+}
+
 std::string & CStringList::GetBackElement()
 {
 	assert(m_lastNode);
