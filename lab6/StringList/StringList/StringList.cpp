@@ -4,6 +4,11 @@
 
 using namespace std;
 
+CStringList::~CStringList()
+{
+	Clear();
+}
+
 size_t CStringList::GetSize() const
 {
 	return m_size;

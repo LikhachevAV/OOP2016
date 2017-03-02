@@ -16,6 +16,7 @@ class CStringList
 		std::unique_ptr<Node> next;
 	};
 public:
+	~CStringList();
 	size_t GetSize()const;
 
 	bool IsEmpty() const;
