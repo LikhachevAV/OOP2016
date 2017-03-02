@@ -52,4 +52,18 @@ BOOST_FIXTURE_TEST_SUITE(String_list, EmptyStringList)
 			BOOST_CHECK_EQUAL(*iter, "second");
 		}
 	BOOST_AUTO_TEST_SUITE_END()
+
+		BOOST_AUTO_TEST_SUITE(iterator)
+		BOOST_AUTO_TEST_CASE(can_insert_element_at_iterator_position)
+	{
+		list.Append("first");
+		list.Append("second");
+		auto iter = list.begin();
+		BOOST_CHECK_EQUAL(*iter, "first");
+		++iter;
+		BOOST_CHECK_EQUAL(*iter, "second");
+		*iter = "third";
+		BOOST_CHECK_EQUAL(*iter, "third");
+	}
+	BOOST_AUTO_TEST_SUITE_END()
 BOOST_AUTO_TEST_SUITE_END()
