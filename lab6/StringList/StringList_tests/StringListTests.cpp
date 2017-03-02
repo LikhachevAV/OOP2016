@@ -13,6 +13,7 @@ BOOST_FIXTURE_TEST_SUITE(String_list, EmptyStringList)
 		BOOST_AUTO_TEST_CASE(is_empty)
 		{
 			BOOST_CHECK_EQUAL(list.GetSize(), 0u);
+			BOOST_CHECK(list.IsEmpty());
 		}
 	BOOST_AUTO_TEST_SUITE_END()
 
@@ -35,6 +36,7 @@ BOOST_FIXTURE_TEST_SUITE(String_list, EmptyStringList)
 		BOOST_AUTO_TEST_CASE(makes_it_accessible_via_iterator_to_first_element)
 		{
 			list.Append("hello");
+			BOOST_CHECK(!list.IsEmpty());
 			auto it = list.begin();
 			BOOST_CHECK_EQUAL(addressof(*it), addressof(list.GetBackElement()));
 		}

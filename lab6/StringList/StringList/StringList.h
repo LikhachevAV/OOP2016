@@ -17,6 +17,9 @@ class CStringList
 	};
 public:
 	size_t GetSize()const;
+
+	bool IsEmpty() const;
+
 	void Append(const std::string& data);
 
 	class CIterator
